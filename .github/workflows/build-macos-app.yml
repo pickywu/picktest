@@ -52,6 +52,12 @@ jobs:
           PYINSTALLER_STRICT_UNPACK_MODE: "0"
         run: |
           set -o pipefail
+          ARCADE_ROOT="$(python - <<'PY'
+          import arcade
+          from pathlib import Path
+          print(Path(arcade.__file__).parent)
+          PY
+          )"
           python -m PyInstaller \
             --noconfirm \
             --clean \
@@ -59,7 +65,8 @@ jobs:
             --noupx \
             --log-level INFO \
             --name RPG \
-            --collect-data arcade \
+            --add-data "$ARCADE_ROOT/VERSION:arcade" \
+            --add-data "$ARCADE_ROOT/resources:arcade/resources" \
             --collect-data pyglet \
             --collect-data pytiled_parser \
             --collect-data PIL \
