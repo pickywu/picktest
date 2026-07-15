@@ -1,0 +1,13 @@
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public/downloads
+    - cp rpg.py public/downloads/rpg.py
+    - cp requirements.txt public/downloads/requirements.txt
+    - cp setup_game.ps1 public/downloads/setup_game.ps1
+    - cp setup_game.sh public/downloads/setup_game.sh
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

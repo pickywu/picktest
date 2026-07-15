@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPG</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101318;
+      --panel: #171c24;
+      --ink: #f0eadc;
+      --muted: #aeb6c2;
+      --gold: #e7b85c;
+      --red: #c94f55;
+      --blue: #4d8eca;
+      --line: #344154;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(320px, 560px) minmax(320px, 1fr);
+    }
+
+    .intro {
+      padding: 56px clamp(28px, 6vw, 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      background: #121721;
+      border-right: 1px solid var(--line);
+    }
+
+    .mark {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: #1d2530;
+      color: var(--gold);
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 7vw, 88px);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 46rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    a.button {
+      min-height: 46px;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      background: #222b38;
+      font-weight: 700;
+    }
+
+    a.button.primary {
+      background: var(--gold);
+      color: #15110a;
+      border-color: var(--gold);
+    }
+
+    .stage {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(231, 184, 92, .34), transparent 0 7%, transparent 18%),
+        linear-gradient(#07101f 0%, #15213b 54%, #2a1820 100%);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.55) 0 1px, transparent 1.5px);
+      background-position: 24px 35px, 82px 112px;
+      background-size: 120px 90px, 160px 130px;
+      opacity: .5;
+    }
+
+    .mountain {
+      position: absolute;
+      left: -5%;
+      right: -5%;
+      bottom: 0;
+      height: 45%;
+      background: #09111a;
+      clip-path: polygon(0 62%, 14% 24%, 26% 58%, 42% 16%, 58% 55%, 72% 26%, 88% 58%, 100% 34%, 100% 100%, 0 100%);
+    }
+
+    .castle {
+      position: absolute;
+      right: 13%;
+      bottom: 25%;
+      width: 185px;
+      height: 150px;
+      background: #070b11;
+      border-top: 8px solid #0d131b;
+    }
+
+    .castle::before,
+    .castle::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 42px;
+      height: 205px;
+      background: #070b11;
+    }
+
+    .castle::before { left: -28px; }
+    .castle::after { right: -28px; }
+
+    .window {
+      position: absolute;
+      width: 10px;
+      height: 18px;
+      background: var(--gold);
+      box-shadow: 54px 20px 0 var(--gold), 104px -4px 0 var(--red);
+      left: 34px;
+      top: 48px;
+    }
+
+    .panel {
+      position: absolute;
+      left: clamp(24px, 7vw, 96px);
+      right: clamp(24px, 7vw, 96px);
+      bottom: 36px;
+      padding: 22px;
+      border: 1px solid rgba(240, 234, 220, .3);
+      background: rgba(14, 20, 31, .78);
+    }
+
+    code {
+      display: block;
+      overflow-x: auto;
+      padding: 14px;
+      margin-top: 12px;
+      background: #0b0f15;
+      border: 1px solid var(--line);
+      color: #d8e7ff;
+      white-space: pre;
+    }
+
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; }
+      .intro { border-right: 0; border-bottom: 1px solid var(--line); }
+      .stage { min-height: 560px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="intro">
+      <div class="mark">R</div>
+      <h1>RPG</h1>
+      <p>Arcade 與 Pycairo 製作的桌面 RPG。GitLab Pages 會發布這個靜態下載頁；遊戲本體需要在本機用 Python 執行。</p>
+      <div class="actions">
+        <a class="button primary" href="downloads/rpg.py" download>下載 rpg.py</a>
+        <a class="button" href="downloads/requirements.txt" download>requirements.txt</a>
+        <a class="button" href="downloads/setup_game.ps1" download>Windows 安裝</a>
+        <a class="button" href="downloads/setup_game.sh" download>macOS / Linux 安裝</a>
+      </div>
+    </section>
+    <section class="stage" aria-label="RPG scene preview">
+      <div class="stars"></div>
+      <div class="mountain"></div>
+      <div class="castle"><div class="window"></div></div>
+      <div class="panel">
+        <p>Windows</p>
+        <code>powershell -NoProfile -ExecutionPolicy Bypass -File .\setup_game.ps1
+.\.venv\Scripts\python.exe rpg.py</code>
+        <p>macOS / Linux</p>
+        <code>chmod +x setup_game.sh
+./setup_game.sh
+./.venv/bin/python rpg.py</code>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
