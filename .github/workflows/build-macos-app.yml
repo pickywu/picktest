@@ -31,7 +31,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-          python -m pip install pyinstaller pyinstaller-hooks-contrib
+          python -m pip install pyinstaller pyinstaller-hooks-contrib py2app
           python -m pip freeze
 
       - name: Check Python source
@@ -48,9 +48,12 @@ jobs:
           PY
 
       - name: Build RPG.app
+        id: pyinstaller
+        continue-on-error: true
         env:
           PYINSTALLER_STRICT_UNPACK_MODE: "0"
         run: |
+          set -o pipefail
           python -m PyInstaller \
             --noconfirm \
             --clean \
@@ -63,16 +66,27 @@ jobs:
             --collect-all pytiled_parser \
             --collect-all PIL \
             --collect-submodules pymunk \
-            rpg.py
+            rpg.py 2>&1 | tee pyinstaller-build.log
+
+      - name: Build RPG.app with py2app fallback
+        if: steps.pyinstaller.outcome == 'failure'
+        run: |
+          rm -rf build dist
+          python setup_macos.py py2app 2>&1 | tee py2app-build.log
+          if [ -d dist/rpg.app ] && [ ! -d dist/RPG.app ]; then
+            mv dist/rpg.app dist/RPG.app
+          fi
 
       - name: Upload build diagnostics
-        if: failure()
+        if: steps.pyinstaller.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: RPG-build-diagnostics
           path: |
             build/RPG/
             RPG.spec
+            pyinstaller-build.log
+            py2app-build.log
           if-no-files-found: ignore
 
       - name: Package app
