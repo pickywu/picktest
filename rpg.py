@@ -27,7 +27,7 @@ except ImportError as exc:
 
 SCREEN_WIDTH = 1180
 SCREEN_HEIGHT = 720
-SCREEN_TITLE = "餘燼王國：失落王座"
+SCREEN_TITLE = "餘燼王國：失落王座 V2.0"
 
 INK = (235, 232, 220)
 MUTED = (169, 178, 191)
@@ -43,6 +43,7 @@ class Scene(Enum):
     TITLE = auto()
     GUIDE = auto()
     CREATION = auto()
+    SUBCLASS = auto()
     ADVENTURE = auto()
     BATTLE = auto()
     SHOP = auto()
@@ -58,8 +59,10 @@ class Player:
     sex: str = "男性"
     race: str = "獸人"
     job: str = "戰士"
+    sub_job: str = ""
     lv: int = 1
     hp: int = 20
+    max_hp: int = 20
     attack: int = 10
     defense: int = 10
     luck: int = 1
@@ -79,6 +82,7 @@ class Enemy:
     hp: int
     attack: int
     defense: int
+    damage_floor: int = 1
 
 
 @dataclass
@@ -111,11 +115,17 @@ class Button:
     shortcut: str = ""
     enabled: bool = True
     accent: tuple[int, int, int] = BLUE
+    tooltip: str = ""
 
     def contains(self, px: float, py: float) -> bool:
         return (
             self.enabled
-            and self.x - self.width / 2 <= px <= self.x + self.width / 2
+            and self.hit_test(px, py)
+        )
+
+    def hit_test(self, px: float, py: float) -> bool:
+        return (
+            self.x - self.width / 2 <= px <= self.x + self.width / 2
             and self.y - self.height / 2 <= py <= self.y + self.height / 2
         )
 
@@ -1890,10 +1900,46 @@ class RPGWindow(arcade.Window):
         "每只藥瓶都映著陌生星辰，彷彿盛裝著另一個世界。",
         "商人以沙啞嗓音報價，斗篷深處傳來金屬鎖鏈的輕響。",
     )
+    POST_BATTLE_RECOVERY = {1: .55, 2: .60}
     DIFFICULTY_PROFILES = {
-        1: {"hp": 1.55, "attack": 1.0, "defense": .55},
-        2: {"hp": 2.05, "attack": 1.35, "defense": .75},
+        1: {"turns": (2.0, 4.0), "defense": (.25, .45), "danger_hits": (8.0, 12.0)},
+        2: {"turns": (3.0, 5.0), "defense": (.32, .52), "danger_hits": (9.0, 13.0)},
     }
+    MONSTER_TYPE_MODIFIERS = {
+        "血量型": {"hp": 1.25, "damage": .9, "defense": .95},
+        "攻擊型": {"hp": .9, "damage": 1.2, "defense": .95},
+        "防禦型": {"hp": 1.0, "damage": .9, "defense": 1.12},
+    }
+    EVENT_DECK = (
+        ("暮鴉行商", "披羽斗篷的行商自枯樹後現身，肩上暮鴉念著你的名字。",
+         "attack_up", "暮鴉嘲笑一聲，貨物在你手中化成普通鐵片。", "attack_down"),
+        ("隕星聖痕", "蒼穹裂開銀色縫隙，一枚隕星在你面前化作聖痕。",
+         "exp_up", "聖痕如晨露般消散，只留下一縷溫暖星塵。", "all_down"),
+        ("月影靈藥", "月光照亮石祠，一瓶銀藍靈藥懸浮在無名女神掌中。",
+         "heal", "瓶中只有一滴古老泉水，飲下後沒有任何變化。", "hp_damage"),
+        ("無主王匣", "藤蔓深處沉睡著一只王室寶匣，褪色徽記仍泛著金光。",
+         "gold_up", "寶匣只剩乾枯玫瑰，以及一封無法辨讀的王家密函。", "gold_loss"),
+        ("灰燼祭壇", "斷裂祭壇仍覆著熱灰，石縫中有心跳般的火光。",
+         "maxhp_up", "火光熄滅，只剩冰冷灰燼沾滿手掌。", "maxhp_down"),
+        ("亡騎誓碑", "一座無名騎士碑插在荒草中，劍柄仍指向王城。",
+         "defense_up", "誓言沒有回應，碑文在風中剝落。", "defense_down"),
+        ("黑月井", "井底倒映著一輪黑月，水面傳出陌生人的低語。",
+         "luck_up", "你只看見自己的倒影，黑月沉入井底。", "luck_down"),
+        ("骨鐘塔", "廢塔頂端的骨鐘無人敲響，卻在你靠近時低鳴。",
+         "skill_refresh", "鐘聲戛然而止，荒野重新陷入沉默。", "hp_damage"),
+        ("銀苔古橋", "銀色苔蘚覆滿斷橋，每一步都像踏在星河上。",
+         "balanced_up", "橋面只是普通殘石，沒有任何奇蹟發生。", "all_down"),
+        ("霧中獵屋", "霧裡亮著獵屋燈火，門前掛滿怪物骨牌。",
+         "potion_up", "屋內空無一人，只剩冷掉的爐灰。", "potion_loss"),
+        ("血薔薇園", "廢園裡的血色薔薇沿盔甲攀生，花瓣像細小刀片。",
+         "attack_up", "薔薇不願承認你的血，花瓣沉默合攏。", "hp_damage"),
+        ("星砂商棧", "倒塌商棧裡灑滿發光星砂，每粒都映出遠方道路。",
+         "gold_up", "星砂只是月光下的碎玻璃。", "gold_loss"),
+        ("蒼白聖骨", "一具披著聖袍的古骨跪在路旁，掌心托著微光。",
+         "maxhp_up", "聖骨在你觸碰時碎裂，寒意滲入胸口。", "maxhp_down"),
+        ("裂界回聲", "空氣裂開一道細縫，另一個世界的戰鼓聲短暫傳來。",
+         "exp_up", "裂縫裡只傳來刺耳噪音，記憶被撕去一角。", "exp_loss"),
+    )
 
     def __init__(self) -> None:
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=False)
@@ -1938,7 +1984,7 @@ class RPGWindow(arcade.Window):
         self.journey_lore = random.choice(self.JOURNEY_LORE)
         self.shop_lore = random.choice(self.SHOP_LORE)
         self.victory = False
-        self.player_hp_peak = self.player.hp
+        self.player_hp_peak = self.player.max_hp
         self.event_number = 1
         self.event_title = "隨機事件"
         self.event_result = ""
@@ -1951,6 +1997,20 @@ class RPGWindow(arcade.Window):
         self.auto_battle = False
         self.guarding = False
         self.charged_attack = False
+        self.race_skill_cooldown = 0
+        self.job_skill_cooldown = 0
+        self.sub_job_skill_cooldown = 0
+        self.after_subclass = "adventure"
+        self.orc_blood_active = False
+        self.orc_original_hp = 0
+        self.orc_original_max_hp = 0
+        self.battle_exp_double = False
+        self.battle_gold_double = False
+        self.forced_critical = False
+        self.warrior_power = False
+        self.warrior_guard_down = False
+        self.enemy_skip_turns = 0
+        self.stealth_turns = 0
         self.configure_buttons()
 
     # ---------- UI helpers ----------
@@ -2059,6 +2119,24 @@ class RPGWindow(arcade.Window):
                   max_width=button.width - 26, max_height=button.height - 18,
                   min_size=9)
 
+    def draw_hover_tooltip(self) -> None:
+        if not self.hovered or not self.hovered.tooltip:
+            return
+        lines = self.wrap_text_pixels(self.hovered.tooltip, 300, 12)
+        lines = lines[:4]
+        width = 330
+        height = 34 + len(lines) * 20
+        left = max(350, min(SCREEN_WIDTH - width - 24, self.hovered.x - width / 2))
+        bottom = self.hovered.y + self.hovered.height / 2 + 12
+        if bottom + height > SCREEN_HEIGHT - 18:
+            bottom = self.hovered.y - self.hovered.height / 2 - height - 12
+        self.rect(left, bottom, width, height, (8, 14, 24, 238), (122, 143, 170, 220), 1)
+        self.text("技能效果", left + 16, bottom + height - 20, 13, GOLD,
+                  bold=True, max_width=width - 32, max_height=18)
+        for index, line in enumerate(lines):
+            self.text(line, left + 16, bottom + height - 45 - index * 20, 12, INK,
+                      max_width=width - 32, max_height=18, min_size=9)
+
     def log(self, message: str) -> None:
         if self.log_scroll > 0:
             self.log_scroll += 1
@@ -2139,7 +2217,7 @@ class RPGWindow(arcade.Window):
 
     @staticmethod
     def max_log_scroll(cards: list[tuple[str, list[str], tuple[int, int, int], int]],
-                       available_height: float = 247) -> int:
+                       available_height: float = 382) -> int:
         used_height = 0.0
         oldest_page_count = 0
         for _icon, _lines, _accent, card_height in reversed(cards):
@@ -2151,7 +2229,7 @@ class RPGWindow(arcade.Window):
         return max(0, len(cards) - oldest_page_count)
 
     def visible_log_cards(self, text_width: float = 224,
-                          available_height: float = 247) -> list[tuple[str, list[str], tuple[int, int, int], int]]:
+                          available_height: float = 382) -> list[tuple[str, list[str], tuple[int, int, int], int]]:
         prepared = self.prepared_log_cards(text_width)
         maximum = self.max_log_scroll(prepared, available_height)
         self.log_scroll = max(0, min(self.log_scroll, maximum))
@@ -2175,8 +2253,262 @@ class RPGWindow(arcade.Window):
         return int(self.player.lv * 100 * (1 - .02 * self.player.black_market_lv))
 
     def track_player_hp(self) -> None:
-        """Maintain a display-only HP ceiling for the player health bar."""
-        self.player_hp_peak = max(self.player_hp_peak, self.player.hp, 1)
+        """Keep current HP inside the real maximum HP used by the UI."""
+        self.player.max_hp = max(1, self.player.max_hp)
+        self.player.hp = min(self.player.hp, self.player.max_hp)
+        self.player_hp_peak = self.player.max_hp
+
+    def heal_player(self, amount: int) -> int:
+        if amount <= 0:
+            return 0
+        before = self.player.hp
+        self.player.hp = min(self.player.max_hp, self.player.hp + amount)
+        self.track_player_hp()
+        return self.player.hp - before
+
+    def recover_after_battle(self) -> None:
+        missing = self.player.max_hp - self.player.hp
+        if missing <= 0:
+            return
+        ratio = self.POST_BATTLE_RECOVERY[self.difficulty]
+        healing = max(1, math.ceil(missing * ratio))
+        restored = self.heal_player(healing)
+        if restored:
+            self.log(f"星火穩住傷勢，戰後恢復 {restored} 點血量。")
+
+    def effective_player_defense(self) -> int:
+        if self.warrior_guard_down:
+            return 0
+        if self.orc_blood_active:
+            return max(0, self.player.defense // 2)
+        return self.player.defense
+
+    def expire_turn_buffs(self) -> None:
+        if self.orc_blood_active:
+            self.player.max_hp = max(1, self.orc_original_max_hp)
+            self.player.hp = max(1, min(self.player.hp, self.player.max_hp))
+            self.player_hp_peak = self.player.max_hp
+            self.orc_blood_active = False
+            self.orc_original_hp = 0
+            self.orc_original_max_hp = 0
+            self.log("獸人血怒退去，臨時血量與防禦變化消散。")
+        if self.warrior_guard_down:
+            self.warrior_guard_down = False
+            self.log("戰士的破釜攻勢收束，防禦恢復。")
+
+    def settle_skill_cooldowns(self) -> None:
+        if self.race_skill_cooldown > 0:
+            self.race_skill_cooldown -= 1
+        if self.job_skill_cooldown > 0:
+            self.job_skill_cooldown -= 1
+        if self.sub_job_skill_cooldown > 0:
+            self.sub_job_skill_cooldown -= 1
+
+    def clear_battle_skill_effects(self) -> None:
+        if self.orc_blood_active:
+            self.player.max_hp = max(1, self.orc_original_max_hp)
+            self.player.hp = max(1, min(self.player.hp, self.player.max_hp))
+            self.player_hp_peak = self.player.max_hp
+        self.orc_blood_active = False
+        self.orc_original_hp = 0
+        self.orc_original_max_hp = 0
+        self.warrior_power = False
+        self.warrior_guard_down = False
+        self.enemy_skip_turns = 0
+        self.stealth_turns = 0
+        self.battle_exp_double = False
+        self.battle_gold_double = False
+
+    def reset_skills(self) -> None:
+        self.race_skill_cooldown = 0
+        self.job_skill_cooldown = 0
+        self.sub_job_skill_cooldown = 0
+        self.battle_exp_double = False
+        self.battle_gold_double = False
+        self.forced_critical = False
+        self.clear_battle_skill_effects()
+
+    def race_skill_name(self) -> str:
+        return {
+            "獸人": "燃血戰吼",
+            "人類": "王城戰策",
+            "矮人": "秘藏印記",
+            "精靈": "星眼破綻",
+        }[self.player.race]
+
+    def job_skill_name(self, job: str | None = None) -> str:
+        job = job or self.player.job
+        return {
+            "戰士": "破釜斬",
+            "法師": "靜滯咒",
+            "聖騎士": "聖光誓言",
+            "盜賊": "影幕潛行",
+        }[job]
+
+    def race_skill_tooltip(self) -> str:
+        return {
+            "獸人": "血量臨時加倍，防禦暫時減半；持續到下一次敵方回合結束。",
+            "人類": "本場戰鬥勝利時，結束獲得的經驗值加倍。",
+            "矮人": "本場戰鬥勝利時，結束獲得的金錢加倍。",
+            "精靈": "下一次攻擊必定暴擊，攻擊後效果消失。",
+        }[self.player.race]
+
+    def job_skill_tooltip(self, job: str | None = None) -> str:
+        job = job or self.player.job
+        return {
+            "戰士": "下一次攻擊威力加倍；直到下一次敵方回合結束前防禦歸零。",
+            "法師": "敵人下一次行動無法攻擊。",
+            "聖騎士": "恢復自身最大血量的一半，不會超過目前血量上限。",
+            "盜賊": "隱身一回合，敵人下一次攻擊會落空。",
+        }[job]
+
+    def skill_label(self, name: str, cooldown: int, active: bool = False) -> str:
+        if cooldown > 0:
+            return f"{name} CD{cooldown}"
+        if active:
+            return f"{name} 生效中"
+        return name
+
+    def apply_battle_exp_bonus(self, amount: int) -> int:
+        if amount > 0 and self.battle_exp_double:
+            self.battle_exp_double = False
+            doubled = amount * 2
+            self.log(f"王城戰策收束戰果，經驗獲得翻倍為 {doubled}。")
+            return doubled
+        return amount
+
+    def apply_battle_gold_bonus(self, amount: int) -> int:
+        if amount > 0 and self.battle_gold_double:
+            self.battle_gold_double = False
+            doubled = amount * 2
+            self.log(f"矮人秘藏回應戰利品，金錢獲得翻倍為 {doubled}g。")
+            return doubled
+        return amount
+
+    def race_skill_ready(self) -> bool:
+        if self.race_skill_cooldown > 0:
+            return False
+        p = self.player
+        if p.race == "獸人":
+            return not self.orc_blood_active
+        if p.race == "人類":
+            return not self.battle_exp_double
+        if p.race == "矮人":
+            return not self.battle_gold_double
+        return not self.forced_critical
+
+    def job_skill_ready(self, job: str | None = None, cooldown: int | None = None) -> bool:
+        if cooldown is None:
+            cooldown = self.job_skill_cooldown
+        if cooldown > 0:
+            return False
+        p = self.player
+        job = job or p.job
+        if job == "戰士":
+            return not self.warrior_power
+        if job == "法師":
+            return self.enemy_skip_turns < 1
+        if job == "聖騎士":
+            return p.hp < p.max_hp
+        return self.stealth_turns < 1
+
+    def race_skill_active(self) -> bool:
+        return (
+            self.orc_blood_active or self.battle_exp_double
+            or self.battle_gold_double or self.forced_critical
+        )
+
+    def job_skill_active(self, job: str | None = None) -> bool:
+        job = job or self.player.job
+        if job == "戰士":
+            return self.warrior_power
+        if job == "法師":
+            return self.enemy_skip_turns > 0
+        if job == "盜賊":
+            return self.stealth_turns > 0
+        return False
+
+    def use_race_skill(self) -> None:
+        if self.scene != Scene.BATTLE or not self.enemy or self.battle_busy or self.auto_battle:
+            return
+        if self.race_skill_cooldown > 0:
+            return
+        p = self.player
+        if p.race == "獸人":
+            if self.orc_blood_active:
+                return
+            self.orc_blood_active = True
+            self.orc_original_hp = max(1, p.hp)
+            self.orc_original_max_hp = p.max_hp
+            p.max_hp *= 2
+            p.hp = min(p.max_hp, p.hp + self.orc_original_max_hp)
+            self.player_hp_peak = p.max_hp
+            self.log("獸人血怒爆發，臨時血量加倍，但防禦暫時減半。")
+        elif p.race == "人類":
+            if self.battle_exp_double:
+                return
+            self.battle_exp_double = True
+            self.log("人類戰策展開，本場戰鬥結束經驗值加倍。")
+        elif p.race == "矮人":
+            if self.battle_gold_double:
+                return
+            self.battle_gold_double = True
+            self.log("矮人秘藏標記戰利品，本場戰鬥結束金錢加倍。")
+        else:
+            if self.forced_critical:
+                return
+            self.forced_critical = True
+            self.log("精靈星眼鎖定破綻，下一次攻擊必定暴擊。")
+        self.race_skill_cooldown = 4
+        self.configure_buttons()
+
+    def activate_job_skill(self, job: str) -> bool:
+        p = self.player
+        if job == "戰士":
+            if self.warrior_power:
+                return False
+            self.warrior_power = True
+            self.warrior_guard_down = True
+            self.log("戰士捨身蓄勢，下一次攻擊加倍，但防禦暫時歸零。")
+        elif job == "法師":
+            if self.enemy_skip_turns > 0:
+                return False
+            self.enemy_skip_turns = 1
+            self.log("法師展開封印術式，敵人下一次行動將無法攻擊。")
+        elif job == "聖騎士":
+            missing = p.max_hp - p.hp
+            if missing <= 0:
+                self.log("聖光已滿溢，現在不需要治療。")
+                return False
+            healing = min(missing, max(1, p.max_hp // 2))
+            restored = self.heal_player(healing)
+            self.floating_damage.append(FloatingDamage("player", restored, False, True))
+            self.log(f"聖騎士祈禱降下金光，恢復 {restored} 點血量。")
+        else:
+            if self.stealth_turns > 0:
+                return False
+            self.stealth_turns = 1
+            self.log("盜賊融入陰影，敵人下一次攻擊將失去目標。")
+        return True
+
+    def use_job_skill(self, job: str | None = None, secondary: bool = False) -> None:
+        if self.scene != Scene.BATTLE or not self.enemy or self.battle_busy or self.auto_battle:
+            return
+        cooldown = self.sub_job_skill_cooldown if secondary else self.job_skill_cooldown
+        if cooldown > 0:
+            return
+        selected_job = job or self.player.job
+        if selected_job == self.player.sub_job and not secondary:
+            secondary = True
+        if not self.job_skill_ready(selected_job, cooldown):
+            return
+        if not self.activate_job_skill(selected_job):
+            return
+        if secondary:
+            self.sub_job_skill_cooldown = 4
+        else:
+            self.job_skill_cooldown = 4
+        self.configure_buttons()
 
     # ---------- character creation ----------
     def open_guide(self) -> None:
@@ -2245,12 +2577,16 @@ class RPGWindow(arcade.Window):
             "戰士": (10, 0, 0, 0), "法師": (0, 5, 0, 0),
             "聖騎士": (0, 0, 5, 0), "盜賊": (0, 0, 0, 1),
         }[p.job]
-        p.hp += race_bonus[0] + job_bonus[0]
+        hp_bonus = race_bonus[0] + job_bonus[0]
+        p.max_hp += hp_bonus
+        p.hp += hp_bonus
         p.attack += race_bonus[1] + job_bonus[1]
         p.defense += race_bonus[2] + job_bonus[2]
         p.luck += race_bonus[3] + job_bonus[3]
         self.player = p
-        self.player_hp_peak = p.hp
+        self.player_hp_peak = p.max_hp
+        self.reset_skills()
+        self.after_subclass = "adventure"
         self.hero_portrait = make_player_portrait(p.sex, p.race, p.job)
         self.messages = [
             f"{p.name}在星火祭壇前立誓，以{p.race}{p.job}之名踏入荒野。",
@@ -2265,12 +2601,7 @@ class RPGWindow(arcade.Window):
     def continue_journey(self) -> None:
         self.journey_lore = random.choice(self.JOURNEY_LORE)
         self.log(self.journey_lore)
-        if random.randint(1, 10) <= 3:
-            self.resolve_event()
-            if self.scene == Scene.EVENT:
-                self.configure_buttons()
-        else:
-            self.start_battle()
+        self.start_battle()
 
     # ---------- black market ----------
     def open_black_market(self) -> None:
@@ -2280,10 +2611,13 @@ class RPGWindow(arcade.Window):
         self.configure_buttons()
 
     def leave_black_market(self) -> None:
-        self.scene = Scene.ADVENTURE
         self.log("你收好行囊，身後的暗門隨紫焰一同消失。")
-        self.check_level_up()
-        self.configure_buttons()
+        self.after_subclass = "event"
+        if self.check_level_up():
+            return
+        self.resolve_event()
+        if self.scene == Scene.EVENT:
+            self.configure_buttons()
 
     def buy_black_market_item(self, item: int) -> None:
         price = self.black_market_price
@@ -2292,6 +2626,7 @@ class RPGWindow(arcade.Window):
         self.player.gold -= price
         p = self.player
         if item == 1:
+            p.max_hp += p.lv * 2
             p.hp += p.lv * 2
             self.track_player_hp()
             result = f"巨人心血在體內沸騰，血量增加 {p.lv * 2}"
@@ -2313,8 +2648,12 @@ class RPGWindow(arcade.Window):
         self.log(f"購買成功：{result}。")
         if p.gold - self.black_market_price < 0:
             self.log("錢袋的聲音太輕，商人收起貨物，隱入帷幕後方。")
-            self.scene = Scene.ADVENTURE
-            self.check_level_up()
+            self.after_subclass = "event"
+            if self.check_level_up():
+                return
+            self.resolve_event()
+            self.configure_buttons()
+            return
         self.configure_buttons()
 
     # ---------- battle ----------
@@ -2336,17 +2675,22 @@ class RPGWindow(arcade.Window):
         kind = ("血量型", "攻擊型", "防禦型")[kind_number - 1]
         monster_level = self.player.lv + 1
         profile = self.DIFFICULTY_PROFILES[self.difficulty]
-        base = monster_level * rank
-        hp = math.ceil(base * profile["hp"]) * (2 if kind_number == 1 else 1)
-        attack = math.ceil(base * profile["attack"]) * (2 if kind_number == 2 else 1)
-        defense = math.ceil(base * profile["defense"]) * (2 if kind_number == 3 else 1)
-        if self.player.lv <= 10:
-            target_turns = 2 if rank == 1 else 3
-            expected_damage = max(4, self.player.attack - defense)
-            hp = max(hp, expected_damage * target_turns)
+        type_mod = self.MONSTER_TYPE_MODIFIERS[kind]
+        target_turns = random.uniform(*profile["turns"])
+        defense_ratio = random.uniform(*profile["defense"]) * type_mod["defense"]
+        defense = max(0, math.ceil(self.player.attack * defense_ratio))
+        expected_player_damage = max(1, self.player.attack - defense)
+        hp = max(1, math.ceil(expected_player_damage * target_turns * type_mod["hp"]))
+        target_hits_to_defeat_player = random.uniform(*profile["danger_hits"])
+        expected_enemy_damage = max(
+            1,
+            math.ceil((self.player.max_hp / target_hits_to_defeat_player) * type_mod["damage"]),
+        )
+        attack = math.ceil(self.player.defense * .70) + expected_enemy_damage
+        damage_floor = max(1, math.ceil(expected_enemy_damage * .45))
         self.enemy = Enemy(
             self.MONSTER_NAMES[rank][kind], kind, rank, monster_level,
-            hp, hp, attack, defense,
+            hp, hp, attack, defense, damage_floor,
         )
         self.enemy_portrait = make_monster_portrait(rank, kind)
         self.scene = Scene.BATTLE
@@ -2357,6 +2701,7 @@ class RPGWindow(arcade.Window):
         self.auto_battle = False
         self.guarding = False
         self.charged_attack = False
+        self.clear_battle_skill_effects()
         battle_omens = {
             1: "枯枝在黑霧中折斷，一雙飢餓的眼睛逼近。",
             2: "沉重腳步震落岩塵，荒野霸主攔住了去路。",
@@ -2391,10 +2736,17 @@ class RPGWindow(arcade.Window):
         if self.charged_attack:
             attack_power *= 1.25
             self.log("你將守勢化為反擊，劍鋒帶著蓄積的星火斬出。")
+        if self.warrior_power:
+            attack_power *= 2
+            self.warrior_power = False
+            self.log("破釜一擊爆發，戰士攻勢加倍。")
         self.charged_attack = False
         self.guarding = False
         critical_roll = random.randint(1, 100)
-        critical = critical_roll < self.player.luck * 2
+        critical = self.forced_critical or critical_roll < self.player.luck * 2
+        if self.forced_critical:
+            self.forced_critical = False
+            self.log("精靈星眼引導劍鋒，這一擊必定暴擊。")
         if critical:
             damage = max(1, math.ceil(attack_power * 1.5 - self.enemy.defense))
         else:
@@ -2426,11 +2778,10 @@ class RPGWindow(arcade.Window):
         if self.player.potions < 1 or self.battle_busy or self.auto_battle:
             return
         healing = self.player.lv * 3
-        self.player.hp += healing
-        self.track_player_hp()
+        restored = self.heal_player(healing)
         self.player.potions -= 1
-        self.floating_damage.append(FloatingDamage("player", healing, False, True))
-        self.log(f"飲下月泉靈藥，銀色泉光恢復 {healing} 點血量。")
+        self.floating_damage.append(FloatingDamage("player", restored, False, True))
+        self.log(f"飲下月泉靈藥，銀色泉光恢復 {restored} 點血量。")
         self.queue_turn("enemy")
 
     def flee(self) -> None:
@@ -2446,11 +2797,30 @@ class RPGWindow(arcade.Window):
     def enemy_attack(self) -> None:
         if not self.enemy or self.scene != Scene.BATTLE or self.attack_animation:
             return
+        if self.enemy_skip_turns > 0:
+            self.enemy_skip_turns -= 1
+            self.log(f"{self.enemy.name}的攻勢被法術封住，這回合無法攻擊。")
+            self.expire_turn_buffs()
+            if self.auto_battle:
+                self.queue_turn("player", .28)
+            else:
+                self.configure_buttons()
+            return
+        if self.stealth_turns > 0:
+            self.stealth_turns -= 1
+            self.log(f"{self.enemy.name}撲向殘影，攻擊落空。")
+            self.expire_turn_buffs()
+            if self.auto_battle:
+                self.queue_turn("player", .28)
+            else:
+                self.configure_buttons()
+            return
         critical = random.randint(1, 5) == 1
+        base_damage = max(self.enemy.damage_floor, self.enemy.attack - self.effective_player_defense())
         if critical:
-            damage = max(1, math.ceil(self.enemy.attack * 1.5 - self.player.defense))
+            damage = max(1, math.ceil(base_damage * 1.5))
         else:
-            damage = max(1, self.enemy.attack - self.player.defense)
+            damage = base_damage
         if self.guarding:
             damage = max(1, math.ceil(damage * .45))
             self.guarding = False
@@ -2491,8 +2861,11 @@ class RPGWindow(arcade.Window):
         elif self.player.hp < 1:
             self.finish(False)
         elif self.auto_battle:
+            self.expire_turn_buffs()
             self.queue_turn("player", .28)
         else:
+            if animation.attacker == "enemy":
+                self.expire_turn_buffs()
             self.configure_buttons()
 
     def win_battle(self) -> None:
@@ -2505,8 +2878,8 @@ class RPGWindow(arcade.Window):
             return
         exp_rewards = {1: 1, 2: 3, 3: 5, 4: 10}
         gold_multipliers = {1: .5, 2: 1, 3: 1.5, 4: 2}
-        gained_exp = exp_rewards[rank]
-        gained_gold = int(self.player.lv * 50 * gold_multipliers[rank])
+        gained_exp = self.apply_battle_exp_bonus(exp_rewards[rank])
+        gained_gold = self.apply_battle_gold_bonus(int(self.player.lv * 50 * gold_multipliers[rank]))
         self.player.exp += gained_exp
         self.player.gold += gained_gold
         self.log(f"{self.enemy.name}倒下，靈魂餘燼化為經驗 +{gained_exp}。")
@@ -2521,128 +2894,185 @@ class RPGWindow(arcade.Window):
         self.attack_animation = None
         self.guarding = False
         self.charged_attack = False
-        self.check_level_up()
+        self.clear_battle_skill_effects()
+        self.settle_skill_cooldowns()
+        self.after_subclass = "post_battle"
+        opened_subclass = self.check_level_up()
+        self.recover_after_battle()
+        if opened_subclass:
+            self.configure_buttons()
+            return
         if self.player.gold >= self.black_market_price:
             self.open_black_market()
         else:
-            self.scene = Scene.ADVENTURE
-            self.log("紫焰印記沒有回應；你只能繼續走入漫長夜色。")
-            self.configure_buttons()
+            self.resolve_event()
+            if self.scene == Scene.EVENT:
+                self.configure_buttons()
 
-    def check_level_up(self) -> None:
+    def check_level_up(self) -> bool:
         """結算冒險者的成長。"""
         p = self.player
         if p.exp < p.lv:
-            return
+            return False
         p.lv += 1
         p.exp = 0
-        p.hp += p.lv * (4 if p.job == "戰士" else 2)
-        p.attack += p.lv * (2 if p.job == "法師" else 1)
-        p.defense += p.lv * (2 if p.job == "聖騎士" else 1)
-        p.luck += 2 if p.job == "盜賊" else 1
+        hp_gain = p.lv * (4 if p.job == "戰士" else 2)
+        attack_gain = p.lv * (2 if p.job == "法師" else 1)
+        defense_gain = p.lv * (2 if p.job == "聖騎士" else 1)
+        luck_gain = 2 if p.job == "盜賊" else 1
+        p.max_hp += hp_gain
+        p.hp += hp_gain
+        p.attack += attack_gain
+        p.defense += defense_gain
+        p.luck += luck_gain
         self.track_player_hp()
         self.log(f"星火淬鍊了你的靈魂，力量提升至 Lv.{p.lv}！")
+        if p.lv >= 10 and not p.sub_job:
+            self.scene = Scene.SUBCLASS
+            self.log("第十道星火點亮，你可以選擇一門副職業誓約。")
+            self.configure_buttons()
+            return True
+        return False
+
+    def subclass_options(self) -> list[str]:
+        return [job for job, _bonus in self.JOBS if job != self.player.job]
+
+    def choose_sub_job(self, job: str) -> None:
+        if self.scene != Scene.SUBCLASS or job not in self.subclass_options():
+            return
+        self.player.sub_job = job
+        self.sub_job_skill_cooldown = 0
+        self.log(f"{self.player.name}承接{job}副誓約，掌握「{self.job_skill_name(job)}」。")
+        destination = self.after_subclass
+        self.after_subclass = "adventure"
+        if destination == "post_battle":
+            if self.player.gold >= self.black_market_price:
+                self.open_black_market()
+            else:
+                self.resolve_event()
+                if self.scene == Scene.EVENT:
+                    self.configure_buttons()
+        elif destination == "event":
+            self.resolve_event()
+            if self.scene == Scene.EVENT:
+                self.configure_buttons()
+        else:
+            self.scene = Scene.ADVENTURE
+            self.configure_buttons()
 
     # ---------- wilderness events ----------
-    def resolve_event(self) -> None:
+    def apply_event_effect(self, effect: str) -> None:
         p = self.player
-        if p.gold - p.lv * 100 < 0:
-            event_number = random.randint(2, 4)
-        else:
-            event_number = random.randint(1, 4)
+        if effect == "attack_up":
+            amount = max(1, p.lv * 2)
+            p.attack += amount
+            self.log(f"古老戰紋甦醒，攻擊增加 {amount}。")
+        elif effect == "attack_down":
+            amount = max(1, p.lv)
+            p.attack = max(1, p.attack - amount)
+            self.log(f"詛咒侵蝕武器，攻擊降低 {amount}。")
+        elif effect == "defense_up":
+            amount = max(1, p.lv * 2)
+            p.defense += amount
+            self.log(f"守誓之光覆上護甲，防禦增加 {amount}。")
+        elif effect == "defense_down":
+            amount = max(1, p.lv)
+            p.defense = max(0, p.defense - amount)
+            self.log(f"護甲裂出黑痕，防禦降低 {amount}。")
+        elif effect == "luck_up":
+            p.luck += 2
+            self.log("命運星砂落入掌心，幸運增加 2。")
+        elif effect == "luck_down":
+            p.luck = max(0, p.luck - 1)
+            self.log("黑月遮住星路，幸運降低 1。")
+        elif effect == "maxhp_up":
+            amount = max(2, p.lv * 3)
+            p.max_hp += amount
+            p.hp += amount
+            self.track_player_hp()
+            self.log(f"星火灌入血脈，最大血量增加 {amount}。")
+        elif effect == "maxhp_down":
+            amount = max(1, p.lv * 2)
+            p.max_hp = max(1, p.max_hp - amount)
+            p.hp = min(p.hp, p.max_hp)
+            self.track_player_hp()
+            self.log(f"寒霧啃蝕生命，最大血量降低 {amount}。")
+        elif effect == "heal":
+            restored = self.heal_player(max(1, p.lv * 4))
+            self.log(f"柔和月華縫合傷口，恢復 {restored} 點血量。")
+        elif effect == "hp_damage":
+            damage = max(1, p.lv * 2)
+            if p.hp - damage < 1:
+                self.log("黑暗反噬穿透心口，你在荒野中倒下。")
+                self.finish(False)
+            else:
+                p.hp -= damage
+                self.log(f"惡意回流入血，你失去 {damage} 點血量。")
+        elif effect == "exp_up":
+            amount = max(1, p.lv)
+            p.exp += amount
+            self.log(f"失落記憶湧入腦海，經驗增加 {amount}。")
+        elif effect == "exp_loss":
+            amount = max(1, p.lv)
+            p.exp = max(0, p.exp - amount)
+            self.log(f"裂界噪音撕碎記憶，經驗降低 {amount}。")
+        elif effect == "gold_up":
+            reward = max(50, p.lv * 160)
+            p.gold += reward
+            self.log(f"古幣如凝固陽光傾落，你獲得 {reward}g。")
+        elif effect == "gold_loss":
+            lost = min(p.gold, max(50, p.lv * 80))
+            p.gold -= lost
+            self.log(f"貪婪陰影捲走錢袋，你失去 {lost}g。")
+        elif effect == "potion_up":
+            p.potions += 1
+            self.log("封蠟藥瓶仍有神性餘溫，你獲得月泉靈藥 1 瓶。")
+        elif effect == "potion_loss":
+            if p.potions > 0:
+                p.potions -= 1
+                self.log("裂紋蔓延到藥瓶，你失去月泉靈藥 1 瓶。")
+            else:
+                self.apply_event_effect("hp_damage")
+        elif effect == "skill_refresh":
+            self.race_skill_cooldown = 0
+            self.job_skill_cooldown = 0
+            self.sub_job_skill_cooldown = 0
+            self.log("骨鐘震開命運鎖鏈，種族與職業技能冷卻歸零。")
+        elif effect == "balanced_up":
+            amount = max(1, p.lv)
+            p.attack += amount
+            p.defense += amount
+            p.luck += 1
+            self.log(f"星河祝福流過全身，攻擊與防禦增加 {amount}，幸運增加 1。")
+        elif effect == "all_down":
+            amount = max(1, p.lv)
+            p.attack = max(1, p.attack - amount)
+            p.defense = max(0, p.defense - amount)
+            p.luck = max(0, p.luck - 1)
+            self.log(f"虛空低語侵入靈魂，攻擊與防禦降低 {amount}，幸運降低 1。")
+
+    def resolve_event(self) -> None:
+        event_number = random.randint(1, len(self.EVENT_DECK))
+        title, intro, positive_effect, neutral_text, negative_effect = self.EVENT_DECK[event_number - 1]
 
         self.event_number = event_number
-        self.event_title = ("暮鴉行商", "隕星聖痕", "月影靈藥", "無主王匣")[event_number - 1]
+        self.event_title = title
         self.event_messages = []
         self.scene = Scene.EVENT
+        self.log(intro)
 
-        if event_number == 1:
-            items = ("武器", "防具", "飾品")
-            units = ("攻擊", "防禦", "幸運")
-            choice = random.randint(0, 2)
-            cost = p.lv * 100
-            p.gold -= cost
-            self.log("披羽斗篷的行商自枯樹後現身，肩上暮鴉念著你的名字。")
-            self.log(f"他將一件{items[choice]}塞入你手中，收走 {cost}g。")
-            outcome = random.randint(0, 2)
-            if outcome == 0:
-                if choice == 2:
-                    p.luck += 2
-                    amount = 2
-                elif choice == 0:
-                    p.attack += p.lv * 2
-                    amount = p.lv * 2
-                else:
-                    p.defense += p.lv * 2
-                    amount = p.lv * 2
-                self.log(f"古老符文驟然甦醒，{units[choice]}增加 {amount}。")
-            elif outcome == 1:
-                self.log(f"暮鴉嘲笑一聲；那件{items[choice]}沒有任何魔力。")
-            else:
-                if choice == 2:
-                    p.luck -= 1
-                    amount = 1
-                elif choice == 0:
-                    p.attack -= p.lv
-                    amount = p.lv
-                else:
-                    p.defense -= p.lv
-                    amount = p.lv
-                self.log(f"詛咒沿著{items[choice]}爬上手臂，{units[choice]}降低 {amount}。")
-            return
-
-        if event_number == 2:
-            self.log("蒼穹裂開銀色縫隙，一枚隕星在你面前化作聖痕。")
-            outcome = random.randint(1, 3)
-            if outcome == 1:
-                p.exp += p.lv
-                self.log(f"群星低聲傳授失落知識，經驗增加 {p.lv}。")
-            elif outcome == 2:
-                self.log("聖痕如晨露般消散，只留下一縷溫暖星塵。")
-            elif p.hp - p.lv * 2 < 1:
-                self.log("聖痕驟變為蒼白雷霆，你在星火中倒下。")
-                self.finish(False)
-            else:
-                p.hp -= p.lv * 2
-                p.attack -= p.lv
-                p.defense -= p.lv
-                p.luck -= 1
-                self.log("那並非祝福；虛空低語侵入靈魂，所有能力下降。")
-            return
-
-        if event_number == 3:
-            self.log("月光照亮石祠，一瓶銀藍靈藥懸浮在無名女神掌中。")
-            outcome = random.randint(1, 3)
-            if outcome == 1:
-                healing = p.lv * 3
-                p.hp += healing
-                self.track_player_hp()
-                self.log(f"清涼月華流遍全身，恢復 {healing} 點血量。")
-            elif outcome == 2:
-                self.log("瓶中只有一滴古老泉水，飲下後沒有任何變化。")
-            elif p.hp - p.lv * 2 < 1:
-                self.log("幽紫毒霧封住呼吸，你倒在沉默石祠之前。")
-                self.finish(False)
-            else:
-                damage = p.lv * 2
-                p.hp -= damage
-                self.log(f"靈藥化為灼熱毒火，你失去 {damage} 點血量。")
-            return
-
-        self.log("藤蔓深處沉睡著一只王室寶匣，褪色徽記仍泛著金光。")
         outcome = random.randint(1, 3)
         if outcome == 1:
-            reward = p.lv * 200
-            p.gold += reward
-            self.log(f"匣內金幣如凝固陽光，你獲得 {reward}g。")
+            self.apply_event_effect(positive_effect)
         elif outcome == 2:
-            self.log("寶匣只剩乾枯玫瑰，以及一封無法辨讀的王家密函。")
+            self.log(neutral_text)
         else:
-            p.gold = 0
-            self.log("匣中竄出貪婪妖靈，捲走你身上所有金幣！")
+            self.apply_event_effect(negative_effect)
 
     def leave_event(self) -> None:
-        self.check_level_up()
+        self.after_subclass = "adventure"
+        if self.check_level_up():
+            return
         self.scene = Scene.ADVENTURE
         self.configure_buttons()
 
@@ -2657,6 +3087,7 @@ class RPGWindow(arcade.Window):
         self.attack_animation = None
         self.guarding = False
         self.charged_attack = False
+        self.clear_battle_skill_effects()
         if not victory:
             self.player.hp = 0
             self.log("GAME OVER")
@@ -2672,6 +3103,8 @@ class RPGWindow(arcade.Window):
         self.attack_animation = None
         self.guarding = False
         self.charged_attack = False
+        self.reset_skills()
+        self.after_subclass = "adventure"
         self.floating_damage.clear()
         self.choose_difficulty(self.difficulty)
 
@@ -2689,7 +3122,7 @@ class RPGWindow(arcade.Window):
     def return_home(self) -> None:
         self.home_confirmation = False
         self.player = Player()
-        self.player_hp_peak = self.player.hp
+        self.player_hp_peak = self.player.max_hp
         self.hero_portrait = make_player_portrait("男性", "獸人", "戰士")
         self.enemy = None
         self.final_enemy_name = ""
@@ -2699,6 +3132,8 @@ class RPGWindow(arcade.Window):
         self.selected_race = "獸人"
         self.selected_job = "戰士"
         self.difficulty = 1
+        self.reset_skills()
+        self.after_subclass = "adventure"
         self.messages = [
             "黑潮吞沒北境，最後的旅人踏上命運古道。",
             "願星火照亮你的劍鋒。",
@@ -2713,6 +3148,7 @@ class RPGWindow(arcade.Window):
         self.attack_animation = None
         self.guarding = False
         self.charged_attack = False
+        self.clear_battle_skill_effects()
         self.floating_damage.clear()
         self.scene = Scene.TITLE
         self.configure_buttons()
@@ -2781,8 +3217,46 @@ class RPGWindow(arcade.Window):
                 Button(960, 92, 180, 50, "回到主頁", self.request_return_home,
                        accent=(73, 79, 91)),
             ])
+        elif self.scene == Scene.SUBCLASS:
+            for i, job in enumerate(self.subclass_options()):
+                self.buttons.append(Button(
+                    510 + i * 170, 265, 150, 58, job,
+                    lambda selected=job: self.choose_sub_job(selected),
+                    str(i + 1), True, accent=(112, 82, 48),
+                    tooltip=self.job_skill_tooltip(job),
+                ))
         elif self.scene == Scene.BATTLE:
             can_choose = not self.battle_busy and not self.auto_battle
+            race_skill_active = self.race_skill_active()
+            job_skill_active = self.job_skill_active(p.job)
+            has_sub_job = bool(p.sub_job)
+            race_x = 430 if has_sub_job else 508
+            main_job_x = 655 if has_sub_job else 732
+            sub_job_x = 880
+            self.buttons.extend([
+                Button(race_x, 150, 205, 44,
+                       self.skill_label(self.race_skill_name(), self.race_skill_cooldown,
+                                        race_skill_active),
+                       self.use_race_skill, "R", can_choose and self.race_skill_ready(),
+                       accent=(102, 86, 151),
+                       tooltip=self.race_skill_tooltip()),
+                Button(main_job_x, 150, 205, 44,
+                       self.skill_label(self.job_skill_name(p.job), self.job_skill_cooldown,
+                                        job_skill_active),
+                       self.use_job_skill, "J", can_choose and self.job_skill_ready(),
+                       accent=(147, 92, 54),
+                       tooltip=self.job_skill_tooltip(p.job)),
+            ])
+            if has_sub_job:
+                self.buttons.append(
+                    Button(sub_job_x, 150, 205, 44,
+                           self.skill_label(self.job_skill_name(p.sub_job), self.sub_job_skill_cooldown,
+                                            self.job_skill_active(p.sub_job)),
+                           lambda: self.use_job_skill(p.sub_job, True), "K",
+                           can_choose and self.job_skill_ready(p.sub_job, self.sub_job_skill_cooldown),
+                           accent=(123, 74, 128),
+                           tooltip=self.job_skill_tooltip(p.sub_job))
+                )
             self.buttons.extend([
                 Button(405, 88, 130, 52, "攻擊", self.normal_attack, "1", can_choose),
                 Button(548, 88, 130, 52, "防守", self.defend, "2", can_choose,
@@ -2838,6 +3312,7 @@ class RPGWindow(arcade.Window):
             self.draw_home_confirmation()
         for button in self.buttons:
             self.draw_button(button)
+        self.draw_hover_tooltip()
 
     def draw_home_confirmation(self) -> None:
         self.rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, (2, 4, 9, 190))
@@ -2871,15 +3346,16 @@ class RPGWindow(arcade.Window):
             ("月泉靈藥", "消耗一瓶藥水恢復血量，之後敵人會立刻行動。"),
             ("逃跑", "有機會脫離戰鬥，但失敗時敵人會趁勢攻擊。"),
             ("自動攻擊", "自動連續攻擊，適合省操作，但不會主動防守或喝藥。"),
+            ("技能", "種族與職業技能各自每四場戰鬥可用一次；10 級可取得副職業技能。"),
         )
         for index, (title, body) in enumerate(guide_lines):
-            y = 455 - index * 56
+            y = 460 - index * 45
             self.text(title, 310, y, 18, INK, "left", "center", True,
                       max_width=110, max_height=25)
             self.text(body, 430, y, 15, MUTED, "left", "center",
                       max_width=440, max_height=25, min_size=10)
-        self.text("困難模式會讓敵人血量與攻勢明顯提高，但防禦不再全面倍增。",
-                  590, 178, 14, INK, "center", "center",
+        self.text("簡單重視穩定戰鬥，困難會拉長交鋒並提高承傷壓力。",
+                  590, 172, 14, INK, "center", "center",
                   max_width=650, max_height=22, min_size=10)
 
     def draw_creation(self) -> None:
@@ -2903,19 +3379,20 @@ class RPGWindow(arcade.Window):
         elif self.creation_step == 4:
             self.text(f"{self.name_input}｜{self.selected_sex}｜{self.selected_race}｜{self.selected_job}",
                       590, 445, 18, GOLD, "center", "center", max_width=760)
-            self.text("星火遠征：餘燼仍會庇佑旅人，荒野敵勢維持平衡。",
+            self.text("星火遠征：一般敵人約需二至四次攻擊擊倒，容錯較高。",
                       590, 402, 14, INK, "center", "center", max_width=760)
-            self.text("黑潮試煉：敵人血量與攻勢更強，防禦只會小幅提升。",
+            self.text("黑潮試煉：一般敵人約需三至六次攻擊擊倒，承傷壓力更高。",
                       590, 369, 14, MUTED, "center", "center", max_width=760)
 
     def draw_game(self) -> None:
         p = self.player
+        job_text = p.job if not p.sub_job else f"{p.job}/{p.sub_job}"
         self.panel(20, 465, 315, 235, "角色資料")
         self.text(f"{p.name}｜{p.sex}", 40, 628, 21, INK, bold=True,
                   max_width=270, max_height=28)
-        self.text(f"{p.race}・{p.job}　Lv.{p.lv}", 40, 595, 16, GOLD,
+        self.text(f"{p.race}・{job_text}　Lv.{p.lv}", 40, 595, 16, GOLD,
                   max_width=270, max_height=23)
-        self.text(f"血量　{p.hp}", 40, 558, 16, RED, bold=True,
+        self.text(f"血量　{max(0, p.hp)} / {p.max_hp}", 40, 558, 16, RED, bold=True,
                   max_width=270, max_height=23)
         self.text(f"攻擊　{p.attack}　　防禦　{p.defense}", 40, 526, 15, INK,
                   max_width=270, max_height=22)
@@ -2924,7 +3401,7 @@ class RPGWindow(arcade.Window):
         self.text(f"經驗 {p.exp}/{p.lv}　藥水 {p.potions}", 295, 480, 12, MUTED,
                   "right", "center", max_width=255, max_height=18)
 
-        self.panel(20, 135, 315, 310, "冒險紀錄")
+        self.panel(20, 15, 315, 430, "冒險紀錄")
         prepared_logs = self.prepared_log_cards()
         maximum_log_scroll = self.max_log_scroll(prepared_logs)
         self.log_scroll = max(0, min(self.log_scroll, maximum_log_scroll))
@@ -2965,8 +3442,8 @@ class RPGWindow(arcade.Window):
                       306, 414, 9, MUTED, "right", "center",
                       max_width=88, max_height=14, min_size=8)
         if maximum_log_scroll > 0:
-            track_left, track_bottom = 321.0, 152.0
-            track_width, track_height = 10, 246
+            track_left, track_bottom = 321.0, 32.0
+            track_width, track_height = 10, 381
             thumb_height = max(35, int(track_height * len(visible_logs) / len(prepared_logs)))
             thumb_travel = track_height - thumb_height
             scroll_ratio = self.log_scroll / maximum_log_scroll
@@ -3004,7 +3481,26 @@ class RPGWindow(arcade.Window):
             self._log_scroll_geometry = None
             self.log_scroll_dragging = False
 
-        if self.scene == Scene.BATTLE and self.enemy:
+        if self.scene == Scene.SUBCLASS:
+            self.panel(360, 135, 800, 565, "副職業誓約")
+            self.text("第 十 道 星 火", 760, 515, 34, GOLD, "center", "center", True,
+                      max_width=700, max_height=45)
+            self.text(f"{p.name}已以{p.job}之名走到此處，現在可以承接第二門誓約。",
+                      760, 455, 17, INK, "center", "center",
+                      max_width=670, max_height=26)
+            self.text("選擇一個不同於主職業的副職業，往後戰鬥中會多一個職業技能。",
+                      760, 420, 14, MUTED, "center", "center",
+                      max_width=670, max_height=24, min_size=10)
+            for index, job in enumerate(self.subclass_options()):
+                x = 510 + index * 170
+                self.text(self.job_skill_name(job), x, 350, 18, GOLD, "center", "center", True,
+                          max_width=145, max_height=24)
+                self.text(self.job_skill_tooltip(job), x, 325, 11, MUTED, "center", "center",
+                          max_width=145, max_height=36, min_size=8)
+            self.text("副職業只提供技能，不改變原本升級成長。",
+                      760, 205, 13, INK, "center", "center",
+                      max_width=670, max_height=22, min_size=10)
+        elif self.scene == Scene.BATTLE and self.enemy:
             e = self.enemy
             self.activity_canvas(self.battle_background, "戰鬥")
             player_offset = 0.0
@@ -3034,8 +3530,8 @@ class RPGWindow(arcade.Window):
                       max_width=260, max_height=24)
             self.text(f"{e.name}｜Lv.{e.level}", 950, 300, 16, INK,
                       "center", "center", True, max_width=260, max_height=24)
-            self.bar(435, 255, 240, p.hp, self.player_hp_peak, GREEN,
-                     f"血量 {max(0, p.hp)} / {self.player_hp_peak}")
+            self.bar(435, 255, 240, p.hp, p.max_hp, GREEN,
+                     f"血量 {max(0, p.hp)} / {p.max_hp}")
             self.bar(830, 255, 240, e.hp, e.max_hp, RED, f"血量 {max(0, e.hp)} / {e.max_hp}")
             self.text(f"攻擊 {p.attack}　防禦 {p.defense}", 555, 228, 12, MUTED,
                       "center", "center", max_width=240, max_height=18, min_size=7)
@@ -3046,6 +3542,20 @@ class RPGWindow(arcade.Window):
                 status_parts.append("防守中")
             if self.charged_attack:
                 status_parts.append("蓄勢反擊")
+            if self.orc_blood_active:
+                status_parts.append("血怒")
+            if self.warrior_power:
+                status_parts.append("破釜")
+            if self.enemy_skip_turns > 0:
+                status_parts.append("封印")
+            if self.stealth_turns > 0:
+                status_parts.append("隱身")
+            if self.battle_exp_double:
+                status_parts.append("戰後經驗加倍")
+            if self.battle_gold_double:
+                status_parts.append("戰後金錢加倍")
+            if self.forced_critical:
+                status_parts.append("必定暴擊")
             if status_parts:
                 self.text("｜".join(status_parts), 555, 205, 12, GOLD,
                           "center", "center", True,
@@ -3107,7 +3617,8 @@ class RPGWindow(arcade.Window):
             self.text(self.shop_lore, 760, 464, 13, MUTED, "center", "center",
                       max_width=650, max_height=22, min_size=10)
         elif self.scene == Scene.EVENT:
-            self.activity_canvas(self.event_backgrounds[self.event_number], self.event_title)
+            background_number = ((self.event_number - 1) % len(self.event_backgrounds)) + 1
+            self.activity_canvas(self.event_backgrounds[background_number], self.event_title)
             self.panel(405, 165, 710, 150)
             event_lines = self.wrap_log_lines(self.event_messages, width=30, limit=3)
             for index, line in enumerate(event_lines):
@@ -3179,7 +3690,7 @@ class RPGWindow(arcade.Window):
 
     def on_mouse_scroll(self, x: float, y: float,
                         scroll_x: float, scroll_y: float) -> None:
-        if not self.log_scroll_available() or not (20 <= x <= 335 and 135 <= y <= 445):
+        if not self.log_scroll_available() or not (20 <= x <= 335 and 15 <= y <= 445):
             return
         maximum = int(self._log_scroll_geometry[6])
         if scroll_y:
@@ -3188,7 +3699,7 @@ class RPGWindow(arcade.Window):
             self.log_scroll = max(0, min(maximum, self.log_scroll + direction * steps))
 
     def on_mouse_motion(self, x: float, y: float, dx: float, dy: float) -> None:
-        self.hovered = next((b for b in self.buttons if b.contains(x, y)), None)
+        self.hovered = next((b for b in self.buttons if b.hit_test(x, y)), None)
         over_scroll = False
         if self.log_scroll_available():
             track_left, track_bottom, track_width, track_height = self._log_scroll_geometry[:4]
