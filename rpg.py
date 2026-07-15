@@ -41,6 +41,7 @@ BLUE = (58, 122, 184)
 
 class Scene(Enum):
     TITLE = auto()
+    GUIDE = auto()
     CREATION = auto()
     ADVENTURE = auto()
     BATTLE = auto()
@@ -1889,6 +1890,10 @@ class RPGWindow(arcade.Window):
         "每只藥瓶都映著陌生星辰，彷彿盛裝著另一個世界。",
         "商人以沙啞嗓音報價，斗篷深處傳來金屬鎖鏈的輕響。",
     )
+    DIFFICULTY_PROFILES = {
+        1: {"hp": 1.55, "attack": 1.0, "defense": .55},
+        2: {"hp": 2.05, "attack": 1.35, "defense": .75},
+    }
 
     def __init__(self) -> None:
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=False)
@@ -1944,6 +1949,8 @@ class RPGWindow(arcade.Window):
         self.pending_turn: str | None = None
         self.battle_delay = 0.0
         self.auto_battle = False
+        self.guarding = False
+        self.charged_attack = False
         self.configure_buttons()
 
     # ---------- UI helpers ----------
@@ -2172,6 +2179,10 @@ class RPGWindow(arcade.Window):
         self.player_hp_peak = max(self.player_hp_peak, self.player.hp, 1)
 
     # ---------- character creation ----------
+    def open_guide(self) -> None:
+        self.scene = Scene.GUIDE
+        self.configure_buttons()
+
     def start_creation(self) -> None:
         self.scene = Scene.CREATION
         self.creation_step = 0
@@ -2324,10 +2335,15 @@ class RPGWindow(arcade.Window):
         kind_number = random.randint(1, 3)
         kind = ("血量型", "攻擊型", "防禦型")[kind_number - 1]
         monster_level = self.player.lv + 1
-        base = monster_level * rank * self.difficulty
-        hp = base * (2 if kind_number == 1 else 1)
-        attack = base * (2 if kind_number == 2 else 1)
-        defense = base * (2 if kind_number == 3 else 1)
+        profile = self.DIFFICULTY_PROFILES[self.difficulty]
+        base = monster_level * rank
+        hp = math.ceil(base * profile["hp"]) * (2 if kind_number == 1 else 1)
+        attack = math.ceil(base * profile["attack"]) * (2 if kind_number == 2 else 1)
+        defense = math.ceil(base * profile["defense"]) * (2 if kind_number == 3 else 1)
+        if self.player.lv <= 10:
+            target_turns = 2 if rank == 1 else 3
+            expected_damage = max(4, self.player.attack - defense)
+            hp = max(hp, expected_damage * target_turns)
         self.enemy = Enemy(
             self.MONSTER_NAMES[rank][kind], kind, rank, monster_level,
             hp, hp, attack, defense,
@@ -2339,6 +2355,8 @@ class RPGWindow(arcade.Window):
         self.pending_turn = None
         self.battle_delay = 0
         self.auto_battle = False
+        self.guarding = False
+        self.charged_attack = False
         battle_omens = {
             1: "枯枝在黑霧中折斷，一雙飢餓的眼睛逼近。",
             2: "沉重腳步震落岩塵，荒野霸主攔住了去路。",
@@ -2369,14 +2387,28 @@ class RPGWindow(arcade.Window):
     def normal_attack(self) -> None:
         if not self.enemy or self.battle_busy:
             return
+        attack_power = self.player.attack
+        if self.charged_attack:
+            attack_power *= 1.25
+            self.log("你將守勢化為反擊，劍鋒帶著蓄積的星火斬出。")
+        self.charged_attack = False
+        self.guarding = False
         critical_roll = random.randint(1, 100)
         critical = critical_roll < self.player.luck * 2
         if critical:
-            damage = max(1, math.ceil(self.player.attack * 1.5 - self.enemy.defense))
+            damage = max(1, math.ceil(attack_power * 1.5 - self.enemy.defense))
         else:
-            damage = max(1, self.player.attack - self.enemy.defense)
+            damage = max(1, math.ceil(attack_power - self.enemy.defense))
         self.attack_animation = AttackAnimation("player", damage, critical)
         self.configure_buttons()
+
+    def defend(self) -> None:
+        if not self.enemy or self.battle_busy or self.auto_battle:
+            return
+        self.guarding = True
+        self.charged_attack = True
+        self.log("你架起防線穩住呼吸，準備承受下一擊並伺機反攻。")
+        self.queue_turn("enemy")
 
     def toggle_auto_attack(self) -> None:
         if self.scene != Scene.BATTLE or not self.enemy:
@@ -2419,6 +2451,10 @@ class RPGWindow(arcade.Window):
             damage = max(1, math.ceil(self.enemy.attack * 1.5 - self.player.defense))
         else:
             damage = max(1, self.enemy.attack - self.player.defense)
+        if self.guarding:
+            damage = max(1, math.ceil(damage * .45))
+            self.guarding = False
+            self.log("防守化開了攻勢，你受到的傷害大幅降低。")
         self.attack_animation = AttackAnimation("enemy", damage, critical)
         self.configure_buttons()
 
@@ -2483,6 +2519,8 @@ class RPGWindow(arcade.Window):
         self.auto_battle = False
         self.pending_turn = None
         self.attack_animation = None
+        self.guarding = False
+        self.charged_attack = False
         self.check_level_up()
         if self.player.gold >= self.black_market_price:
             self.open_black_market()
@@ -2617,6 +2655,8 @@ class RPGWindow(arcade.Window):
         self.auto_battle = False
         self.pending_turn = None
         self.attack_animation = None
+        self.guarding = False
+        self.charged_attack = False
         if not victory:
             self.player.hp = 0
             self.log("GAME OVER")
@@ -2630,6 +2670,8 @@ class RPGWindow(arcade.Window):
         self.auto_battle = False
         self.pending_turn = None
         self.attack_animation = None
+        self.guarding = False
+        self.charged_attack = False
         self.floating_damage.clear()
         self.choose_difficulty(self.difficulty)
 
@@ -2669,6 +2711,8 @@ class RPGWindow(arcade.Window):
         self.auto_battle = False
         self.pending_turn = None
         self.attack_animation = None
+        self.guarding = False
+        self.charged_attack = False
         self.floating_damage.clear()
         self.scene = Scene.TITLE
         self.configure_buttons()
@@ -2690,9 +2734,15 @@ class RPGWindow(arcade.Window):
         p = self.player
         if self.scene == Scene.TITLE:
             self.buttons.extend([
-                Button(590, 245, 280, 58, "開始遊戲", self.start_creation),
+                Button(590, 245, 280, 58, "開始遊戲", self.open_guide),
                 Button(590, 170, 280, 54, "關閉遊戲", self.close_game,
                        accent=(110, 53, 58)),
+            ])
+        elif self.scene == Scene.GUIDE:
+            self.buttons.extend([
+                Button(475, 125, 220, 54, "建立角色", self.start_creation),
+                Button(705, 125, 220, 54, "回到主頁", self.return_home,
+                       accent=(73, 79, 91)),
             ])
         elif self.scene == Scene.CREATION:
             if self.creation_step == 0:
@@ -2734,13 +2784,15 @@ class RPGWindow(arcade.Window):
         elif self.scene == Scene.BATTLE:
             can_choose = not self.battle_busy and not self.auto_battle
             self.buttons.extend([
-                Button(397, 88, 165, 52, "攻擊", self.normal_attack, "1", can_choose),
-                Button(575, 88, 165, 52, f"月泉靈藥 ×{p.potions}", self.drink_potion, "2",
+                Button(405, 88, 130, 52, "攻擊", self.normal_attack, "1", can_choose),
+                Button(548, 88, 130, 52, "防守", self.defend, "2", can_choose,
+                       accent=(75, 104, 129)),
+                Button(710, 88, 170, 52, f"月泉靈藥 ×{p.potions}", self.drink_potion, "3",
                        can_choose and p.potions > 0, accent=(71, 127, 85)),
-                Button(753, 88, 165, 52, "逃跑", self.flee, "3", can_choose, accent=(82, 88, 101)),
-                Button(970, 88, 205, 52,
+                Button(880, 88, 130, 52, "逃跑", self.flee, "4", can_choose, accent=(82, 88, 101)),
+                Button(1045, 88, 185, 52,
                        "停止自動攻擊" if self.auto_battle else "自動攻擊",
-                       self.toggle_auto_attack, "4", True,
+                       self.toggle_auto_attack, "5", True,
                        accent=(126, 69, 49) if self.auto_battle else (64, 101, 145)),
             ])
         elif self.scene == Scene.SHOP:
@@ -2776,6 +2828,8 @@ class RPGWindow(arcade.Window):
         arcade.draw_texture_rect(self.background, arcade.LBWH(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
         if self.scene == Scene.TITLE:
             self.draw_title()
+        elif self.scene == Scene.GUIDE:
+            self.draw_guide()
         elif self.scene == Scene.CREATION:
             self.draw_creation()
         else:
@@ -2806,6 +2860,28 @@ class RPGWindow(arcade.Window):
         self.text("選擇你的血脈與誓約，讓星火再次照亮被遺忘的黎明。",
                   590, 308, 14, MUTED, "center", "center", max_width=900)
 
+    def draw_guide(self) -> None:
+        self.rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, (3, 6, 12, 70))
+        self.panel(210, 130, 760, 465, "操作說明")
+        self.text("遠征前的戰鬥準則", 590, 525, 32, GOLD,
+                  "center", "center", True, max_width=680, max_height=45)
+        guide_lines = (
+            ("攻擊", "造成傷害；若前一回合防守，這次攻擊會帶有蓄力加成。"),
+            ("防守", "本回合不攻擊；下一次受到的傷害大幅降低，並蓄力反擊。"),
+            ("月泉靈藥", "消耗一瓶藥水恢復血量，之後敵人會立刻行動。"),
+            ("逃跑", "有機會脫離戰鬥，但失敗時敵人會趁勢攻擊。"),
+            ("自動攻擊", "自動連續攻擊，適合省操作，但不會主動防守或喝藥。"),
+        )
+        for index, (title, body) in enumerate(guide_lines):
+            y = 455 - index * 56
+            self.text(title, 310, y, 18, INK, "left", "center", True,
+                      max_width=110, max_height=25)
+            self.text(body, 430, y, 15, MUTED, "left", "center",
+                      max_width=440, max_height=25, min_size=10)
+        self.text("困難模式會讓敵人血量與攻勢明顯提高，但防禦不再全面倍增。",
+                  590, 178, 14, INK, "center", "center",
+                  max_width=650, max_height=22, min_size=10)
+
     def draw_creation(self) -> None:
         self.panel(165, 145, 850, 455, "建立角色")
         titles = ("選擇性別", "聆聽群星賜名", "選擇種族", "選擇職業", "立下遠征誓約")
@@ -2829,7 +2905,7 @@ class RPGWindow(arcade.Window):
                       590, 445, 18, GOLD, "center", "center", max_width=760)
             self.text("星火遠征：餘燼仍會庇佑旅人，荒野敵勢維持平衡。",
                       590, 402, 14, INK, "center", "center", max_width=760)
-            self.text("黑潮試煉：敵人受黑潮灌注，血量、攻擊與防禦全面倍增。",
+            self.text("黑潮試煉：敵人血量與攻勢更強，防禦只會小幅提升。",
                       590, 369, 14, MUTED, "center", "center", max_width=760)
 
     def draw_game(self) -> None:
@@ -2965,6 +3041,15 @@ class RPGWindow(arcade.Window):
                       "center", "center", max_width=240, max_height=18, min_size=7)
             self.text(f"攻擊 {e.attack}　防禦 {e.defense}", 950, 228, 12, MUTED,
                       "center", "center", max_width=240, max_height=18, min_size=7)
+            status_parts = []
+            if self.guarding:
+                status_parts.append("防守中")
+            if self.charged_attack:
+                status_parts.append("蓄勢反擊")
+            if status_parts:
+                self.text("｜".join(status_parts), 555, 205, 12, GOLD,
+                          "center", "center", True,
+                          max_width=240, max_height=18, min_size=8)
             for floating in self.floating_damage:
                 x = 555 if floating.target == "player" else 950
                 y = 580 + floating.elapsed * 54
@@ -3088,7 +3173,7 @@ class RPGWindow(arcade.Window):
     def log_scroll_available(self) -> bool:
         return (
             not self.home_confirmation
-            and self.scene not in (Scene.TITLE, Scene.CREATION)
+            and self.scene not in (Scene.TITLE, Scene.GUIDE, Scene.CREATION)
             and self._log_scroll_geometry is not None
         )
 
