@@ -1,0 +1,61 @@
+name: Build macOS RPG app
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-macos-app:
+    name: Build RPG.app
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install native dependencies
+        run: |
+          brew update
+          brew install cairo pkg-config
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pyinstaller pyinstaller-hooks-contrib
+
+      - name: Build RPG.app
+        env:
+          PYINSTALLER_STRICT_UNPACK_MODE: "0"
+        run: |
+          pyinstaller \
+            --noconfirm \
+            --clean \
+            --windowed \
+            --name RPG \
+            --collect-all arcade \
+            --collect-all pyglet \
+            --collect-all pytiled_parser \
+            --collect-all PIL \
+            rpg.py
+
+      - name: Package app
+        run: |
+          test -d dist/RPG.app
+          ditto -c -k --sequesterRsrc --keepParent dist/RPG.app RPG-macOS.zip
+
+      - name: Upload app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RPG-macOS-app
+          path: RPG-macOS.zip
+          if-no-files-found: error
