@@ -65,7 +65,6 @@ jobs:
             --noupx \
             --log-level INFO \
             --name RPG \
-            --add-data "$ARCADE_ROOT/VERSION:arcade" \
             --add-data "$ARCADE_ROOT/resources:arcade/resources" \
             --collect-data pyglet \
             --collect-data pytiled_parser \
