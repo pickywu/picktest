@@ -27,7 +27,7 @@ except ImportError as exc:
 
 SCREEN_WIDTH = 1180
 SCREEN_HEIGHT = 720
-SCREEN_TITLE = "餘燼王國：失落王座 V2.0"
+SCREEN_TITLE = "餘燼王國：失落王座 V2.1"
 
 INK = (235, 232, 220)
 MUTED = (169, 178, 191)
@@ -1900,11 +1900,11 @@ class RPGWindow(arcade.Window):
         "每只藥瓶都映著陌生星辰，彷彿盛裝著另一個世界。",
         "商人以沙啞嗓音報價，斗篷深處傳來金屬鎖鏈的輕響。",
     )
-    POST_BATTLE_RECOVERY = {1: .55, 2: .60}
     DIFFICULTY_PROFILES = {
         1: {"turns": (2.0, 4.0), "defense": (.25, .45), "danger_hits": (8.0, 12.0)},
         2: {"turns": (3.0, 5.0), "defense": (.32, .52), "danger_hits": (9.0, 13.0)},
     }
+    POST_BATTLE_RECOVERY = {1: .40, 2: .20}
     MONSTER_TYPE_MODIFIERS = {
         "血量型": {"hp": 1.25, "damage": .9, "defense": .95},
         "攻擊型": {"hp": .9, "damage": 1.2, "defense": .95},
@@ -2271,8 +2271,7 @@ class RPGWindow(arcade.Window):
         if missing <= 0:
             return
         ratio = self.POST_BATTLE_RECOVERY[self.difficulty]
-        healing = max(1, math.ceil(missing * ratio))
-        restored = self.heal_player(healing)
+        restored = self.heal_player(max(1, math.ceil(missing * ratio)))
         if restored:
             self.log(f"星火穩住傷勢，戰後恢復 {restored} 點血量。")
 
@@ -2480,7 +2479,7 @@ class RPGWindow(arcade.Window):
             if missing <= 0:
                 self.log("聖光已滿溢，現在不需要治療。")
                 return False
-            healing = min(missing, max(1, p.max_hp // 2))
+            healing = min(missing, max(1, math.ceil(p.max_hp * .50)))
             restored = self.heal_player(healing)
             self.floating_damage.append(FloatingDamage("player", restored, False, True))
             self.log(f"聖騎士祈禱降下金光，恢復 {restored} 點血量。")
@@ -2777,7 +2776,7 @@ class RPGWindow(arcade.Window):
     def drink_potion(self) -> None:
         if self.player.potions < 1 or self.battle_busy or self.auto_battle:
             return
-        healing = self.player.lv * 3
+        healing = max(1, math.ceil(self.player.max_hp * .50))
         restored = self.heal_player(healing)
         self.player.potions -= 1
         self.floating_damage.append(FloatingDamage("player", restored, False, True))
@@ -3276,7 +3275,7 @@ class RPGWindow(arcade.Window):
                 f"龍牙烈酒｜攻擊 +{p.lv}",
                 f"玄鐵聖油｜防禦 +{p.lv}",
                 "星紋骰骨｜幸運 +1",
-                "月泉靈藥｜戰鬥回血",
+                "月泉靈藥｜回血 50%",
                 "紫焰契印｜折扣 +2%",
             )
             for i, label in enumerate(labels):
@@ -3343,7 +3342,7 @@ class RPGWindow(arcade.Window):
         guide_lines = (
             ("攻擊", "造成傷害；若前一回合防守，這次攻擊會帶有蓄力加成。"),
             ("防守", "本回合不攻擊；下一次受到的傷害大幅降低，並蓄力反擊。"),
-            ("月泉靈藥", "消耗一瓶藥水恢復血量，之後敵人會立刻行動。"),
+            ("月泉靈藥", "消耗一瓶藥水恢復最大血量 50%，之後敵人會立刻行動。"),
             ("逃跑", "有機會脫離戰鬥，但失敗時敵人會趁勢攻擊。"),
             ("自動攻擊", "自動連續攻擊，適合省操作，但不會主動防守或喝藥。"),
             ("技能", "種族與職業技能各自每四場戰鬥可用一次；10 級可取得副職業技能。"),
