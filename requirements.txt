@@ -1,3 +1,4 @@
 arcade
 pycairo
 Pillow
+skia-python
