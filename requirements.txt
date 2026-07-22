@@ -1,4 +1,4 @@
-arcade
-pycairo
-Pillow
-skia-python
+﻿# Runtime dependencies for the RPG.
+# GitHub Actions builds with Python 3.12 for PyInstaller compatibility.
+arcade>=3.3,<4
+zhconv>=1.4

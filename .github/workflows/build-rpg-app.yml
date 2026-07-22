@@ -1,0 +1,80 @@
+﻿name: Build RPG App
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            os: windows-latest
+            artifact_name: EmberKingdom-Windows
+            package_name: EmberKingdom-Windows.zip
+            dist_path: dist/EmberKingdom
+          - name: macOS
+            os: macos-latest
+            artifact_name: EmberKingdom-macOS
+            package_name: EmberKingdom-macOS.zip
+            dist_path: dist/EmberKingdom.app
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pyinstaller pyinstaller-hooks-contrib
+          python -m pip freeze
+
+      - name: Check source compiles
+        run: python -m compileall rpg.py rpg_drawing.py localization.py sound_manager.py ui
+
+      - name: Validate runtime assets
+        run: python scripts/validate_assets.py
+
+      - name: Build app with PyInstaller
+        env:
+          PYINSTALLER_STRICT_UNPACK_MODE: "0"
+        run: python -m PyInstaller --noconfirm --clean RPG.spec
+
+      - name: Package app
+        shell: pwsh
+        run: |
+          if (!(Test-Path "${{ matrix.dist_path }}")) {
+            throw "Missing build output: ${{ matrix.dist_path }}"
+          }
+          Compress-Archive -Path "${{ matrix.dist_path }}" -DestinationPath "${{ matrix.package_name }}" -Force
+
+      - name: Upload app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.package_name }}
+          if-no-files-found: error
+
+      - name: Upload build diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostics-${{ matrix.name }}
+          path: |
+            build/
+            *.log
+          if-no-files-found: ignore

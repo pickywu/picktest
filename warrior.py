@@ -3,7 +3,7 @@ import math
 
 JOB = "戰士"
 LEGACY_NAME = "血祭強襲"
-LEGACY_DESCRIPTION = "半血換追加傷害，之後回流生命。"
+LEGACY_DESCRIPTION = "消耗 35% 目前血量換取追加傷害，之後回流部分生命。"
 
 TALENTS = {
     "weapon_mastery": {
@@ -60,15 +60,23 @@ def legacy_active(game) -> bool:
     return game.warrior_attack_bonus > 0
 
 
+def legacy_description(game) -> str:
+    cost = min(max(1, math.ceil(game.player.hp * .35)), max(0, game.player.hp - 1))
+    bonus = min(cost, max(1, math.ceil(game.effective_player_attack() * 1.25)))
+    healing = max(1, math.ceil(cost * .30))
+    return (f"消耗 {cost} 點血量，使下一次攻擊追加 {bonus} 點傷害；"
+            f"之後 2 回合每回合恢復 {healing} 點血量。")
+
+
 def activate_legacy(game) -> bool:
     if game.warrior_attack_bonus > 0 or game.player.hp <= 1:
         return False
-    cost = min(max(1, math.ceil(game.player.hp * .50)), game.player.hp - 1)
+    cost = min(max(1, math.ceil(game.player.hp * .35)), game.player.hp - 1)
     game.player.hp -= cost
-    # 追加傷害上限＝攻擊 2.5 倍，避免用堆疊血量繞過怪物數值縮放
-    bonus = min(cost, max(1, math.ceil(game.effective_player_attack() * 2.5)))
+    # 免費專屬技能的追加傷害限制為攻擊 1.25 倍，並保留實際血量代價。
+    bonus = min(cost, max(1, math.ceil(game.effective_player_attack() * 1.25)))
     game.warrior_attack_bonus = bonus
-    game.warrior_blood_regen = max(1, math.ceil(cost * .50))
+    game.warrior_blood_regen = max(1, math.ceil(cost * .30))
     game.warrior_blood_regen_turns = 2
     game.log(f"你發動血祭強襲，犧牲 {cost} 點血量；下一次攻擊追加 {bonus} 傷害。")
     game.log(f"祭出的鮮血將在接下來 2 回合，每回合回流 {game.warrior_blood_regen} 點血量。")
@@ -77,28 +85,29 @@ def activate_legacy(game) -> bool:
 
 def tooltip(game, action_id: str) -> str:
     if action_id == "slash":
-        multiplier = int((1.0 + game.class_talent_rank("weapon_mastery") * .10) * 100)
-        return f"造成 {multiplier}% 攻擊傷害。"
+        multiplier = 1.0 + game.class_talent_rank("weapon_mastery") * .10
+        return f"{game.preview_skill_damage_text(multiplier)}。"
     if action_id == "guard":
-        multiplier = int((1.0 + game.class_talent_rank("shield_mastery") * .15) * 100)
-        return f"獲得 {multiplier}% 防禦的護盾。"
+        multiplier = 1.0 + game.class_talent_rank("shield_mastery") * .15
+        return f"獲得 {game.preview_skill_block(multiplier)} 點護盾。"
     if action_id == "cleave":
         rank = game.class_talent_rank("cleave")
-        multiplier = 170 if rank == 1 else 210
+        multiplier = 1.7 if rank == 1 else 2.1
         cooldown = 2 if rank >= 3 else 3
-        return f"造成 {multiplier}% 攻擊傷害，冷卻 {cooldown} 回合。"
+        return f"{game.preview_skill_damage_text(multiplier)}，冷卻 {cooldown} 回合。"
     if action_id == "fortify":
         rank = game.class_talent_rank("fortify")
-        multiplier = 230 if rank >= 2 else 180
+        multiplier = 2.3 if rank >= 2 else 1.8
         extra = "施放時清除持續傷害。" if rank >= 3 else ""
-        return f"獲得 {multiplier}% 防禦的護盾，冷卻 3 回合。{extra}"
+        return f"獲得 {game.preview_skill_block(multiplier)} 點護盾，冷卻 3 回合。{extra}"
     if action_id == "counter":
         rank = game.class_talent_rank("counter")
-        damage = 120 if rank >= 2 else 80
+        damage = 1.2 if rank >= 2 else .8
         cooldown = 3 if rank >= 3 else 4
-        return f"獲得 120% 防禦的護盾，並造成 {damage}% 攻擊傷害，冷卻 {cooldown} 回合。"
+        return (f"獲得 {game.preview_skill_block(1.2)} 點護盾，並"
+                f"{game.preview_skill_damage_text(damage)}，冷卻 {cooldown} 回合。")
     if action_id == "bladestorm":
-        return "造成 320% 攻擊傷害，本場戰鬥只能使用一次。"
+        return f"{game.preview_skill_damage_text(3.2)}，本場戰鬥只能使用一次。"
     return ""
 
 

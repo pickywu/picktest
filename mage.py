@@ -1,16 +1,15 @@
 import math
-import random
 
 
 JOB = "法師"
 LEGACY_NAME = "命運改寫"
-LEGACY_DESCRIPTION = "重抽目標怪物目前意圖。"
+LEGACY_DESCRIPTION = "把目標怪物的危險意圖改寫成安全意圖。"
 
 TALENTS = {
     "fire_mastery": {
         "tier": 1, "side": 0, "max": 3, "name": "火焰專精",
-        "desc": "火球術傷害 +10% / +20% / +30%。",
-        "details": ("1點：火球術傷害 +10%。", "2點：火球術傷害 +20%。", "3點：火球術傷害 +30%。"),
+        "desc": "火球術傷害提高為 120% / 130% / 140%。",
+        "details": ("1點：火球術傷害提高為 120%。", "2點：火球術傷害提高為 130%。", "3點：火球術傷害提高為 140%。"),
     },
     "frost_mastery": {
         "tier": 1, "side": 1, "max": 3, "name": "寒冰專精",
@@ -20,8 +19,8 @@ TALENTS = {
     "pyroblast": {
         "tier": 2, "side": 0, "max": 3, "name": "炎爆術",
         "desc": "1點解鎖攻擊法術；2點提高傷害；3點冷卻 -1。",
-        "details": ("1點：解鎖炎爆術，造成 180% 攻擊傷害，冷卻 3 回合。",
-                    "2點：炎爆術提高為 220% 攻擊傷害。",
+        "details": ("1點：解鎖炎爆術，造成 190% 攻擊傷害，冷卻 3 回合。",
+                    "2點：炎爆術提高為 230% 攻擊傷害。",
                     "3點：炎爆術冷卻降為 2 回合。"),
     },
     "ice_wall": {
@@ -47,14 +46,14 @@ TALENTS = {
     },
     "meteor": {
         "tier": 4, "side": 0, "max": 1, "name": "隕石風暴",
-        "desc": "解鎖大絕，造成 320% 攻擊傷害並壓制敵方攻擊意圖。",
-        "details": ("1點：解鎖隕石風暴，造成 320% 攻擊傷害；本場戰鬥只能使用一次，並壓制敵方下一次攻擊或昏迷意圖。",),
+        "desc": "解鎖大絕，造成 340% 攻擊傷害並壓制敵方危險意圖。",
+        "details": ("1點：解鎖隕石風暴，造成 340% 攻擊傷害；本場戰鬥只能使用一次，並壓制敵方下一次攻擊、持續傷害、詛咒或昏迷意圖。",),
     },
 }
 
 
 def legacy_ready(game) -> bool:
-    return bool(game.enemy_intent)
+    return bool(game.enemy_intent in game.HOSTILE_ENEMY_INTENTS)
 
 
 def legacy_active(game) -> bool:
@@ -62,41 +61,46 @@ def legacy_active(game) -> bool:
 
 
 def activate_legacy(game) -> bool:
-    if not game.enemy_intent:
+    if not game.enemy_intent or game.enemy_intent not in game.HOSTILE_ENEMY_INTENTS:
         return False
     old_intent = game.enemy_intent
-    choices = [intent for intent in game.enemy_intent_pool() if intent != old_intent]
+    choices = [
+        intent for intent in game.enemy_intent_pool()
+        if intent != old_intent and intent not in game.HOSTILE_ENEMY_INTENTS
+    ]
     if not choices:
         return False
-    game.enemy_intent = random.choice(choices)
+    game.enemy.heavy_blow_charged = False
+    game.enemy_intent = game.combat_rng.choice(choices)
     game.log(f"你施放命運改寫，目標意圖變成：{game.enemy_intent_label()}。")
     return True
 
 
 def tooltip(game, action_id: str) -> str:
     if action_id == "fireball":
-        multiplier = int((1.0 + game.class_talent_rank("fire_mastery") * .10) * 100)
-        return f"造成 {multiplier}% 攻擊傷害。"
+        multiplier = 1.1 + game.class_talent_rank("fire_mastery") * .10
+        return f"{game.preview_skill_damage_text(multiplier)}。"
     if action_id == "ice_armor":
-        multiplier = int((1.0 + game.class_talent_rank("frost_mastery") * .15) * 100)
-        return f"獲得 {multiplier}% 防禦的護盾。"
+        multiplier = 1.0 + game.class_talent_rank("frost_mastery") * .15
+        return f"獲得 {game.preview_skill_block(multiplier)} 點護盾。"
     if action_id == "pyroblast":
         rank = game.class_talent_rank("pyroblast")
-        multiplier = 180 if rank == 1 else 220
+        multiplier = 1.9 if rank == 1 else 2.3
         cooldown = 2 if rank >= 3 else 3
-        return f"造成 {multiplier}% 攻擊傷害，冷卻 {cooldown} 回合。"
+        return f"{game.preview_skill_damage_text(multiplier)}，冷卻 {cooldown} 回合。"
     if action_id == "ice_wall":
         rank = game.class_talent_rank("ice_wall")
-        multiplier = 200 if rank >= 2 else 160
+        multiplier = 2.0 if rank >= 2 else 1.6
         extra = "施放時清除持續傷害。" if rank >= 3 else ""
-        return f"獲得 {multiplier}% 防禦的護盾，冷卻 3 回合。{extra}"
+        return f"獲得 {game.preview_skill_block(multiplier)} 點護盾，冷卻 3 回合。{extra}"
     if action_id == "ice_barrier":
         rank = game.class_talent_rank("ice_barrier")
         cooldown = 3 if rank >= 3 else 4
-        extra = "施放時獲得 30% 最大血量的護盾。" if rank >= 2 else ""
+        extra = f"施放時獲得 {game.preview_max_hp_amount(.30)} 點護盾。" if rank >= 2 else ""
         return f"免疫下一次敵方攻擊，冷卻 {cooldown} 回合。{extra}"
     if action_id == "meteor":
-        return "造成 320% 攻擊傷害，本場戰鬥只能使用一次，並壓制敵方下一次攻擊或昏迷意圖。"
+        return (f"{game.preview_skill_damage_text(3.4)}，本場戰鬥只能使用一次，"
+                "並壓制敵方下一次危險意圖。")
     return ""
 
 
@@ -126,7 +130,7 @@ def action_slots(game):
 def execute(game, action_id: str) -> None:
     if action_id == "fireball":
         rank = game.class_talent_rank("fire_mastery")
-        game.class_attack_skill(action_id, 1.0 + rank * .10)
+        game.class_attack_skill(action_id, 1.1 + rank * .10)
     elif action_id == "ice_armor":
         if not game.enemy or game.battle_busy:
             return
@@ -139,7 +143,7 @@ def execute(game, action_id: str) -> None:
         rank = game.class_talent_rank("pyroblast")
         if rank < 1:
             return
-        multiplier = 1.8 if rank == 1 else 2.2
+        multiplier = 1.9 if rank == 1 else 2.3
         cooldown = 2 if rank >= 3 else 3
         game.class_attack_skill(action_id, multiplier, cooldown)
     elif action_id == "ice_wall":
@@ -172,7 +176,7 @@ def execute(game, action_id: str) -> None:
         if game.class_talent_rank("meteor") < 1:
             return
         game.log("你召喚隕石風暴，壓制敵方下一次攻擊意圖。")
-        game.class_attack_skill(action_id, 3.2, suppress_next_attack=True)
+        game.class_attack_skill(action_id, 3.4, suppress_next_attack=True)
 
 
 def prevent_death(game) -> bool:

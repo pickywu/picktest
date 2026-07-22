@@ -1,11 +1,20 @@
 .venv/
+.venv*/
 __pycache__/
+.pytest_cache/
 *.py[cod]
 
 .idea/
+.codex/
+.checkpoints/
+asset_sources/
+tmp/
 build/
 dist/
+*.zip
 *.spec
+!RPG.spec
+QA_REPORT_*.md
 
 .DS_Store
 

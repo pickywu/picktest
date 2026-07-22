@@ -9,7 +9,7 @@ TALENTS = {
     "holy_might": {
         "tier": 1, "side": 0, "max": 3, "name": "聖裁專精",
         "desc": "聖裁傷害提升。",
-        "details": ("1點：聖裁傷害 +12%。", "2點：聖裁傷害 +24%。", "3點：聖裁傷害 +36%。"),
+        "details": ("1點：聖裁傷害提高為 120%。", "2點：聖裁傷害提高為 128%。", "3點：聖裁傷害提高為 136%。"),
     },
     "devotion": {
         "tier": 1, "side": 1, "max": 3, "name": "虔誠守護",
@@ -68,29 +68,35 @@ def activate_legacy(game) -> bool:
     return True
 
 
+def smite_multiplier(game) -> float:
+    """Front-load Smite's power while preserving its previous 136% cap."""
+    return 1.12 + game.class_talent_rank("holy_might") * .08
+
+
 def tooltip(game, action_id: str) -> str:
     if action_id == "smite":
-        multiplier = int((1.0 + game.class_talent_rank("holy_might") * .12) * 100)
-        return f"造成 {multiplier}% 攻擊傷害。"
+        return f"{game.preview_skill_damage_text(smite_multiplier(game))}。"
     if action_id == "blessing":
-        multiplier = int((1.0 + game.class_talent_rank("devotion") * .15) * 100)
-        return f"獲得 {multiplier}% 防禦的護盾。"
+        multiplier = 1.0 + game.class_talent_rank("devotion") * .15
+        return f"獲得 {game.preview_skill_block(multiplier)} 點護盾。"
     if action_id == "judgment":
         rank = game.class_talent_rank("judgment")
-        damage = 230 if rank >= 2 else 180
-        heal = 15 if rank >= 3 else 10
-        return f"造成 {damage}% 攻擊傷害並恢復 {heal}% 最大血量，冷卻 3 回合。"
+        damage = 2.3 if rank >= 2 else 1.8
+        heal = game.preview_max_hp_amount(.15 if rank >= 3 else .10)
+        return f"{game.preview_skill_damage_text(damage)}並恢復 {heal} 點血量，冷卻 3 回合。"
     if action_id == "sanctuary":
         rank = game.class_talent_rank("sanctuary")
-        block = 210 if rank >= 2 else 160
+        block = game.preview_skill_block(2.1 if rank >= 2 else 1.6)
+        heal = game.preview_max_hp_amount(.10)
         extra = "清除持續傷害。" if rank >= 3 else ""
-        return f"獲得 {block}% 防禦的護盾並恢復 10% 最大血量，冷卻 3 回合。{extra}"
+        return f"獲得 {block} 點護盾並恢復 {heal} 點血量，冷卻 3 回合。{extra}"
     if action_id == "purify":
         cooldown = 3 if game.class_talent_rank("purify") >= 3 else 4
         extra = "清除持續傷害。" if game.class_talent_rank("purify") >= 2 else ""
-        return f"恢復 25% 最大血量，冷卻 {cooldown} 回合。{extra}"
+        return f"恢復 {game.preview_max_hp_amount(.25)} 點血量，冷卻 {cooldown} 回合。{extra}"
     if action_id == "divine_wrath":
-        return "造成 300% 攻擊傷害並恢復 30% 最大血量，本場戰鬥只能使用一次。"
+        return (f"{game.preview_skill_damage_text(3.0)}並恢復 "
+                f"{game.preview_max_hp_amount(.30)} 點血量，本場戰鬥只能使用一次。")
     return ""
 
 
@@ -113,7 +119,7 @@ def action_slots(game):
 
 def execute(game, action_id: str) -> None:
     if action_id == "smite":
-        game.class_attack_skill(action_id, 1.0 + game.class_talent_rank("holy_might") * .12)
+        game.class_attack_skill(action_id, smite_multiplier(game))
     elif action_id == "blessing":
         if not game.enemy or game.battle_busy:
             return

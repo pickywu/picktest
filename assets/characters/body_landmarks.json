@@ -1,0 +1,5616 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "source_pngs_are_immutable": true,
+    "scale_is_uniform_xy": true,
+    "scale_source_pose": "idle",
+    "pose_ground_alignment": "own_alpha_bottom",
+    "reference_canvas": 1024,
+    "reference_foot_y": 968,
+    "reaction_reference_height": 900,
+    "player_body_height_by_race": {
+      "elf": 900,
+      "orc": 873,
+      "human": 837,
+      "dwarf": 702
+    }
+  },
+  "players": {
+    "female/dwarf/mage": {
+      "sex": "female",
+      "race": "dwarf",
+      "job": "mage",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 153,
+        "body_bottom_y": 1186,
+        "body_left_x": 331,
+        "body_right_x": 916,
+        "anchor_x": 591,
+        "body_height": 1033,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/dwarf/mage.png",
+          "sha256": "c8ebd381829d8656177bf6d197ebb5168e59073c7bfce9d0d84c0c8e0e7e13d9",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            210,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 976,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 460,
+          "opaque_pixels": 450148
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/dwarf/mage.png",
+          "sha256": "ac465a88c61dd4edf2b72c5d74b208ef4b2278811b553d968472c1bd5507dd90",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            72,
+            28,
+            951,
+            968
+          ],
+          "visible_width": 879,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 437,
+          "opaque_pixels": 363635
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/dwarf/mage.png",
+          "sha256": "247704595a676db48be1ff80668e01daae4ebc4846f81a52b8ac0799a619e260",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            98,
+            28,
+            926,
+            968
+          ],
+          "visible_width": 828,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 415,
+          "opaque_pixels": 348814
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/dwarf/mage.png",
+          "sha256": "adc8744f975c4acbf0c64f18b8603e497e1a211189b078cd06fad2cb6d06ecf4",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            250,
+            83,
+            1003,
+            1186
+          ],
+          "visible_width": 753,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 587,
+          "opaque_pixels": 453525
+        }
+      }
+    },
+    "female/dwarf/paladin": {
+      "sex": "female",
+      "race": "dwarf",
+      "job": "paladin",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 316,
+        "body_bottom_y": 1452,
+        "body_left_x": 176,
+        "body_right_x": 894,
+        "anchor_x": 556,
+        "body_height": 1136,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/dwarf/paladin.png",
+          "sha256": "71330bc920cee0cab2ee9d46285a09a2187c1293fef9439a8451dffa78ea01fe",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            525,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 927,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 553,
+          "opaque_pixels": 393139
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/dwarf/paladin.png",
+          "sha256": "24129566ce538ba62182803c33f4ea3ad5b7339efcf6612f6e17614253f097ab",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            38,
+            28,
+            982,
+            968
+          ],
+          "visible_width": 944,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 542,
+          "opaque_pixels": 511612
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/dwarf/paladin.png",
+          "sha256": "e179cd4af7c973e4d3774322ff82b67235725f51ac5d228d6592553882e8cf70",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            118,
+            28,
+            905,
+            968
+          ],
+          "visible_width": 787,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 573,
+          "opaque_pixels": 418844
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/dwarf/paladin.png",
+          "sha256": "c2d2373c16319eb47060d5b37600f403d67adcba035b065d48fe5ce964ba6f32",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            316,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1136,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 558,
+          "opaque_pixels": 565756
+        }
+      }
+    },
+    "female/dwarf/rogue": {
+      "sex": "female",
+      "race": "dwarf",
+      "job": "rogue",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 263,
+        "body_bottom_y": 1452,
+        "body_left_x": 161,
+        "body_right_x": 750,
+        "anchor_x": 467,
+        "body_height": 1189,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/dwarf/rogue.png",
+          "sha256": "b36512c0629021aa35d29a8704cff262d7c824decf3ba7ffcfa6ebe6c6bfde63",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            528,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 924,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 449,
+          "opaque_pixels": 314809
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/dwarf/rogue.png",
+          "sha256": "89e504fbae355a63bfa80d57d36d27aac6d02a9184d5d348b4c2f33d68597778",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            175,
+            28,
+            849,
+            968
+          ],
+          "visible_width": 674,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 513,
+          "opaque_pixels": 314830
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/dwarf/rogue.png",
+          "sha256": "f48860c95d079f195e72d5236b07b178aac1dbcb6d640fc16b57018d3c2d8653",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            158,
+            28,
+            866,
+            968
+          ],
+          "visible_width": 708,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 485,
+          "opaque_pixels": 300140
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/dwarf/rogue.png",
+          "sha256": "6491cc2bc863dbeae4130f8f4f67687646d7d5161019c1d4d7e9ccc098515416",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            71,
+            262,
+            953,
+            1452
+          ],
+          "visible_width": 882,
+          "visible_height": 1190,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 455,
+          "opaque_pixels": 500197
+        }
+      }
+    },
+    "female/dwarf/warlock": {
+      "sex": "female",
+      "race": "dwarf",
+      "job": "warlock",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 339,
+        "body_bottom_y": 1452,
+        "body_left_x": 146,
+        "body_right_x": 845,
+        "anchor_x": 431,
+        "body_height": 1113,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/dwarf/warlock.png",
+          "sha256": "2554964e8ed8b94333a62978f7ae701ebe49896c06c435358929cb4e333a4e4a",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            398,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1054,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 407,
+          "opaque_pixels": 385477
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/dwarf/warlock.png",
+          "sha256": "5b470f27c3bb04c3c60240f071c8be7ad3f6a24431e983054fa02d261a38506d",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            72,
+            28,
+            951,
+            968
+          ],
+          "visible_width": 879,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 397,
+          "opaque_pixels": 328555
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/dwarf/warlock.png",
+          "sha256": "29916d031b087ab66af5118a8354e98759265a489b358abbcb2bb11b1ca7b5f7",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            57,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 911,
+          "alpha_bottom_y": 968,
+          "anchor_x": 364,
+          "opaque_pixels": 394302
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/dwarf/warlock.png",
+          "sha256": "ae1c032c4a7e46931e17a9f032957bf87a282130a7d705f6f8036c6c76140487",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            237,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1215,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 426,
+          "opaque_pixels": 538120
+        }
+      }
+    },
+    "female/dwarf/warrior": {
+      "sex": "female",
+      "race": "dwarf",
+      "job": "warrior",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 585,
+        "body_bottom_y": 1498,
+        "body_left_x": 210,
+        "body_right_x": 870,
+        "anchor_x": 463,
+        "body_height": 913,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/dwarf/warrior.png",
+          "sha256": "589adb3b7172152584ca439ed8f8919e64af26b85291a9f322e28115fb7db255",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            41,
+            575,
+            983,
+            1498
+          ],
+          "visible_width": 942,
+          "visible_height": 923,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 406,
+          "opaque_pixels": 373387
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/dwarf/warrior.png",
+          "sha256": "5d14d08de2d2e5b35fada921ed397e3fe1d0b1ec2a07ddf3ec1657b793fc09ad",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            63,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 905,
+          "alpha_bottom_y": 968,
+          "anchor_x": 441,
+          "opaque_pixels": 438420
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/dwarf/warrior.png",
+          "sha256": "585db1cbe0c0329483f88439b95c88c015c8e6d6d934c491a2d6a9e802720d01",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            133,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 835,
+          "alpha_bottom_y": 968,
+          "anchor_x": 469,
+          "opaque_pixels": 385189
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/dwarf/warrior.png",
+          "sha256": "84e521af62f49046a9a2381a181ba0155f047cf90849b369d738b6d9aa5da627",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            51,
+            585,
+            973,
+            1498
+          ],
+          "visible_width": 922,
+          "visible_height": 913,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 467,
+          "opaque_pixels": 409126
+        }
+      }
+    },
+    "female/elf/mage": {
+      "sex": "female",
+      "race": "elf",
+      "job": "mage",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 191,
+        "body_bottom_y": 1186,
+        "body_left_x": 447,
+        "body_right_x": 817,
+        "anchor_x": 635,
+        "body_height": 995,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/elf/mage.png",
+          "sha256": "a39dd98b01321e392c9c60abd270f040929dbd518277afe93e314e8913453ce0",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            257,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 929,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 467,
+          "opaque_pixels": 301005
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/elf/mage.png",
+          "sha256": "1b09d86b813f6e98398e6bf92b261df5ea4ed9592d16d7518c8f480b7b00180a",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            95,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 873,
+          "alpha_bottom_y": 968,
+          "anchor_x": 390,
+          "opaque_pixels": 285765
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/elf/mage.png",
+          "sha256": "a5c5e371d6ececd26b8a693916757ed20fa53480e2a1b17740429b231183665c",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            146,
+            28,
+            877,
+            968
+          ],
+          "visible_width": 731,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 484,
+          "opaque_pixels": 253792
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/elf/mage.png",
+          "sha256": "bebda9f3165031ac776c528340980706acffce9dd28729b725d84e0ea2fb7d8c",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            376,
+            83,
+            877,
+            1186
+          ],
+          "visible_width": 501,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 636,
+          "opaque_pixels": 260620
+        }
+      }
+    },
+    "female/elf/paladin": {
+      "sex": "female",
+      "race": "elf",
+      "job": "paladin",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 101,
+        "body_bottom_y": 1452,
+        "body_left_x": 222,
+        "body_right_x": 871,
+        "anchor_x": 591,
+        "body_height": 1351,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/elf/paladin.png",
+          "sha256": "21a47355f67ccc373410093336affee344b5f2e2fdade32ddced18f004429a5c",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            544,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 908,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 434,
+          "opaque_pixels": 339632
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/elf/paladin.png",
+          "sha256": "8e1fa024f0158f302bcac50f130d2de9fd12cd643af8bb3bf287cae84a023c80",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            71,
+            28,
+            952,
+            968
+          ],
+          "visible_width": 881,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 538,
+          "opaque_pixels": 402353
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/elf/paladin.png",
+          "sha256": "e7e556894d49092b6cd2ead984ebff50f2be9941287103c4b6191cf53d25654c",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            134,
+            28,
+            889,
+            968
+          ],
+          "visible_width": 755,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 569,
+          "opaque_pixels": 309270
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/elf/paladin.png",
+          "sha256": "617d3addb7f46902726eebb258d61cde92e67ca713995ca904d5e70dc7597934",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            73,
+            101,
+            951,
+            1452
+          ],
+          "visible_width": 878,
+          "visible_height": 1351,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 591,
+          "opaque_pixels": 523968
+        }
+      }
+    },
+    "female/elf/rogue": {
+      "sex": "female",
+      "race": "elf",
+      "job": "rogue",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 132,
+        "body_bottom_y": 1452,
+        "body_left_x": 236,
+        "body_right_x": 754,
+        "anchor_x": 484,
+        "body_height": 1320,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/elf/rogue.png",
+          "sha256": "ba2953dac974f1201563a15479504c4b7c6cae54d48e22a9b64ef4449586d068",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            41,
+            292,
+            982,
+            1498
+          ],
+          "visible_width": 941,
+          "visible_height": 1206,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 480,
+          "opaque_pixels": 429956
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/elf/rogue.png",
+          "sha256": "73b3cef6e1f5971d2d7f9211de5c75c0154bb975a49d219886dd39d3246e1324",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            118,
+            28,
+            906,
+            968
+          ],
+          "visible_width": 788,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 478,
+          "opaque_pixels": 273328
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/elf/rogue.png",
+          "sha256": "41235a4e00d9da2cef7cb99977859730ed74dfeed3196b6c9196961b5154de43",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            134,
+            28,
+            890,
+            968
+          ],
+          "visible_width": 756,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 515,
+          "opaque_pixels": 249891
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/elf/rogue.png",
+          "sha256": "d4379535d5da6d4c390a7dcdd2e604cd9401b4bbe8e990646e8f6699683a6956",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            74,
+            131,
+            950,
+            1452
+          ],
+          "visible_width": 876,
+          "visible_height": 1321,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 479,
+          "opaque_pixels": 431304
+        }
+      }
+    },
+    "female/elf/warlock": {
+      "sex": "female",
+      "race": "elf",
+      "job": "warlock",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 134,
+        "body_bottom_y": 1452,
+        "body_left_x": 216,
+        "body_right_x": 708,
+        "anchor_x": 475,
+        "body_height": 1318,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/elf/warlock.png",
+          "sha256": "9c228d5b9c9bf1690438d398f8c49ec23b6deb27f514683d09af1dd685ba10ec",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            234,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1218,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 415,
+          "opaque_pixels": 426394
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/elf/warlock.png",
+          "sha256": "54a5c78ad86faa76ef654066e315996d71a2494215318a976186871b149697c6",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            159,
+            28,
+            865,
+            968
+          ],
+          "visible_width": 706,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 509,
+          "opaque_pixels": 266826
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/elf/warlock.png",
+          "sha256": "685b989fc645f42333d3f5c6b60bd4d629276fc9a62d6c2fa7bcf876f4b3e907",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            174,
+            28,
+            850,
+            968
+          ],
+          "visible_width": 676,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 559,
+          "opaque_pixels": 314280
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/elf/warlock.png",
+          "sha256": "9fef5928f407be670c2a92ec043a3ed1044e380eb8c08c45ebb36bfd7d44513e",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            158,
+            101,
+            865,
+            1452
+          ],
+          "visible_width": 707,
+          "visible_height": 1351,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 479,
+          "opaque_pixels": 495287
+        }
+      }
+    },
+    "female/elf/warrior": {
+      "sex": "female",
+      "race": "elf",
+      "job": "warrior",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 470,
+        "body_bottom_y": 1498,
+        "body_left_x": 168,
+        "body_right_x": 898,
+        "anchor_x": 454,
+        "body_height": 1028,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/elf/warrior.png",
+          "sha256": "af0d37361f7ed584e26b2555322db0480dfb262e08f4ade703ef8bd92fa016ad",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            45,
+            501,
+            983,
+            1498
+          ],
+          "visible_width": 938,
+          "visible_height": 997,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 453,
+          "opaque_pixels": 354758
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/elf/warrior.png",
+          "sha256": "e32cf40aa8161b913a71bf3995cb5b62fd5da27419fea8c89271db383704eb3a",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            51,
+            28,
+            972,
+            968
+          ],
+          "visible_width": 921,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 515,
+          "opaque_pixels": 313939
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/elf/warrior.png",
+          "sha256": "eb885e944db20b94bbff0937d3bf397dbbc77014ed9bd58897d2f808dbffeaab",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            91,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 877,
+          "alpha_bottom_y": 968,
+          "anchor_x": 431,
+          "opaque_pixels": 314470
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/elf/warrior.png",
+          "sha256": "e56259462324a7f6d8b954ea07fb8619063169a37dda73cea65d3c0a3a91fd15",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            51,
+            470,
+            973,
+            1498
+          ],
+          "visible_width": 922,
+          "visible_height": 1028,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 457,
+          "opaque_pixels": 342401
+        }
+      }
+    },
+    "female/human/mage": {
+      "sex": "female",
+      "race": "human",
+      "job": "mage",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 84,
+        "body_bottom_y": 1186,
+        "body_left_x": 403,
+        "body_right_x": 819,
+        "anchor_x": 615,
+        "body_height": 1102,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/human/mage.png",
+          "sha256": "f8146326df37b4d7e09db1850babf34e5f5338365bc7cddc6c9c7ef6ec90f1ee",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            236,
+            1169,
+            1186
+          ],
+          "visible_width": 1094,
+          "visible_height": 950,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 400,
+          "opaque_pixels": 328299
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/human/mage.png",
+          "sha256": "5b541bced70f91fe66b1ea3ee4bdea3c6244d1fcadb18462e6431c9a080cdd9f",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            187,
+            28,
+            836,
+            968
+          ],
+          "visible_width": 649,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 452,
+          "opaque_pixels": 219892
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/human/mage.png",
+          "sha256": "50294693102fb540e53f7ea3dda463b8bf09f99b7384772a11761e0af6a00d74",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            93,
+            28,
+            930,
+            968
+          ],
+          "visible_width": 837,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 624,
+          "opaque_pixels": 307809
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/human/mage.png",
+          "sha256": "d3a9f4deefe0337354486d953c656887757f35b7bacc57453929ab397d4c7754",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            349,
+            83,
+            905,
+            1186
+          ],
+          "visible_width": 556,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 617,
+          "opaque_pixels": 338179
+        }
+      }
+    },
+    "female/human/paladin": {
+      "sex": "female",
+      "race": "human",
+      "job": "paladin",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 102,
+        "body_bottom_y": 1452,
+        "body_left_x": 243,
+        "body_right_x": 843,
+        "anchor_x": 570,
+        "body_height": 1350,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/human/paladin.png",
+          "sha256": "6ea788305daf8f10be6812e61e3142c696eb4c1bec54a130111128b83a867715",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            387,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1065,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 591,
+          "opaque_pixels": 440187
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/human/paladin.png",
+          "sha256": "79cf9ee987b0675a014458dc5181b85856ce7d51c7bbf9465d5df5e900cbb1f9",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            113,
+            28,
+            910,
+            968
+          ],
+          "visible_width": 797,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 549,
+          "opaque_pixels": 377306
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/human/paladin.png",
+          "sha256": "a6e7c0540b101b7a7eb40f21a11426564b0fdddac65b016d53acc0a7ffc8326b",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            165,
+            28,
+            858,
+            968
+          ],
+          "visible_width": 693,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 515,
+          "opaque_pixels": 329928
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/human/paladin.png",
+          "sha256": "e89be3bb9555daa57a66cbd2ca70eb7128c03524c6c87bb326e534bc3e8d15ae",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            98,
+            102,
+            925,
+            1452
+          ],
+          "visible_width": 827,
+          "visible_height": 1350,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 573,
+          "opaque_pixels": 545864
+        }
+      }
+    },
+    "female/human/rogue": {
+      "sex": "female",
+      "race": "human",
+      "job": "rogue",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 130,
+        "body_bottom_y": 1452,
+        "body_left_x": 208,
+        "body_right_x": 708,
+        "anchor_x": 460,
+        "body_height": 1322,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/human/rogue.png",
+          "sha256": "5a7177114af2c70e7395e0ada43d914ebdb799492cff5964ccb5ff246f5982e4",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            586,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 866,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 423,
+          "opaque_pixels": 255121
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/human/rogue.png",
+          "sha256": "2a79ae2a803fc88530307e5ad7aa118376f9274e4daceca486e0e983921e519b",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            142,
+            28,
+            882,
+            968
+          ],
+          "visible_width": 740,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 538,
+          "opaque_pixels": 282740
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/human/rogue.png",
+          "sha256": "b08fc936fb093825049331f52d2ff5bfeeaf01edefcc76794f597b922f9f5be7",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            145,
+            28,
+            879,
+            968
+          ],
+          "visible_width": 734,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 493,
+          "opaque_pixels": 285373
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/human/rogue.png",
+          "sha256": "2538882f23658171421d9589267b3189967257239c2255b7721a07f1d4467622",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            87,
+            130,
+            937,
+            1452
+          ],
+          "visible_width": 850,
+          "visible_height": 1322,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 456,
+          "opaque_pixels": 412917
+        }
+      }
+    },
+    "female/human/warlock": {
+      "sex": "female",
+      "race": "human",
+      "job": "warlock",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 193,
+        "body_bottom_y": 1452,
+        "body_left_x": 263,
+        "body_right_x": 782,
+        "anchor_x": 548,
+        "body_height": 1259,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/human/warlock.png",
+          "sha256": "125e6593d926eea475dde5e1c03b734c958b4dcb87d419e95f37a3d4d5fd008d",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            394,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1058,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 341,
+          "opaque_pixels": 338058
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/human/warlock.png",
+          "sha256": "9f2b47f53f005f64062cb35aba0da674d29c44b8ed3b39eb818231203f9acccd",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            111,
+            28,
+            912,
+            968
+          ],
+          "visible_width": 801,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 415,
+          "opaque_pixels": 250565
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/human/warlock.png",
+          "sha256": "5d68769e87a29296cdff9361200768ebe10db89c252e13b4625bc06a2cd185c4",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            157,
+            28,
+            866,
+            968
+          ],
+          "visible_width": 709,
+          "visible_height": 940,
+          "alpha_bottom_y": 968,
+          "anchor_x": 563,
+          "opaque_pixels": 317258
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/human/warlock.png",
+          "sha256": "1f6a03d50b95bbe322f93b14e382121c8f1bef4e2f74a3c6a18cde630185d59e",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            154,
+            101,
+            869,
+            1452
+          ],
+          "visible_width": 715,
+          "visible_height": 1351,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 552,
+          "opaque_pixels": 480750
+        }
+      }
+    },
+    "female/human/warrior": {
+      "sex": "female",
+      "race": "human",
+      "job": "warrior",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 369,
+        "body_bottom_y": 1498,
+        "body_left_x": 179,
+        "body_right_x": 850,
+        "anchor_x": 441,
+        "body_height": 1129,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/human/warrior.png",
+          "sha256": "059eae271947a8efcb1dab8a2f060f87890736617ac78f631e114ae6bbd17371",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            41,
+            571,
+            983,
+            1498
+          ],
+          "visible_width": 942,
+          "visible_height": 927,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 418,
+          "opaque_pixels": 390941
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/human/warrior.png",
+          "sha256": "0658b0533907494daf1ea19604e9f53d6852298f7d2f87e4b4ace9aad0d51119",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            36,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 932,
+          "alpha_bottom_y": 968,
+          "anchor_x": 413,
+          "opaque_pixels": 439753
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/human/warrior.png",
+          "sha256": "7723dbf1b688c293431b130e3b5108d3a4cbf1a7356a36955deb952a8c216775",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            28,
+            157,
+            996,
+            968
+          ],
+          "visible_width": 968,
+          "visible_height": 811,
+          "alpha_bottom_y": 968,
+          "anchor_x": 424,
+          "opaque_pixels": 364591
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/human/warrior.png",
+          "sha256": "ac87024fff20a7b8c8be4c3be5ae561777f5a766d4081feea86736e85b9f45e1",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            51,
+            369,
+            973,
+            1498
+          ],
+          "visible_width": 922,
+          "visible_height": 1129,
+          "alpha_bottom_y": 1498,
+          "anchor_x": 445,
+          "opaque_pixels": 501519
+        }
+      }
+    },
+    "female/orc/mage": {
+      "sex": "female",
+      "race": "orc",
+      "job": "mage",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 154,
+        "body_bottom_y": 1223,
+        "body_left_x": 458,
+        "body_right_x": 824,
+        "anchor_x": 644,
+        "body_height": 1069,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/orc/mage.png",
+          "sha256": "c191c0aca75f34b57b650fcb4d69e7dea45f2f88be8c0139664f39967f5ac214",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            50,
+            146,
+            1204,
+            1223
+          ],
+          "visible_width": 1154,
+          "visible_height": 1077,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 390,
+          "opaque_pixels": 348190
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/orc/mage.png",
+          "sha256": "4cbe7e4dd6e939f16f7e3aaea46d7ab0b4342ded7798297ede63d6123d3b1102",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            206,
+            68,
+            749,
+            968
+          ],
+          "visible_width": 543,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 494,
+          "opaque_pixels": 221123
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/orc/mage.png",
+          "sha256": "84408e6d1f5fd9f0f3e3b1a5f0573b92ee4b192773d929432c90d13e87e64958",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            262,
+            68,
+            762,
+            968
+          ],
+          "visible_width": 500,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 519,
+          "opaque_pixels": 201468
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/orc/mage.png",
+          "sha256": "663c851730a3f4715191b75d5506ce26972a1c72fae8f7a57691e84c8d532349",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            384,
+            44,
+            869,
+            1223
+          ],
+          "visible_width": 485,
+          "visible_height": 1179,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 647,
+          "opaque_pixels": 314522
+        }
+      }
+    },
+    "female/orc/paladin": {
+      "sex": "female",
+      "race": "orc",
+      "job": "paladin",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 44,
+        "body_bottom_y": 1223,
+        "body_left_x": 369,
+        "body_right_x": 907,
+        "anchor_x": 607,
+        "body_height": 1179,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/orc/paladin.png",
+          "sha256": "1ec6dac448401c43606de2cdac9693b3b5c47980b8e60a3eb384daa8f92280e5",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            95,
+            44,
+            1158,
+            1223
+          ],
+          "visible_width": 1063,
+          "visible_height": 1179,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 582,
+          "opaque_pixels": 609119
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/orc/paladin.png",
+          "sha256": "b94a0f3dc436050aa91b9e417d9fcf979d94ac74953eb1ec988e8d93e032a8aa",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            116,
+            68,
+            908,
+            968
+          ],
+          "visible_width": 792,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 496,
+          "opaque_pixels": 408741
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/orc/paladin.png",
+          "sha256": "b438f62dc7b6ff682757b17c9ba5fca81b8c2a9a827977c69dc1cb097492f992",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            157,
+            68,
+            866,
+            968
+          ],
+          "visible_width": 709,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 510,
+          "opaque_pixels": 377585
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/orc/paladin.png",
+          "sha256": "860a360bd87aceee808c4c8029a09d2b56fcd0892c0766fb938905c58e8ebae2",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            287,
+            44,
+            966,
+            1223
+          ],
+          "visible_width": 679,
+          "visible_height": 1179,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 614,
+          "opaque_pixels": 517017
+        }
+      }
+    },
+    "female/orc/rogue": {
+      "sex": "female",
+      "race": "orc",
+      "job": "rogue",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 44,
+        "body_bottom_y": 1223,
+        "body_left_x": 343,
+        "body_right_x": 827,
+        "anchor_x": 585,
+        "body_height": 1179,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/orc/rogue.png",
+          "sha256": "2212f50a3b833ba276e68cbee5a1742ee17246d25f67ba49cb0093325341c2e4",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            50,
+            262,
+            1204,
+            1223
+          ],
+          "visible_width": 1154,
+          "visible_height": 961,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 566,
+          "opaque_pixels": 400714
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/orc/rogue.png",
+          "sha256": "91ae08484e6ac34ac3ff9bf50f4bcc89635d99dc7ba15b47d591fddf6a1b4077",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            197,
+            68,
+            826,
+            968
+          ],
+          "visible_width": 629,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 514,
+          "opaque_pixels": 279244
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/orc/rogue.png",
+          "sha256": "b84978487d8ae4bdea9079af74c7bcbf002f261ad7d035ce62d55eabc3d2032f",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            193,
+            68,
+            831,
+            968
+          ],
+          "visible_width": 638,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 470,
+          "opaque_pixels": 255013
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/orc/rogue.png",
+          "sha256": "c6f68cac8d28cc87bef01886811be521a8a377656fe347a0299dda9f618fa1cf",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            243,
+            44,
+            1010,
+            1223
+          ],
+          "visible_width": 767,
+          "visible_height": 1179,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 572,
+          "opaque_pixels": 418639
+        }
+      }
+    },
+    "female/orc/warlock": {
+      "sex": "female",
+      "race": "orc",
+      "job": "warlock",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 64,
+        "body_bottom_y": 1223,
+        "body_left_x": 397,
+        "body_right_x": 819,
+        "anchor_x": 618,
+        "body_height": 1159,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/orc/warlock.png",
+          "sha256": "8184460b464c42728efe7137ab15992a3fd65ab36f5f5418a7464288ec8781b9",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            50,
+            95,
+            1203,
+            1223
+          ],
+          "visible_width": 1153,
+          "visible_height": 1128,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 466,
+          "opaque_pixels": 468568
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/orc/warlock.png",
+          "sha256": "0c1170fe5885b1558d7c70721942a3272c61c1169906ec02e4f724101088e8b5",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            206,
+            68,
+            818,
+            968
+          ],
+          "visible_width": 612,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 505,
+          "opaque_pixels": 267591
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/orc/warlock.png",
+          "sha256": "b52b9f48020d2996608a154084fd557b4b2115be3653d7ac4cf0b335afa9955f",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            233,
+            68,
+            791,
+            968
+          ],
+          "visible_width": 558,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 549,
+          "opaque_pixels": 272096
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/orc/warlock.png",
+          "sha256": "695ac45d0a269e320c2b2d45e74bcd001d961e1ce8cd8604d4a62a605631553e",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            318,
+            44,
+            936,
+            1223
+          ],
+          "visible_width": 618,
+          "visible_height": 1179,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 621,
+          "opaque_pixels": 386121
+        }
+      }
+    },
+    "female/orc/warrior": {
+      "sex": "female",
+      "race": "orc",
+      "job": "warrior",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 45,
+        "body_bottom_y": 1223,
+        "body_left_x": 196,
+        "body_right_x": 1011,
+        "anchor_x": 466,
+        "body_height": 1178,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/female/orc/warrior.png",
+          "sha256": "3601d7e78b789f82c3c5ab8a4a328340ed415adff57c5a2589df42b28121fe9e",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            50,
+            213,
+            1204,
+            1223
+          ],
+          "visible_width": 1154,
+          "visible_height": 1010,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 497,
+          "opaque_pixels": 480704
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/female/orc/warrior.png",
+          "sha256": "8c984952addc3471d871adc96144fb5f8869dd34d8ed205a4239d97f58f9f651",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            126,
+            68,
+            898,
+            968
+          ],
+          "visible_width": 772,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 448,
+          "opaque_pixels": 313298
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/female/orc/warrior.png",
+          "sha256": "23a90e796929046e9d1e7e0a1995876f0731e946537c412afc3e72463712d8c6",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            111,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 857,
+          "alpha_bottom_y": 968,
+          "anchor_x": 398,
+          "opaque_pixels": 340282
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/female/orc/warrior.png",
+          "sha256": "b7e7543889feaee7c2e33989d3f48b4725d7b7bf817fc1545e3afad9fef6c92e",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            64,
+            44,
+            1190,
+            1223
+          ],
+          "visible_width": 1126,
+          "visible_height": 1179,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 479,
+          "opaque_pixels": 533108
+        }
+      }
+    },
+    "male/dwarf/mage": {
+      "sex": "male",
+      "race": "dwarf",
+      "job": "mage",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 176,
+        "body_bottom_y": 1186,
+        "body_left_x": 299,
+        "body_right_x": 888,
+        "anchor_x": 555,
+        "body_height": 1010,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/dwarf/mage.png",
+          "sha256": "084a9c11aa1a97f3d021c3eaa2b93ba9c9795ff24607cb658391624e9b981bd2",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            370,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 816,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 420,
+          "opaque_pixels": 380757
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/dwarf/mage.png",
+          "sha256": "84ef8673cbebce9051c5c80fe70073aecc55b035b815a51fd42c7947f12d75ab",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            235,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 733,
+          "alpha_bottom_y": 968,
+          "anchor_x": 418,
+          "opaque_pixels": 341443
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/dwarf/mage.png",
+          "sha256": "82cf0ee4b74c3f9f18efe2e3cf230ce8cee5d9d9e6b116f1a0ceea3851fb6b74",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            80,
+            68,
+            944,
+            968
+          ],
+          "visible_width": 864,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 386,
+          "opaque_pixels": 388738
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/dwarf/mage.png",
+          "sha256": "c722802229e053d0ee716d7f183fcdf15104d90bb7c819503000b8e08925f885",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            248,
+            83,
+            1005,
+            1186
+          ],
+          "visible_width": 757,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 549,
+          "opaque_pixels": 459428
+        }
+      }
+    },
+    "male/dwarf/paladin": {
+      "sex": "male",
+      "race": "dwarf",
+      "job": "paladin",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 154,
+        "body_bottom_y": 1186,
+        "body_left_x": 270,
+        "body_right_x": 1014,
+        "anchor_x": 624,
+        "body_height": 1032,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/dwarf/paladin.png",
+          "sha256": "f9a5e22ed1344413f2e7d13e290e96e2addd4c2f2a8c8bb165b4ef7686d626c9",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            380,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 806,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 575,
+          "opaque_pixels": 473115
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/dwarf/paladin.png",
+          "sha256": "a5870b183ff1c45908fbd2b5f7ceb48994bf85841fbad94c035435e2053bdb87",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            207,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 761,
+          "alpha_bottom_y": 968,
+          "anchor_x": 443,
+          "opaque_pixels": 367085
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/dwarf/paladin.png",
+          "sha256": "e7b9f5992bd4a553cbec7615b47563c5be51bd96aa7ee713112cd62573b262f1",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            85,
+            68,
+            939,
+            968
+          ],
+          "visible_width": 854,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 508,
+          "opaque_pixels": 468239
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/dwarf/paladin.png",
+          "sha256": "7cc3305db83298c2f30d98b993eac0afc609f2c48af00e156c747332a83dd748",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            169,
+            154,
+            1084,
+            1186
+          ],
+          "visible_width": 915,
+          "visible_height": 1032,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 622,
+          "opaque_pixels": 598211
+        }
+      }
+    },
+    "male/dwarf/rogue": {
+      "sex": "male",
+      "race": "dwarf",
+      "job": "rogue",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 83,
+        "body_bottom_y": 1186,
+        "body_left_x": 238,
+        "body_right_x": 925,
+        "anchor_x": 594,
+        "body_height": 1103,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/dwarf/rogue.png",
+          "sha256": "bd4430254bd971015fa66330f74ca6f159875c163b1971e516793cb07633b403",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            287,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 899,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 537,
+          "opaque_pixels": 455761
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/dwarf/rogue.png",
+          "sha256": "5ab9e9a35c7bee48c415abf706eaf7894387aefbf2d643ce821698e8a17a3838",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            94,
+            68,
+            930,
+            968
+          ],
+          "visible_width": 836,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 498,
+          "opaque_pixels": 398404
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/dwarf/rogue.png",
+          "sha256": "191d23e4b2b5f3b28c3917e3b856b68bb7b5be99fb1868bb340b7fed2c890748",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            106,
+            68,
+            918,
+            968
+          ],
+          "visible_width": 812,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 476,
+          "opaque_pixels": 400684
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/dwarf/rogue.png",
+          "sha256": "f874b4871fc6918b456ec47ddd4e1e96c2f3468c3fe0f238cc6092fa7b1215fa",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            103,
+            83,
+            1151,
+            1186
+          ],
+          "visible_width": 1048,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 577,
+          "opaque_pixels": 575308
+        }
+      }
+    },
+    "male/dwarf/warlock": {
+      "sex": "male",
+      "race": "dwarf",
+      "job": "warlock",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 186,
+        "body_bottom_y": 1186,
+        "body_left_x": 284,
+        "body_right_x": 925,
+        "anchor_x": 574,
+        "body_height": 1000,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/dwarf/warlock.png",
+          "sha256": "8021ede6d0c3bf671e22c56ca01f6160e466887f79c65a42a2d01175f5d60407",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            409,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 777,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 478,
+          "opaque_pixels": 365193
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/dwarf/warlock.png",
+          "sha256": "33b3ae6437e01de9eefe329c3e636250d238301df9c9188e2708a5637d8616e4",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            143,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 825,
+          "alpha_bottom_y": 968,
+          "anchor_x": 461,
+          "opaque_pixels": 421485
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/dwarf/warlock.png",
+          "sha256": "a1ee42b74a78941339a89144103fae13aa377dada59d8df206120edf49f53d2e",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            116,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 852,
+          "alpha_bottom_y": 968,
+          "anchor_x": 404,
+          "opaque_pixels": 389009
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/dwarf/warlock.png",
+          "sha256": "5dfe928ec35914401b8a1650e764f0c85e551ce178bbbca2ecf36fc46e4d33d5",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            187,
+            83,
+            1067,
+            1186
+          ],
+          "visible_width": 880,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 568,
+          "opaque_pixels": 501072
+        }
+      }
+    },
+    "male/dwarf/warrior": {
+      "sex": "male",
+      "race": "dwarf",
+      "job": "warrior",
+      "target_body_height": 702,
+      "idle_body": {
+        "body_top_y": 118,
+        "body_bottom_y": 1186,
+        "body_left_x": 204,
+        "body_right_x": 1050,
+        "anchor_x": 567,
+        "body_height": 1068,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/dwarf/warrior.png",
+          "sha256": "4856aab65cda9ed0df196a8f6624720fc3cd0e429662fb980bc597cdc7f79350",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            346,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 840,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 554,
+          "opaque_pixels": 500589
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/dwarf/warrior.png",
+          "sha256": "0bb554db9179b092323f87f5596474a118539c066095e55cdf65bb56ebe68d30",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            97,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 871,
+          "alpha_bottom_y": 968,
+          "anchor_x": 465,
+          "opaque_pixels": 473877
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/dwarf/warrior.png",
+          "sha256": "82102bf48a579fab4c8456d38dc10f9eef950606e5b7ebe0d02f21f5380432e0",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            80,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 888,
+          "alpha_bottom_y": 968,
+          "anchor_x": 422,
+          "opaque_pixels": 450308
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/dwarf/warrior.png",
+          "sha256": "5c1b5100eb40d353cccf53f7db5ba969b113cc1dd01c8a0e856a96ab1a3e956f",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            95,
+            118,
+            1158,
+            1186
+          ],
+          "visible_width": 1063,
+          "visible_height": 1068,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 563,
+          "opaque_pixels": 633049
+        }
+      }
+    },
+    "male/elf/mage": {
+      "sex": "male",
+      "race": "elf",
+      "job": "mage",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 83,
+        "body_bottom_y": 1186,
+        "body_left_x": 395,
+        "body_right_x": 836,
+        "anchor_x": 618,
+        "body_height": 1103,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/elf/mage.png",
+          "sha256": "50b40f7c5c5387401d84124dd28ef127e052d0ca2edea237587fc3426d6acea6",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            50,
+            312,
+            1201,
+            1223
+          ],
+          "visible_width": 1151,
+          "visible_height": 911,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 438,
+          "opaque_pixels": 307361
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/elf/mage.png",
+          "sha256": "3f643ccd8299f5fe5ed8fe2ad015f9e90e3cd491bfb572163e9911a0eca118c3",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            74,
+            976,
+            968
+          ],
+          "visible_width": 929,
+          "visible_height": 894,
+          "alpha_bottom_y": 968,
+          "anchor_x": 443,
+          "opaque_pixels": 355703
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/elf/mage.png",
+          "sha256": "92ca7fd6d1cbb89377d31f4e7a5719768ecb8cb2d14f40cc1c79a2e4853b04fd",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            175,
+            68,
+            848,
+            968
+          ],
+          "visible_width": 673,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 423,
+          "opaque_pixels": 280009
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/elf/mage.png",
+          "sha256": "57ea68c32c9a78bf0506b505672b7afff21ff3edc33f854d1dd6ed844b89e34f",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            292,
+            83,
+            962,
+            1186
+          ],
+          "visible_width": 670,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 609,
+          "opaque_pixels": 357051
+        }
+      }
+    },
+    "male/elf/paladin": {
+      "sex": "male",
+      "race": "elf",
+      "job": "paladin",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 89,
+        "body_bottom_y": 1278,
+        "body_left_x": 308,
+        "body_right_x": 908,
+        "anchor_x": 623,
+        "body_height": 1189,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/elf/paladin.png",
+          "sha256": "0f900f16f5a2c30344a271e13bc2942f8c05a4a060d4dc31f534ce7f7c521c5b",
+          "canvas": [
+            1163,
+            1352
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            46,
+            126,
+            1116,
+            1317
+          ],
+          "visible_width": 1070,
+          "visible_height": 1191,
+          "alpha_bottom_y": 1317,
+          "anchor_x": 603,
+          "opaque_pixels": 554470
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/elf/paladin.png",
+          "sha256": "f074f561674fdeabbaa12eccc21af17ecaa7910c527ccd2ec8043e1e8cdf9d50",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            117,
+            69,
+            903,
+            968
+          ],
+          "visible_width": 786,
+          "visible_height": 899,
+          "alpha_bottom_y": 968,
+          "anchor_x": 501,
+          "opaque_pixels": 370246
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/elf/paladin.png",
+          "sha256": "97c321c28b9b428fe1d2186dfa3a6a9d1430b8ef9e2337662075b6a513caa41e",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            139,
+            68,
+            885,
+            968
+          ],
+          "visible_width": 746,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 508,
+          "opaque_pixels": 319449
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/elf/paladin.png",
+          "sha256": "42875fc7763619d0e562ec7b26aca31eac28f1ea4363164204df68904f6d89be",
+          "canvas": [
+            1163,
+            1352
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            178,
+            89,
+            985,
+            1278
+          ],
+          "visible_width": 807,
+          "visible_height": 1189,
+          "alpha_bottom_y": 1278,
+          "anchor_x": 613,
+          "opaque_pixels": 485136
+        }
+      }
+    },
+    "male/elf/rogue": {
+      "sex": "male",
+      "race": "elf",
+      "job": "rogue",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 89,
+        "body_bottom_y": 1289,
+        "body_left_x": 247,
+        "body_right_x": 757,
+        "anchor_x": 501,
+        "body_height": 1200,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/elf/rogue.png",
+          "sha256": "cb53f5be434e35decbbcb46e0ba06b071d1316adead5b3b39284f01a190be713",
+          "canvas": [
+            1153,
+            1364
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            46,
+            350,
+            1107,
+            1330
+          ],
+          "visible_width": 1061,
+          "visible_height": 980,
+          "alpha_bottom_y": 1330,
+          "anchor_x": 492,
+          "opaque_pixels": 372507
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/elf/rogue.png",
+          "sha256": "2349db03298e5d1bfefddf429c3a23b3eb4a7beebee4c080265ff48d494f51e4",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            167,
+            68,
+            856,
+            968
+          ],
+          "visible_width": 689,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 516,
+          "opaque_pixels": 297737
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/elf/rogue.png",
+          "sha256": "25b6e62cf5ac1d559bc6b4a0b698ed3d309452d3fd99f095085c95df8a6d9e03",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            198,
+            68,
+            825,
+            968
+          ],
+          "visible_width": 627,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 445,
+          "opaque_pixels": 243458
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/elf/rogue.png",
+          "sha256": "134ca13c2d2a4c87282eb21b8040a4dcf5b70f4af2fa1838a817e36c821ddb0c",
+          "canvas": [
+            1153,
+            1364
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            163,
+            89,
+            989,
+            1289
+          ],
+          "visible_width": 826,
+          "visible_height": 1200,
+          "alpha_bottom_y": 1289,
+          "anchor_x": 489,
+          "opaque_pixels": 424893
+        }
+      }
+    },
+    "male/elf/warlock": {
+      "sex": "male",
+      "race": "elf",
+      "job": "warlock",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 153,
+        "body_bottom_y": 1273,
+        "body_left_x": 322,
+        "body_right_x": 846,
+        "anchor_x": 581,
+        "body_height": 1120,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/elf/warlock.png",
+          "sha256": "869a39d455ef8291739fee6a5593f897172830f31c51e07879e04913b44a2222",
+          "canvas": [
+            1168,
+            1347
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            70,
+            375,
+            1097,
+            1273
+          ],
+          "visible_width": 1027,
+          "visible_height": 898,
+          "alpha_bottom_y": 1273,
+          "anchor_x": 429,
+          "opaque_pixels": 323040
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/elf/warlock.png",
+          "sha256": "d1bd1ac3a644a1abf53f75a904433021c8dee55f32f8de6969f1605d7f39823f",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            134,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 834,
+          "alpha_bottom_y": 968,
+          "anchor_x": 457,
+          "opaque_pixels": 326927
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/elf/warlock.png",
+          "sha256": "e405f7d06e337011594a726791d2c887d2a57df9809f6bae21d9296b87f7d39f",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            89,
+            68,
+            934,
+            968
+          ],
+          "visible_width": 845,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 423,
+          "opaque_pixels": 311507
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/elf/warlock.png",
+          "sha256": "3e43dfebbf918018355ec285d0752d352699d1a2e06366795daeaa726721d452",
+          "canvas": [
+            1168,
+            1347
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            215,
+            88,
+            952,
+            1273
+          ],
+          "visible_width": 737,
+          "visible_height": 1185,
+          "alpha_bottom_y": 1273,
+          "anchor_x": 569,
+          "opaque_pixels": 385205
+        }
+      }
+    },
+    "male/elf/warrior": {
+      "sex": "male",
+      "race": "elf",
+      "job": "warrior",
+      "target_body_height": 900,
+      "idle_body": {
+        "body_top_y": 89,
+        "body_bottom_y": 1284,
+        "body_left_x": 235,
+        "body_right_x": 952,
+        "anchor_x": 538,
+        "body_height": 1195,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/elf/warrior.png",
+          "sha256": "24b61d8afd0a864f1296064f2e78f59a39fa7e027ae28a6ea9c476bd47926a8d",
+          "canvas": [
+            1159,
+            1358
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            70,
+            272,
+            1089,
+            1284
+          ],
+          "visible_width": 1019,
+          "visible_height": 1012,
+          "alpha_bottom_y": 1284,
+          "anchor_x": 496,
+          "opaque_pixels": 391883
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/elf/warrior.png",
+          "sha256": "c1518681134a20b439278bcce7dc8667ce9940e8316de0bea81c80228e22454e",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            75,
+            976,
+            968
+          ],
+          "visible_width": 929,
+          "visible_height": 893,
+          "alpha_bottom_y": 968,
+          "anchor_x": 484,
+          "opaque_pixels": 405777
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/elf/warrior.png",
+          "sha256": "67cf07203eb47137dacde433bc0ed69020f27cbbba535b20013717b60926cf48",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            71,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 897,
+          "alpha_bottom_y": 968,
+          "anchor_x": 399,
+          "opaque_pixels": 324803
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/elf/warrior.png",
+          "sha256": "6624028f49668e207e9c92dc5c07b9d6a8b8184f4ce3e09ec5677e3bd6d11903",
+          "canvas": [
+            1159,
+            1358
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            83,
+            89,
+            1075,
+            1284
+          ],
+          "visible_width": 992,
+          "visible_height": 1195,
+          "alpha_bottom_y": 1284,
+          "anchor_x": 535,
+          "opaque_pixels": 532734
+        }
+      }
+    },
+    "male/human/mage": {
+      "sex": "male",
+      "race": "human",
+      "job": "mage",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 83,
+        "body_bottom_y": 1186,
+        "body_left_x": 376,
+        "body_right_x": 865,
+        "anchor_x": 595,
+        "body_height": 1103,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/human/mage.png",
+          "sha256": "78a86e1c3bcf15b457ea7ed2753a4797539daefa8e3e1aa38ab2d026ca72d942",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            307,
+            1177,
+            1186
+          ],
+          "visible_width": 1102,
+          "visible_height": 879,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 427,
+          "opaque_pixels": 366290
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/human/mage.png",
+          "sha256": "ec4ab245a690249f7a137f1347da4c8736e47e803540e91d63fa813ea179e63a",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            72,
+            68,
+            952,
+            968
+          ],
+          "visible_width": 880,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 505,
+          "opaque_pixels": 432401
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/human/mage.png",
+          "sha256": "e4b50f2cf1443eb8060a68fef27563974aa7aba85ed8abd132c467b1d782b2cc",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            166,
+            68,
+            857,
+            968
+          ],
+          "visible_width": 691,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 408,
+          "opaque_pixels": 314667
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/human/mage.png",
+          "sha256": "5f5ca90e76e9eacc98601f5bade1ab5e2446e82be45ad1a6e780f682247daaa3",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            302,
+            83,
+            951,
+            1186
+          ],
+          "visible_width": 649,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 587,
+          "opaque_pixels": 390925
+        }
+      }
+    },
+    "male/human/paladin": {
+      "sex": "male",
+      "race": "human",
+      "job": "paladin",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 155,
+        "body_bottom_y": 1452,
+        "body_left_x": 246,
+        "body_right_x": 835,
+        "anchor_x": 535,
+        "body_height": 1297,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/human/paladin.png",
+          "sha256": "ff4e8cb2e0bd792d5d91c542ecb02fe98303840d5efc0f4c5da550e3176ef188",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            402,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1050,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 530,
+          "opaque_pixels": 429268
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/human/paladin.png",
+          "sha256": "b0688ebf9d563a4ece52e04bcf95badd5c3ca9512382318b4979dca41d61c9cb",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            133,
+            68,
+            867,
+            968
+          ],
+          "visible_width": 734,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 497,
+          "opaque_pixels": 310910
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/human/paladin.png",
+          "sha256": "4646c4379e00f3b273e8e17f494ebec727c5b9c3880a65f0711ca7890690ff70",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            210,
+            69,
+            813,
+            968
+          ],
+          "visible_width": 603,
+          "visible_height": 899,
+          "alpha_bottom_y": 968,
+          "anchor_x": 498,
+          "opaque_pixels": 306773
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/human/paladin.png",
+          "sha256": "07acf037314a5957bd519e260a8cd92d5e17413ec9b1088f04f3b3d10a9fe4fb",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            110,
+            155,
+            913,
+            1452
+          ],
+          "visible_width": 803,
+          "visible_height": 1297,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 528,
+          "opaque_pixels": 568679
+        }
+      }
+    },
+    "male/human/rogue": {
+      "sex": "male",
+      "race": "human",
+      "job": "rogue",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 122,
+        "body_bottom_y": 1394,
+        "body_left_x": 245,
+        "body_right_x": 703,
+        "anchor_x": 487,
+        "body_height": 1272,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/human/rogue.png",
+          "sha256": "8a8e9d9fe24f54bb0ffb444f19a05e09f44f326f4b0a8dd06295fc75445674b2",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            25,
+            225,
+            997,
+            1326
+          ],
+          "visible_width": 972,
+          "visible_height": 1101,
+          "alpha_bottom_y": 1326,
+          "anchor_x": 407,
+          "opaque_pixels": 401530
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/human/rogue.png",
+          "sha256": "7a018b7a5777870b1d7ccc4c16ca3e46fbbfa6e22e6f52cf272805efdef98ae6",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            165,
+            68,
+            858,
+            968
+          ],
+          "visible_width": 693,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 490,
+          "opaque_pixels": 302149
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/human/rogue.png",
+          "sha256": "2ed7c124d289130f967df3eec944831ef3d21cf691003635f847951ee44b5847",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            227,
+            68,
+            797,
+            968
+          ],
+          "visible_width": 570,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 459,
+          "opaque_pixels": 272447
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/human/rogue.png",
+          "sha256": "55e9fc806f85fdaccd5eb83d72e6ccbdf9d6ebbb6055e358940c142bed4bf6c5",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            152,
+            122,
+            816,
+            1394
+          ],
+          "visible_width": 664,
+          "visible_height": 1272,
+          "alpha_bottom_y": 1394,
+          "anchor_x": 479,
+          "opaque_pixels": 439715
+        }
+      }
+    },
+    "male/human/warlock": {
+      "sex": "male",
+      "race": "human",
+      "job": "warlock",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 250,
+        "body_bottom_y": 1452,
+        "body_left_x": 179,
+        "body_right_x": 842,
+        "anchor_x": 483,
+        "body_height": 1202,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/human/warlock.png",
+          "sha256": "3353d59792965c927fcd061aeecf251d76c3dba782ab0ca8a51cbc1359a9ef4c",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            473,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 979,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 406,
+          "opaque_pixels": 371489
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/human/warlock.png",
+          "sha256": "d886db67829bb1b0cb1a0bae0ac1d8d34121bb0019bab112d9ca16edfa11cfeb",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            78,
+            68,
+            945,
+            968
+          ],
+          "visible_width": 867,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 458,
+          "opaque_pixels": 432647
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/human/warlock.png",
+          "sha256": "7443d89a2a34848a2494700636a8c641e2b3356c5ede05f8cc88d9a5c007f7f9",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            90,
+            68,
+            934,
+            968
+          ],
+          "visible_width": 844,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 426,
+          "opaque_pixels": 353949
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/human/warlock.png",
+          "sha256": "cebd19a5378ba12e849aa58544ccd669b6ad69084641bb3d5bdc4e26c2d3bf73",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            220,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 1232,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 467,
+          "opaque_pixels": 548784
+        }
+      }
+    },
+    "male/human/warrior": {
+      "sex": "male",
+      "race": "human",
+      "job": "warrior",
+      "target_body_height": 837,
+      "idle_body": {
+        "body_top_y": 494,
+        "body_bottom_y": 1452,
+        "body_left_x": 170,
+        "body_right_x": 858,
+        "anchor_x": 442,
+        "body_height": 958,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/human/warrior.png",
+          "sha256": "752e508a59a48b1f8563a7e76014886398d8a934de65efd5d6c1b0ae8b8d2ced",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            656,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 796,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 413,
+          "opaque_pixels": 304539
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/human/warrior.png",
+          "sha256": "fd379873214c398ae0bda7cdaa626d3ea3dd6abc1a991cd2c5b285795e2572ce",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            94,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 874,
+          "alpha_bottom_y": 968,
+          "anchor_x": 475,
+          "opaque_pixels": 400565
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/human/warrior.png",
+          "sha256": "915b13ae31d2f7b24f529c08159d26cf13969ea241bd267e0b5b2a38b1fb54f6",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            74,
+            977,
+            968
+          ],
+          "visible_width": 930,
+          "visible_height": 894,
+          "alpha_bottom_y": 968,
+          "anchor_x": 386,
+          "opaque_pixels": 360258
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/human/warrior.png",
+          "sha256": "09e3d449f5b5ec473b486323a86c09ef5caaa0cc71ff2f19861656a3bb224515",
+          "canvas": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            494,
+            962,
+            1452
+          ],
+          "visible_width": 901,
+          "visible_height": 958,
+          "alpha_bottom_y": 1452,
+          "anchor_x": 435,
+          "opaque_pixels": 387422
+        }
+      }
+    },
+    "male/orc/mage": {
+      "sex": "male",
+      "race": "orc",
+      "job": "mage",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 84,
+        "body_bottom_y": 1186,
+        "body_left_x": 319,
+        "body_right_x": 932,
+        "anchor_x": 563,
+        "body_height": 1102,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/orc/mage.png",
+          "sha256": "3c6ddc8b1a166ca505e70ce3c2af505efcf8536443b89a44731c8e037858a411",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            223,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 963,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 476,
+          "opaque_pixels": 366165
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/orc/mage.png",
+          "sha256": "919aa1eb9f330bfb5ee926deccddc5fe6e1086c602abe50a7f1e6bb52624d877",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            154,
+            68,
+            869,
+            968
+          ],
+          "visible_width": 715,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 492,
+          "opaque_pixels": 314048
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/orc/mage.png",
+          "sha256": "bf46ba3f6e8c6019ad90457fdeeb9426c3a5f1964948b621d7eb44ff5456cce6",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            154,
+            68,
+            870,
+            968
+          ],
+          "visible_width": 716,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 442,
+          "opaque_pixels": 307722
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/orc/mage.png",
+          "sha256": "387d02489ab4955bc0b45d2de6947a6c9e48ea8036611f1ff83012598288096d",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            226,
+            83,
+            1027,
+            1186
+          ],
+          "visible_width": 801,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 555,
+          "opaque_pixels": 457244
+        }
+      }
+    },
+    "male/orc/paladin": {
+      "sex": "male",
+      "race": "orc",
+      "job": "paladin",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 84,
+        "body_bottom_y": 1186,
+        "body_left_x": 356,
+        "body_right_x": 922,
+        "anchor_x": 622,
+        "body_height": 1102,
+        "confidence": "review"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/orc/paladin.png",
+          "sha256": "ff217c10bc5da1c939cc453a3a402b3280ebd679f3eae54afbeb3899c006e954",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            275,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 911,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 578,
+          "opaque_pixels": 391617
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/orc/paladin.png",
+          "sha256": "e723245d713174067935269d6943da9c04281671db09b69f7e35d5b89410bb74",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            98,
+            68,
+            925,
+            968
+          ],
+          "visible_width": 827,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 505,
+          "opaque_pixels": 432682
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/orc/paladin.png",
+          "sha256": "524715b2a1f10894bb7656bb08bcc717dcd2cc732ffd68b7cead88f3fb4c33c8",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            164,
+            68,
+            859,
+            968
+          ],
+          "visible_width": 695,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 536,
+          "opaque_pixels": 375707
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/orc/paladin.png",
+          "sha256": "5066aceaf4db733f1eac582b7ad48de477ac3051ee3702b5b2f41cb90a54b662",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            258,
+            83,
+            996,
+            1186
+          ],
+          "visible_width": 738,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 622,
+          "opaque_pixels": 488077
+        }
+      }
+    },
+    "male/orc/rogue": {
+      "sex": "male",
+      "race": "orc",
+      "job": "rogue",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 84,
+        "body_bottom_y": 1186,
+        "body_left_x": 320,
+        "body_right_x": 868,
+        "anchor_x": 589,
+        "body_height": 1102,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/orc/rogue.png",
+          "sha256": "cba942cc7605e903097a7da3540d345988c9e50f74d6bf42b2aee69f9b299b0b",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            267,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 919,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 514,
+          "opaque_pixels": 372863
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/orc/rogue.png",
+          "sha256": "d8fdbf50b3521be05c3d5ab5f8c9d97548b30c36474c2bdf1e01ed72247bdbac",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            157,
+            68,
+            867,
+            968
+          ],
+          "visible_width": 710,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 517,
+          "opaque_pixels": 317934
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/orc/rogue.png",
+          "sha256": "5da84a43647f509bb75b4950e2ecd68c92fb9191ef8c25610cc478f0389a69d0",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            180,
+            68,
+            843,
+            968
+          ],
+          "visible_width": 663,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 435,
+          "opaque_pixels": 263955
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/orc/rogue.png",
+          "sha256": "1f634f38263d4e93711d25769a78e3e8df1325b17b165936618acd629f755467",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            129,
+            84,
+            1124,
+            1186
+          ],
+          "visible_width": 995,
+          "visible_height": 1102,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 578,
+          "opaque_pixels": 431910
+        }
+      }
+    },
+    "male/orc/warlock": {
+      "sex": "male",
+      "race": "orc",
+      "job": "warlock",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 138,
+        "body_bottom_y": 1186,
+        "body_left_x": 335,
+        "body_right_x": 907,
+        "anchor_x": 585,
+        "body_height": 1048,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/orc/warlock.png",
+          "sha256": "bda85608f52ea59d71968f99c08456d785fe81c27bc21fd06387f2a888b7961a",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            283,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 903,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 459,
+          "opaque_pixels": 378766
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/orc/warlock.png",
+          "sha256": "fb92bec888bcb857b1674df4872cd0bd9b7c878cf0eb9719eb2b4fbff9111d74",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            164,
+            68,
+            860,
+            968
+          ],
+          "visible_width": 696,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 475,
+          "opaque_pixels": 313579
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/orc/warlock.png",
+          "sha256": "b6842e7a8cb0451f133728d6a3d700f6a0262e88510bd045639d161a81d3c9a8",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            176,
+            68,
+            847,
+            968
+          ],
+          "visible_width": 671,
+          "visible_height": 900,
+          "alpha_bottom_y": 968,
+          "anchor_x": 476,
+          "opaque_pixels": 317832
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/orc/warlock.png",
+          "sha256": "0b814ac6eecda7e98fc60f5d7e84a23b18cde5b79778457b853cc781ff172a3f",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            257,
+            83,
+            996,
+            1186
+          ],
+          "visible_width": 739,
+          "visible_height": 1103,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 578,
+          "opaque_pixels": 440200
+        }
+      }
+    },
+    "male/orc/warrior": {
+      "sex": "male",
+      "race": "orc",
+      "job": "warrior",
+      "target_body_height": 873,
+      "idle_body": {
+        "body_top_y": 67,
+        "body_bottom_y": 968,
+        "body_left_x": 158,
+        "body_right_x": 844,
+        "anchor_x": 442,
+        "body_height": 901,
+        "confidence": "high"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/players/tier_1/attack/male/orc/warrior.png",
+          "sha256": "729f5e2dffce1e6d64daf36b487917f2669ac5476b8e2a5354dbbf84261ccf6d",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            61,
+            218,
+            962,
+            968
+          ],
+          "visible_width": 901,
+          "visible_height": 750,
+          "alpha_bottom_y": 968,
+          "anchor_x": 445,
+          "opaque_pixels": 268887
+        },
+        "block": {
+          "path": "assets/characters/players/tier_1/block/male/orc/warrior.png",
+          "sha256": "7a7c9700edf62232e900bf2639f2bd942ef130376bb91a406abeb1c0b78ee06e",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            47,
+            84,
+            976,
+            968
+          ],
+          "visible_width": 929,
+          "visible_height": 884,
+          "alpha_bottom_y": 968,
+          "anchor_x": 446,
+          "opaque_pixels": 370164
+        },
+        "hurt": {
+          "path": "assets/characters/players/tier_1/hurt/male/orc/warrior.png",
+          "sha256": "737428cb3925d2d7344c19420dee891fe02ee5b405266ad88af4cc1c9af5c7de",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            141,
+            90,
+            992,
+            970
+          ],
+          "visible_width": 851,
+          "visible_height": 880,
+          "alpha_bottom_y": 970,
+          "anchor_x": 504,
+          "opaque_pixels": 353716
+        },
+        "idle": {
+          "path": "assets/characters/players/tier_1/idle/male/orc/warrior.png",
+          "sha256": "eb6b038f01ff29e8bbc23217d3b07e15f5b87e7afa940b8a6a150d5d83ed8914",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            67,
+            67,
+            957,
+            968
+          ],
+          "visible_width": 890,
+          "visible_height": 901,
+          "alpha_bottom_y": 968,
+          "anchor_x": 438,
+          "opaque_pixels": 370862
+        }
+      }
+    }
+  },
+  "monsters": {
+    "rank_01/attack": {
+      "rank": 1,
+      "kind": "attack",
+      "idle_body": {
+        "body_top_y": 234,
+        "body_bottom_y": 814,
+        "body_left_x": 111,
+        "body_right_x": 953,
+        "anchor_x": 489,
+        "body_height": 580,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_01/attack/attack.png",
+          "sha256": "d12e76e8ddfd2539e2865f4f7765d39675ff1c8fc6f61fc4fcff6296f6266cd5",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            43,
+            192,
+            1012,
+            734
+          ],
+          "visible_width": 969,
+          "visible_height": 542,
+          "alpha_bottom_y": 734,
+          "anchor_x": 486,
+          "opaque_pixels": 233827
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_01/block/attack.png",
+          "sha256": "8a3255c3fd7a386d6d8415a4d6685f0d9fc2e02c4ca9f292b061ad6a4de718aa",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            92,
+            397,
+            962,
+            968
+          ],
+          "visible_width": 870,
+          "visible_height": 571,
+          "alpha_bottom_y": 968,
+          "anchor_x": 468,
+          "opaque_pixels": 198809
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_01/hurt/attack.png",
+          "sha256": "917aa0b2b3a56b487bd8eea24b4d68e4bffa9779a3eb94f5eb3f38b336f0ecee",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            271,
+            961,
+            967
+          ],
+          "visible_width": 899,
+          "visible_height": 696,
+          "alpha_bottom_y": 967,
+          "anchor_x": 439,
+          "opaque_pixels": 251150
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_01/idle/attack.png",
+          "sha256": "cea9251076210c55865ef45edfa333bac8af096e65c1e9c730d6643001b4d0d6",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            111,
+            234,
+            953,
+            814
+          ],
+          "visible_width": 842,
+          "visible_height": 580,
+          "alpha_bottom_y": 814,
+          "anchor_x": 489,
+          "opaque_pixels": 207468
+        }
+      }
+    },
+    "rank_01/defense": {
+      "rank": 1,
+      "kind": "defense",
+      "idle_body": {
+        "body_top_y": 249,
+        "body_bottom_y": 785,
+        "body_left_x": 94,
+        "body_right_x": 914,
+        "anchor_x": 514,
+        "body_height": 536,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_01/attack/defense.png",
+          "sha256": "1376be9b08c9615026db497beb62cf507f53b048f4348049573f39fb3cb1afdd",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            19,
+            236,
+            990,
+            791
+          ],
+          "visible_width": 971,
+          "visible_height": 555,
+          "alpha_bottom_y": 791,
+          "anchor_x": 516,
+          "opaque_pixels": 295093
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_01/block/defense.png",
+          "sha256": "d178a9edb03d80e7142742fc4e93ac2eefee22daa632692aec407d7bde6b2939",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            423,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 545,
+          "alpha_bottom_y": 968,
+          "anchor_x": 477,
+          "opaque_pixels": 323125
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_01/hurt/defense.png",
+          "sha256": "83a557654193712d9e3891491219908f4e350e56f285e46f10d505db507258f5",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            381,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 587,
+          "alpha_bottom_y": 968,
+          "anchor_x": 524,
+          "opaque_pixels": 337917
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_01/idle/defense.png",
+          "sha256": "3b5800a91c1a969e605b5271dd65347440abb756c1c964a20931d079ffce791a",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            94,
+            249,
+            914,
+            785
+          ],
+          "visible_width": 820,
+          "visible_height": 536,
+          "alpha_bottom_y": 785,
+          "anchor_x": 514,
+          "opaque_pixels": 258695
+        }
+      }
+    },
+    "rank_01/hp": {
+      "rank": 1,
+      "kind": "hp",
+      "idle_body": {
+        "body_top_y": 206,
+        "body_bottom_y": 1039,
+        "body_left_x": 128,
+        "body_right_x": 1162,
+        "anchor_x": 646,
+        "body_height": 833,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_01/attack/hp.png",
+          "sha256": "92bdebfda66cb9b27733cff60001ebc1ba8b02ff7cba87b76f564b337cd88dd7",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            7,
+            205,
+            1229,
+            994
+          ],
+          "visible_width": 1222,
+          "visible_height": 789,
+          "alpha_bottom_y": 994,
+          "anchor_x": 680,
+          "opaque_pixels": 454783
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_01/block/hp.png",
+          "sha256": "fa9993d14f99c913643a17abebff88695d805a9d0bf1d8b93c8d33f8f761b605",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            276,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 692,
+          "alpha_bottom_y": 968,
+          "anchor_x": 551,
+          "opaque_pixels": 366252
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_01/hurt/hp.png",
+          "sha256": "c0c9f5e3bf9e8b81f58aaa4b1e051d4ea6698767333ada94fd9a5c99c5e01a61",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            272,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 696,
+          "alpha_bottom_y": 968,
+          "anchor_x": 568,
+          "opaque_pixels": 336542
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_01/idle/hp.png",
+          "sha256": "16100338a57d576fdfdc3d4b2a4afc837ddec05fe137bd6574e2f3163e1951f1",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            128,
+            206,
+            1162,
+            1039
+          ],
+          "visible_width": 1034,
+          "visible_height": 833,
+          "alpha_bottom_y": 1039,
+          "anchor_x": 646,
+          "opaque_pixels": 569155
+        }
+      }
+    },
+    "rank_02/attack": {
+      "rank": 2,
+      "kind": "attack",
+      "idle_body": {
+        "body_top_y": 84,
+        "body_bottom_y": 1203,
+        "body_left_x": 163,
+        "body_right_x": 1087,
+        "anchor_x": 683,
+        "body_height": 1119,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_02/attack/attack.png",
+          "sha256": "7d7f0ef331cc03b8880b50537fa5de7390f0efff1e2a3353723ced1319fd318e",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            70,
+            93,
+            1193,
+            1177
+          ],
+          "visible_width": 1123,
+          "visible_height": 1084,
+          "alpha_bottom_y": 1177,
+          "anchor_x": 696,
+          "opaque_pixels": 439269
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_02/block/attack.png",
+          "sha256": "e6ad39c93ae7c62ff4d31dddf897157ead27c1f814c59a52d2f54d4c3ff33dfa",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            127,
+            89,
+            897,
+            968
+          ],
+          "visible_width": 770,
+          "visible_height": 879,
+          "alpha_bottom_y": 968,
+          "anchor_x": 511,
+          "opaque_pixels": 320985
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_02/hurt/attack.png",
+          "sha256": "f9a4f1d24848a0a77e6f7fa895bcb25266a4a6d472c1cfb4a0f67347660f9fa3",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            138,
+            88,
+            885,
+            968
+          ],
+          "visible_width": 747,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 614,
+          "opaque_pixels": 262970
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_02/idle/attack.png",
+          "sha256": "6cf8228d61f59813bb184844458a3725cd72de66f9a84264b405a54a14b02fcd",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            163,
+            84,
+            1087,
+            1203
+          ],
+          "visible_width": 924,
+          "visible_height": 1119,
+          "alpha_bottom_y": 1203,
+          "anchor_x": 683,
+          "opaque_pixels": 456561
+        }
+      }
+    },
+    "rank_02/defense": {
+      "rank": 2,
+      "kind": "defense",
+      "idle_body": {
+        "body_top_y": 92,
+        "body_bottom_y": 1128,
+        "body_left_x": 290,
+        "body_right_x": 991,
+        "anchor_x": 645,
+        "body_height": 1036,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_02/attack/defense.png",
+          "sha256": "a802e367e288ce7b8182ad7edbaf90a7883a0558d9f42e5d96bae47cfeeb0e98",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            41,
+            72,
+            1189,
+            1140
+          ],
+          "visible_width": 1148,
+          "visible_height": 1068,
+          "alpha_bottom_y": 1140,
+          "anchor_x": 684,
+          "opaque_pixels": 512779
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_02/block/defense.png",
+          "sha256": "ede8045df93c74199c8f17db78b223a36fd4316971d216abbf4695f8f24c2250",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            90,
+            88,
+            934,
+            968
+          ],
+          "visible_width": 844,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 487,
+          "opaque_pixels": 430029
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_02/hurt/defense.png",
+          "sha256": "e1cf1a33860a841aac3c4bf948880f801df5a9e3d67abbbec5537dafaf06b6d0",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            176,
+            88,
+            848,
+            968
+          ],
+          "visible_width": 672,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 498,
+          "opaque_pixels": 351451
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_02/idle/defense.png",
+          "sha256": "89bc9d5a272645ca723d18ab2e8965d6b1980f22aa2edadd3d0dab8c61fab26f",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            290,
+            92,
+            991,
+            1128
+          ],
+          "visible_width": 701,
+          "visible_height": 1036,
+          "alpha_bottom_y": 1128,
+          "anchor_x": 645,
+          "opaque_pixels": 449382
+        }
+      }
+    },
+    "rank_02/hp": {
+      "rank": 2,
+      "kind": "hp",
+      "idle_body": {
+        "body_top_y": 93,
+        "body_bottom_y": 1157,
+        "body_left_x": 196,
+        "body_right_x": 1025,
+        "anchor_x": 678,
+        "body_height": 1064,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_02/attack/hp.png",
+          "sha256": "7de273e2a4605e3ce1d898f3a3a502e84a2c96c4bf2d49cf56d287b0a606986c",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            30,
+            121,
+            1187,
+            1137
+          ],
+          "visible_width": 1157,
+          "visible_height": 1016,
+          "alpha_bottom_y": 1137,
+          "anchor_x": 706,
+          "opaque_pixels": 587903
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_02/block/hp.png",
+          "sha256": "8fc1bab978ed5d7a5bd14a863cb81e6a1737804f7a8b4471bdb78efc6d8cfd24",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            141,
+            88,
+            882,
+            968
+          ],
+          "visible_width": 741,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 498,
+          "opaque_pixels": 347860
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_02/hurt/hp.png",
+          "sha256": "860928390f115cdcd6826b476b1e6504eb5b0bd4c1109c37cddbb76ba2e04553",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            165,
+            88,
+            858,
+            968
+          ],
+          "visible_width": 693,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 563,
+          "opaque_pixels": 362701
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_02/idle/hp.png",
+          "sha256": "56bb01ccbab606aaf67e8c8b450d9f0386fb24f70a963a980b00c802c715f078",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            196,
+            93,
+            1025,
+            1157
+          ],
+          "visible_width": 829,
+          "visible_height": 1064,
+          "alpha_bottom_y": 1157,
+          "anchor_x": 678,
+          "opaque_pixels": 536744
+        }
+      }
+    },
+    "rank_03/attack": {
+      "rank": 3,
+      "kind": "attack",
+      "idle_body": {
+        "body_top_y": 250,
+        "body_bottom_y": 1015,
+        "body_left_x": 173,
+        "body_right_x": 1233,
+        "anchor_x": 658,
+        "body_height": 765,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_03/attack/attack.png",
+          "sha256": "8b97683b173a873b8b1fba8765cbef07df3bf2c5a50515ec087ccd9fc1fed836",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            436,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 750,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 612,
+          "opaque_pixels": 420711
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_03/block/attack.png",
+          "sha256": "7ad9c5163a63bc088fdbd6739c5c539e90e25cb44f8cc935437d63f6d334f4e8",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            65,
+            396,
+            962,
+            968
+          ],
+          "visible_width": 897,
+          "visible_height": 572,
+          "alpha_bottom_y": 968,
+          "anchor_x": 473,
+          "opaque_pixels": 300739
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_03/hurt/attack.png",
+          "sha256": "9014512489b5944fa8ebabe5f1742d399e42203c2fa5cf929fbecd19536591e8",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            155,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 813,
+          "alpha_bottom_y": 968,
+          "anchor_x": 546,
+          "opaque_pixels": 407108
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_03/idle/attack.png",
+          "sha256": "0b0c11c9652318b4c13ad9c3c49bd4bc97bdbbb0fb9c55caa15eed8948597ced",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            173,
+            250,
+            1233,
+            1015
+          ],
+          "visible_width": 1060,
+          "visible_height": 765,
+          "alpha_bottom_y": 1015,
+          "anchor_x": 658,
+          "opaque_pixels": 459679
+        }
+      }
+    },
+    "rank_03/defense": {
+      "rank": 3,
+      "kind": "defense",
+      "idle_body": {
+        "body_top_y": 48,
+        "body_bottom_y": 1163,
+        "body_left_x": 224,
+        "body_right_x": 1016,
+        "anchor_x": 677,
+        "body_height": 1115,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_03/attack/defense.png",
+          "sha256": "98085d5514ed6cc9d42093f1130e8b417c583235072b3c9bfa94c5fae172e670",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            127,
+            108,
+            1134,
+            1178
+          ],
+          "visible_width": 1007,
+          "visible_height": 1070,
+          "alpha_bottom_y": 1178,
+          "anchor_x": 616,
+          "opaque_pixels": 573004
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_03/block/defense.png",
+          "sha256": "e205b9e4161b7ffd65c9fe9588ca3c06d29321791b5885d626e7e6003b2cd8a9",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            68,
+            155,
+            962,
+            968
+          ],
+          "visible_width": 894,
+          "visible_height": 813,
+          "alpha_bottom_y": 968,
+          "anchor_x": 493,
+          "opaque_pixels": 363351
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_03/hurt/defense.png",
+          "sha256": "dfc142e4041d13f330bf12a3ca73b5580075d58d1f6aa4d8668463b5f41e009c",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            120,
+            88,
+            903,
+            968
+          ],
+          "visible_width": 783,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 572,
+          "opaque_pixels": 324919
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_03/idle/defense.png",
+          "sha256": "63ae82124e50240eda13a670ec60dfde5db260dcd6503b22390ba1adb8328939",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            224,
+            48,
+            1016,
+            1163
+          ],
+          "visible_width": 792,
+          "visible_height": 1115,
+          "alpha_bottom_y": 1163,
+          "anchor_x": 677,
+          "opaque_pixels": 478897
+        }
+      }
+    },
+    "rank_03/hp": {
+      "rank": 3,
+      "kind": "hp",
+      "idle_body": {
+        "body_top_y": 134,
+        "body_bottom_y": 1111,
+        "body_left_x": 184,
+        "body_right_x": 1111,
+        "anchor_x": 602,
+        "body_height": 977,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_03/attack/hp.png",
+          "sha256": "6e4a45e6fe08e742779ffdab35edc31716ea9101bfad8e5c7d30e5c21788607d",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            26,
+            197,
+            1216,
+            1082
+          ],
+          "visible_width": 1190,
+          "visible_height": 885,
+          "alpha_bottom_y": 1082,
+          "anchor_x": 695,
+          "opaque_pixels": 430065
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_03/block/hp.png",
+          "sha256": "3ce950317ff5c925d87e63f0f0cf0c6cd7fcf69bfef522576d8b988e82cb4d8c",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            66,
+            190,
+            962,
+            968
+          ],
+          "visible_width": 896,
+          "visible_height": 778,
+          "alpha_bottom_y": 968,
+          "anchor_x": 492,
+          "opaque_pixels": 297519
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_03/hurt/hp.png",
+          "sha256": "848ccd1e0aaeb1b8315734a17402bfcbddf34b284c8be1d5baf451079f22b6f0",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            89,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 879,
+          "alpha_bottom_y": 968,
+          "anchor_x": 455,
+          "opaque_pixels": 311670
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_03/idle/hp.png",
+          "sha256": "a519afd42b1aaeaa946be4837aa224ba4a4e7759c1448fc3bf917d30500ab796",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            184,
+            134,
+            1111,
+            1111
+          ],
+          "visible_width": 927,
+          "visible_height": 977,
+          "alpha_bottom_y": 1111,
+          "anchor_x": 602,
+          "opaque_pixels": 408956
+        }
+      }
+    },
+    "rank_04/attack": {
+      "rank": 4,
+      "kind": "attack",
+      "idle_body": {
+        "body_top_y": 142,
+        "body_bottom_y": 1092,
+        "body_left_x": 91,
+        "body_right_x": 1225,
+        "anchor_x": 599,
+        "body_height": 950,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_04/attack/attack.png",
+          "sha256": "cdf4cb7551d10e7b6fee87c82329edc087a0e7544b5800e4a91322a033da7bd5",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            42,
+            103,
+            1206,
+            1124
+          ],
+          "visible_width": 1164,
+          "visible_height": 1021,
+          "alpha_bottom_y": 1124,
+          "anchor_x": 597,
+          "opaque_pixels": 529186
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_04/block/attack.png",
+          "sha256": "e41cda108b56d9acdf01162f60808198143f8af9c87f3f2ead4b29ad7579183c",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            259,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 709,
+          "alpha_bottom_y": 968,
+          "anchor_x": 460,
+          "opaque_pixels": 287747
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_04/hurt/attack.png",
+          "sha256": "eb47595ba0fff9669e1b5dfddf26a48e0c5772b8ebc07dc88a1a20e7c9574381",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            172,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 796,
+          "alpha_bottom_y": 968,
+          "anchor_x": 582,
+          "opaque_pixels": 307303
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_04/idle/attack.png",
+          "sha256": "d9dcb38310df6750921ff73f2b470ffd90fc9a621f9fe7943db0e9bf70c05c4a",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            91,
+            142,
+            1225,
+            1092
+          ],
+          "visible_width": 1134,
+          "visible_height": 950,
+          "alpha_bottom_y": 1092,
+          "anchor_x": 599,
+          "opaque_pixels": 478026
+        }
+      }
+    },
+    "rank_04/defense": {
+      "rank": 4,
+      "kind": "defense",
+      "idle_body": {
+        "body_top_y": 65,
+        "body_bottom_y": 1215,
+        "body_left_x": 229,
+        "body_right_x": 1070,
+        "anchor_x": 675,
+        "body_height": 1150,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_04/attack/defense.png",
+          "sha256": "9c73d6ebe8e87d190dcf9bba11f56d32d9336515df659cb99fa12f0639fe00b1",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            75,
+            277,
+            1178,
+            1186
+          ],
+          "visible_width": 1103,
+          "visible_height": 909,
+          "alpha_bottom_y": 1186,
+          "anchor_x": 693,
+          "opaque_pixels": 530424
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_04/block/defense.png",
+          "sha256": "1b36551f0882648d1f3acc8e66c45c259abcb1a53316c2434d9bb45562433816",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            140,
+            88,
+            885,
+            968
+          ],
+          "visible_width": 745,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 490,
+          "opaque_pixels": 397391
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_04/hurt/defense.png",
+          "sha256": "934f2d7a6a2bf682e9600a4789bbb64aba961baa6d3637a96220f141a617c0f4",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            133,
+            88,
+            891,
+            968
+          ],
+          "visible_width": 758,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 543,
+          "opaque_pixels": 425592
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_04/idle/defense.png",
+          "sha256": "ee4ecee367589350458aabcc8d64aab2af926eaf40b06e03d357d3453eeb2059",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            229,
+            65,
+            1070,
+            1215
+          ],
+          "visible_width": 841,
+          "visible_height": 1150,
+          "alpha_bottom_y": 1215,
+          "anchor_x": 675,
+          "opaque_pixels": 656878
+        }
+      }
+    },
+    "rank_04/hp": {
+      "rank": 4,
+      "kind": "hp",
+      "idle_body": {
+        "body_top_y": 91,
+        "body_bottom_y": 1168,
+        "body_left_x": 166,
+        "body_right_x": 1119,
+        "anchor_x": 598,
+        "body_height": 1077,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_04/attack/hp.png",
+          "sha256": "f7cbd43f0670a7e63cb73043ef569b31c1b1e1003e54a4ada77ff52c8ed01776",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            34,
+            187,
+            1230,
+            1093
+          ],
+          "visible_width": 1196,
+          "visible_height": 906,
+          "alpha_bottom_y": 1093,
+          "anchor_x": 618,
+          "opaque_pixels": 525798
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_04/block/hp.png",
+          "sha256": "d2e89ea1222aa9cc70896a34e9666ba78bd3b12e889f8ce48a473665bda59dd1",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            119,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 849,
+          "alpha_bottom_y": 968,
+          "anchor_x": 410,
+          "opaque_pixels": 426348
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_04/hurt/hp.png",
+          "sha256": "f1407949189c0771edc75f08a7fee25c6a956d57313213d625d09a5c0e749d68",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            122,
+            88,
+            901,
+            968
+          ],
+          "visible_width": 779,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 494,
+          "opaque_pixels": 383233
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_04/idle/hp.png",
+          "sha256": "69a8454eb2c2917d23adb8b4256773cfeccf5bfdf6d39ecd7d4973c2d26639f6",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            166,
+            91,
+            1119,
+            1168
+          ],
+          "visible_width": 953,
+          "visible_height": 1077,
+          "alpha_bottom_y": 1168,
+          "anchor_x": 598,
+          "opaque_pixels": 577078
+        }
+      }
+    },
+    "rank_05/attack": {
+      "rank": 5,
+      "kind": "attack",
+      "idle_body": {
+        "body_top_y": 43,
+        "body_bottom_y": 1207,
+        "body_left_x": 180,
+        "body_right_x": 1085,
+        "anchor_x": 648,
+        "body_height": 1164,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_05/attack/attack.png",
+          "sha256": "a5021c9b02c96e495ea0d73ddb8d26f9eb69de45ee3acd4a5d430b708f4f8d37",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            35,
+            50,
+            1219,
+            1205
+          ],
+          "visible_width": 1184,
+          "visible_height": 1155,
+          "alpha_bottom_y": 1205,
+          "anchor_x": 685,
+          "opaque_pixels": 595706
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_05/block/attack.png",
+          "sha256": "41be3827a9b49d807a5177389731367faeeac321457049ce1fd405d7a8afe6df",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            76,
+            88,
+            951,
+            968
+          ],
+          "visible_width": 875,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 482,
+          "opaque_pixels": 413810
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_05/hurt/attack.png",
+          "sha256": "02ddd4af3e5e33eb13e11dc83ef9c222e087cfaee1f5e0c4f00171278e6bf8a4",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            106,
+            88,
+            918,
+            968
+          ],
+          "visible_width": 812,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 555,
+          "opaque_pixels": 338955
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_05/idle/attack.png",
+          "sha256": "a938fa89d5515759852bd3ba0b62a032a3691113a28169e644796ee2c4454480",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            180,
+            43,
+            1085,
+            1207
+          ],
+          "visible_width": 905,
+          "visible_height": 1164,
+          "alpha_bottom_y": 1207,
+          "anchor_x": 648,
+          "opaque_pixels": 584790
+        }
+      }
+    },
+    "rank_05/defense": {
+      "rank": 5,
+      "kind": "defense",
+      "idle_body": {
+        "body_top_y": 48,
+        "body_bottom_y": 1174,
+        "body_left_x": 311,
+        "body_right_x": 955,
+        "anchor_x": 655,
+        "body_height": 1126,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_05/attack/defense.png",
+          "sha256": "15c0a5ccc38efb0e88ac3015297bbfdcbec59021c4a2f6d79fccbffb5221204b",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            60,
+            86,
+            1248,
+            1115
+          ],
+          "visible_width": 1188,
+          "visible_height": 1029,
+          "alpha_bottom_y": 1115,
+          "anchor_x": 744,
+          "opaque_pixels": 671768
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_05/block/defense.png",
+          "sha256": "2c8cb5b1b2b8caa4cd6279fcf543eb2326d62d48ff86ab7437725549f2b0ab2a",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            110,
+            88,
+            916,
+            968
+          ],
+          "visible_width": 806,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 471,
+          "opaque_pixels": 425911
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_05/hurt/defense.png",
+          "sha256": "65e0162ec59fae8c8fa906bf22d61d9a927c5360e58db03cee5e64f1d7d6b3a3",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            155,
+            88,
+            869,
+            968
+          ],
+          "visible_width": 714,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 507,
+          "opaque_pixels": 386920
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_05/idle/defense.png",
+          "sha256": "fd24f547eb2d8f69250bcd8501c1648dff88de1e741e07759fa73f9dc0e1a991",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            311,
+            48,
+            955,
+            1174
+          ],
+          "visible_width": 644,
+          "visible_height": 1126,
+          "alpha_bottom_y": 1174,
+          "anchor_x": 655,
+          "opaque_pixels": 543159
+        }
+      }
+    },
+    "rank_05/hp": {
+      "rank": 5,
+      "kind": "hp",
+      "idle_body": {
+        "body_top_y": 55,
+        "body_bottom_y": 1173,
+        "body_left_x": 199,
+        "body_right_x": 1069,
+        "anchor_x": 654,
+        "body_height": 1118,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_05/attack/hp.png",
+          "sha256": "ef7d19d33e14efc75503192449226d680824d6c9f0a6c307f25f190a97b0af7f",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            26,
+            97,
+            1241,
+            1107
+          ],
+          "visible_width": 1215,
+          "visible_height": 1010,
+          "alpha_bottom_y": 1107,
+          "anchor_x": 735,
+          "opaque_pixels": 648070
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_05/block/hp.png",
+          "sha256": "be38f29531b4ff22c21000c67656889be7c973de974cab3618d416b149d25ab2",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            157,
+            88,
+            870,
+            968
+          ],
+          "visible_width": 713,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 524,
+          "opaque_pixels": 414063
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_05/hurt/hp.png",
+          "sha256": "aa9befdc13dd96b0984c71c30156d4f12faae133f30471bdf0900ffd0bf6a012",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            89,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 879,
+          "alpha_bottom_y": 968,
+          "anchor_x": 573,
+          "opaque_pixels": 433238
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_05/idle/hp.png",
+          "sha256": "adf448b49d15e0f1c32be30cc9cd174ebf015fc5590410f53ef1e200f7a96ddd",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            199,
+            55,
+            1069,
+            1173
+          ],
+          "visible_width": 870,
+          "visible_height": 1118,
+          "alpha_bottom_y": 1173,
+          "anchor_x": 654,
+          "opaque_pixels": 637259
+        }
+      }
+    },
+    "rank_06/attack": {
+      "rank": 6,
+      "kind": "attack",
+      "idle_body": {
+        "body_top_y": 23,
+        "body_bottom_y": 1223,
+        "body_left_x": 137,
+        "body_right_x": 1170,
+        "anchor_x": 673,
+        "body_height": 1200,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_06/attack/attack.png",
+          "sha256": "f9a8bcc020ec0db75cf5ee80c6a9531cd283717831505462b71c6f0b5d769edf",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            26,
+            88,
+            1234,
+            1115
+          ],
+          "visible_width": 1208,
+          "visible_height": 1027,
+          "alpha_bottom_y": 1115,
+          "anchor_x": 751,
+          "opaque_pixels": 465174
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_06/block/attack.png",
+          "sha256": "60f5c653cbd198ba1d07f0049827821af7004c785f1819972ba523a4c25b28ef",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            104,
+            88,
+            919,
+            968
+          ],
+          "visible_width": 815,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 536,
+          "opaque_pixels": 268562
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_06/hurt/attack.png",
+          "sha256": "be87a247630b1200b00f1087576e47d87d9f354b45ec1fcd7398c3a97b6b5a66",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            97,
+            90,
+            926,
+            967
+          ],
+          "visible_width": 829,
+          "visible_height": 877,
+          "alpha_bottom_y": 967,
+          "anchor_x": 549,
+          "opaque_pixels": 290039
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_06/idle/attack.png",
+          "sha256": "dbb110cd7e51a06dee8421d58c7248af9e8eac4827caa1f2614efe5014b14c05",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            137,
+            23,
+            1170,
+            1223
+          ],
+          "visible_width": 1033,
+          "visible_height": 1200,
+          "alpha_bottom_y": 1223,
+          "anchor_x": 673,
+          "opaque_pixels": 540447
+        }
+      }
+    },
+    "rank_06/defense": {
+      "rank": 6,
+      "kind": "defense",
+      "idle_body": {
+        "body_top_y": 86,
+        "body_bottom_y": 1128,
+        "body_left_x": 130,
+        "body_right_x": 1119,
+        "anchor_x": 715,
+        "body_height": 1042,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_06/attack/defense.png",
+          "sha256": "22a5dc369fed841567b493bf0a40f4679067f7545b69d35af3062ac03a04891e",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            9,
+            102,
+            1251,
+            1080
+          ],
+          "visible_width": 1242,
+          "visible_height": 978,
+          "alpha_bottom_y": 1080,
+          "anchor_x": 772,
+          "opaque_pixels": 578848
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_06/block/defense.png",
+          "sha256": "8826a01c237d1e7aae8ef97c1cad10a4f8aacae6ab62fd895d07bb94da9cba6e",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            112,
+            961,
+            968
+          ],
+          "visible_width": 899,
+          "visible_height": 856,
+          "alpha_bottom_y": 968,
+          "anchor_x": 563,
+          "opaque_pixels": 412574
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_06/hurt/defense.png",
+          "sha256": "86d27b95399c827c4f4c0545ccd9fe8a76fd47a5478bf4ef171782c79d9b0dac",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            113,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 855,
+          "alpha_bottom_y": 968,
+          "anchor_x": 617,
+          "opaque_pixels": 379493
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_06/idle/defense.png",
+          "sha256": "4889f0e7da6e84a3095cf886b3cf9f007cf922c8346be08ef6fd51aa40b01103",
+          "canvas": [
+            1254,
+            1254
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            130,
+            86,
+            1119,
+            1128
+          ],
+          "visible_width": 989,
+          "visible_height": 1042,
+          "alpha_bottom_y": 1128,
+          "anchor_x": 715,
+          "opaque_pixels": 599670
+        }
+      }
+    },
+    "rank_06/hp": {
+      "rank": 6,
+      "kind": "hp",
+      "idle_body": {
+        "body_top_y": 29,
+        "body_bottom_y": 974,
+        "body_left_x": 119,
+        "body_right_x": 909,
+        "anchor_x": 511,
+        "body_height": 945,
+        "confidence": "paired-alpha-bbox"
+      },
+      "poses": {
+        "attack": {
+          "path": "assets/characters/monsters/rank_06/attack/hp.png",
+          "sha256": "31eb39a7d72c84e6ec0152aeb9eb9008a6ea6bcfe49a487f9d3f1a70c9f25b50",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            20,
+            89,
+            1007,
+            917
+          ],
+          "visible_width": 987,
+          "visible_height": 828,
+          "alpha_bottom_y": 917,
+          "anchor_x": 590,
+          "opaque_pixels": 387141
+        },
+        "block": {
+          "path": "assets/characters/monsters/rank_06/block/hp.png",
+          "sha256": "1f6d6c96f2168d7593e740912934da29a2dd702ef72060f6ebca2f0a9515381a",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            62,
+            170,
+            962,
+            968
+          ],
+          "visible_width": 900,
+          "visible_height": 798,
+          "alpha_bottom_y": 968,
+          "anchor_x": 521,
+          "opaque_pixels": 386345
+        },
+        "hurt": {
+          "path": "assets/characters/monsters/rank_06/hurt/hp.png",
+          "sha256": "5636b9dbf12dd44ab29af38007e05cd6122af270e52cf60d6f47d138d61a1fca",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            93,
+            88,
+            931,
+            968
+          ],
+          "visible_width": 838,
+          "visible_height": 880,
+          "alpha_bottom_y": 968,
+          "anchor_x": 552,
+          "opaque_pixels": 415553
+        },
+        "idle": {
+          "path": "assets/characters/monsters/rank_06/idle/hp.png",
+          "sha256": "15384de7213aa671f81e0625b1bfd07da258b39d1b3d6870474b4f9a85fb0916",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_bbox": [
+            119,
+            29,
+            909,
+            974
+          ],
+          "visible_width": 790,
+          "visible_height": 945,
+          "alpha_bottom_y": 974,
+          "anchor_x": 511,
+          "opaque_pixels": 415171
+        }
+      }
+    }
+  },
+  "excluded_assets": [
+    "assets/characters/players/tier_1/block/male/orc/warrior_v1.png",
+    "assets/characters/players/tier_1/block/male/orc/warrior_v2.png"
+  ]
+}

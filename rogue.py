@@ -9,7 +9,7 @@ TALENTS = {
     "dagger_mastery": {
         "tier": 1, "side": 0, "max": 3, "name": "匕首專精",
         "desc": "刺擊傷害提升。",
-        "details": ("1點：刺擊傷害 +10%。", "2點：刺擊傷害 +20%。", "3點：刺擊傷害 +30%。"),
+        "details": ("1點：刺擊傷害提高為 117%。", "2點：刺擊傷害提高為 124%。", "3點：刺擊傷害提高為 130%。"),
     },
     "evasion": {
         "tier": 1, "side": 1, "max": 3, "name": "閃避專精",
@@ -40,7 +40,7 @@ TALENTS = {
     "shadowstep": {
         "tier": 3, "side": 1, "max": 3, "name": "暗影步",
         "desc": "解鎖爆發招式。",
-        "details": ("1點：解鎖暗影步，造成 120% 攻擊傷害，這一擊必定暴擊，冷卻 4 回合。",
+        "details": ("1點：解鎖暗影步，造成 120% 攻擊傷害，這一擊必定造成盜賊的 175% 暴擊傷害，冷卻 4 回合。",
                     "2點：傷害提高為 160%。",
                     "3點：冷卻降為 3 回合。"),
     },
@@ -61,41 +61,54 @@ def legacy_active(game) -> bool:
 
 
 def activate_legacy(game) -> bool:
-    if game.enemy_skip_turns > 0:
+    if not game.enemy or game.enemy_skip_turns > 0:
         return False
+    blocked_by = game.consume_enemy_attack_protection(game.enemy)
+    if blocked_by:
+        game.log_enemy_attack_block(game.enemy, blocked_by, "悶棍")
+        return True
     game.enemy_skip_turns = 1
     game.log("你使出悶棍擊暈怪物，它下一回合無法行動。")
     return True
 
 
+def stab_multiplier(game) -> float:
+    """Improve the rogue's first levels without raising the old 130% cap."""
+    return (1.10, 1.17, 1.24, 1.30)[game.class_talent_rank("dagger_mastery")]
+
+
 def tooltip(game, action_id: str) -> str:
     if action_id == "stab":
-        multiplier = int((1.0 + game.class_talent_rank("dagger_mastery") * .10) * 100)
-        return f"造成 {multiplier}% 攻擊傷害。"
+        return f"{game.preview_skill_damage_text(stab_multiplier(game))}。"
     if action_id == "smokescreen":
-        multiplier = int((1.0 + game.class_talent_rank("evasion") * .15) * 100)
-        return f"獲得 {multiplier}% 防禦的護盾。"
+        multiplier = 1.0 + game.class_talent_rank("evasion") * .15
+        return f"獲得 {game.preview_skill_block(multiplier)} 點護盾。"
     if action_id == "backstab":
         rank = game.class_talent_rank("backstab")
         cooldown = 2 if rank >= 3 else 3
-        return f"造成 175% 攻擊傷害；若敵方沒有護盾，最高 240%，冷卻 {cooldown} 回合。"
+        multiplier = 2.4 if rank >= 2 and game.enemy_block < 1 else 1.75
+        condition = "（敵方無護盾加成）" if multiplier == 2.4 else ""
+        return f"{game.preview_skill_damage_text(multiplier)}{condition}，冷卻 {cooldown} 回合。"
     if action_id == "smoke_bomb":
         rank = game.class_talent_rank("smoke_bomb")
-        block = 200 if rank >= 2 else 150
+        block = game.preview_skill_block(2.0 if rank >= 2 else 1.5)
         cooldown = 3 if rank >= 3 else 4
-        return f"獲得 {block}% 防禦的護盾並隱身 1 回合，冷卻 {cooldown} 回合。"
+        return f"獲得 {block} 點護盾並隱身 1 回合，冷卻 {cooldown} 回合。"
     if action_id == "vanish":
         rank = game.class_talent_rank("vanish")
         cooldown = 3 if rank >= 3 else 4
-        extra = "並獲得 20% 最大血量的護盾。" if rank >= 2 else ""
+        extra = f"並獲得 {game.preview_max_hp_amount(.20)} 點護盾。" if rank >= 2 else ""
         return f"隱身 1 回合並清除持續傷害，冷卻 {cooldown} 回合。{extra}"
     if action_id == "shadowstep":
         rank = game.class_talent_rank("shadowstep")
-        damage = 160 if rank >= 2 else 120
+        damage = 1.6 if rank >= 2 else 1.2
         cooldown = 3 if rank >= 3 else 4
-        return f"造成 {damage}% 攻擊傷害，這一擊必定暴擊，冷卻 {cooldown} 回合。"
+        return f"{game.preview_skill_damage_text(damage, True)}，冷卻 {cooldown} 回合。"
     if action_id == "assassinate":
-        return "造成 300% 攻擊傷害；若敵方沒有護盾，改為 380%，本場戰鬥只能使用一次。"
+        multiplier = 3.8 if game.enemy_block < 1 else 3.0
+        condition = "（敵方無護盾加成）" if multiplier == 3.8 else ""
+        return (f"{game.preview_skill_damage_text(multiplier)}{condition}，"
+                "本場戰鬥只能使用一次。")
     return ""
 
 
@@ -119,7 +132,7 @@ def action_slots(game):
 
 def execute(game, action_id: str) -> None:
     if action_id == "stab":
-        game.class_attack_skill(action_id, 1.0 + game.class_talent_rank("dagger_mastery") * .10)
+        game.class_attack_skill(action_id, stab_multiplier(game))
     elif action_id == "smokescreen":
         if not game.enemy or game.battle_busy:
             return

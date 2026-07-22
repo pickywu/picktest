@@ -1,0 +1,2405 @@
+{
+    "schema_version":  1,
+    "source_of_truth":  [
+                            "rpg.py",
+                            "rpg_drawing.py",
+                            "ui/assets.py"
+                        ],
+    "asset_count":  253,
+    "status":  "ready",
+    "assets":  [
+                   {
+                       "path":  "assets/backgrounds/activities/campfire.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/activities/shop.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/adventure/progress_map.png",
+                       "category":  "background",
+                       "width":  3072,
+                       "height":  2048,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/battles/stage_02.png",
+                       "category":  "background",
+                       "width":  2280,
+                       "height":  1370,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/battles/stage_03.png",
+                       "category":  "background",
+                       "width":  2280,
+                       "height":  1370,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/battles/stage_04.png",
+                       "category":  "background",
+                       "width":  2280,
+                       "height":  1370,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/battles/stage_05.png",
+                       "category":  "background",
+                       "width":  2280,
+                       "height":  1370,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_01.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_02.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_03.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_04.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_05.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_06.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_07.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_08.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_09.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_10.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_11.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_12.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_13.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_14.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_15.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_16.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_17.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_18.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_19.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/endings/defeat_background.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  900,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/endings/victory_background.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  900,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/endings/victory_emblem.png",
+                       "category":  "ui",
+                       "width":  2172,
+                       "height":  724,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/events/event_20.png",
+                       "category":  "background",
+                       "width":  1600,
+                       "height":  1130,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/endings/death_emblem.png",
+                       "category":  "ui",
+                       "width":  2172,
+                       "height":  724,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/title/background.png",
+                       "category":  "background",
+                       "width":  2360,
+                       "height":  1440,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/title/logo.png",
+                       "category":  "ui",
+                       "width":  1000,
+                       "height":  360,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/angel_wing.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/barrier_hex.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/blood_drop.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/corruption_bolt.png",
+                       "category":  "effect",
+                       "width":  1536,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/curse_wisp.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/fire_impact.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/fireball_projectile.png",
+                       "category":  "effect",
+                       "width":  1536,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/holy_beam.png",
+                       "category":  "effect",
+                       "width":  1023,
+                       "height":  1537,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/holy_sigil.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/ice_crystal.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/impact_burst.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/magic_mote.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/magic_ring.png",
+                       "category":  "effect",
+                       "width":  1536,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/shadow_slash.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/smoke_puff.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/stun_star.png",
+                       "category":  "effect",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_01/idle/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_01/attack/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_02/idle/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_02/attack/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_02/idle/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_02/attack/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_02/idle/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_02/attack/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_03/idle/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_03/attack/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_03/idle/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_03/attack/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_03/idle/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_03/attack/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_04/idle/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_04/attack/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_04/idle/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_04/attack/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_04/idle/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_04/attack/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_05/idle/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_05/attack/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_05/idle/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_05/attack/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_05/idle/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_05/attack/hp.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_06/idle/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_06/attack/attack.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_06/idle/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_06/attack/defense.png",
+                       "category":  "monster",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/dwarf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/dwarf/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/dwarf/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/dwarf/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/elf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/elf/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/elf/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/elf/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/human/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/human/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/human/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/human/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/orc/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/orc/paladin.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/orc/rogue.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/orc/warlock.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/dwarf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/dwarf/paladin.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/dwarf/rogue.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/dwarf/warlock.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/elf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/elf/paladin.png",
+                       "category":  "player",
+                       "width":  1163,
+                       "height":  1352,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/elf/rogue.png",
+                       "category":  "player",
+                       "width":  1153,
+                       "height":  1364,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/elf/warlock.png",
+                       "category":  "player",
+                       "width":  1168,
+                       "height":  1347,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/human/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/human/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/human/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/human/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/orc/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/orc/paladin.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/orc/rogue.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/orc/warlock.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/dwarf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/dwarf/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/dwarf/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/dwarf/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/elf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/elf/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/elf/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/elf/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/human/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/human/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/human/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/human/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/orc/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/orc/paladin.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/orc/rogue.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/orc/warlock.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/dwarf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/dwarf/paladin.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/dwarf/rogue.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/dwarf/warlock.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/elf/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/elf/paladin.png",
+                       "category":  "player",
+                       "width":  1163,
+                       "height":  1352,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/elf/rogue.png",
+                       "category":  "player",
+                       "width":  1153,
+                       "height":  1364,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/elf/warlock.png",
+                       "category":  "player",
+                       "width":  1168,
+                       "height":  1347,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/human/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/human/paladin.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/human/rogue.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/human/warlock.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/orc/mage.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/orc/paladin.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/orc/rogue.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/orc/warlock.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/dwarf/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/elf/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/human/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/female/orc/warrior.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/dwarf/warrior.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/elf/warrior.png",
+                       "category":  "player",
+                       "width":  1159,
+                       "height":  1358,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/human/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/dwarf/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/elf/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/human/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/female/orc/warrior.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/dwarf/warrior.png",
+                       "category":  "player",
+                       "width":  1254,
+                       "height":  1254,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/elf/warrior.png",
+                       "category":  "player",
+                       "width":  1159,
+                       "height":  1358,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/human/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1536,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/ui/frames/container.png",
+                       "category":  "ui",
+                       "width":  1692,
+                       "height":  930,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/meters/hp_fill.png",
+                       "category":  "ui",
+                       "width":  1983,
+                       "height":  793,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/meters/shield_fill.png",
+                       "category":  "ui",
+                       "width":  1922,
+                       "height":  818,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/meters/frame.png",
+                       "category":  "ui",
+                       "width":  1983,
+                       "height":  793,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/frames/perimeter.png",
+                       "category":  "ui",
+                       "width":  1672,
+                       "height":  941,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/surfaces/control.png",
+                       "category":  "ui",
+                       "width":  1387,
+                       "height":  1134,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/dividers/horizontal.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/scrollbars/thumb.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/scrollbars/track.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/attack.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/berserk.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/bulwark.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/cleanse.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/curse.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/defend.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/dot.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/immune.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/reflect.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/intents/stun.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/kind_battle.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/kind_boss.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/kind_campfire.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/kind_elite.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/kind_shop.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/node_current.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/node_locked.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/map/node_reached.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/markers/action_point.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/markers/badge_round.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/markers/ground_shadow.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/markers/target_selected.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/attack.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/cleanse_curse.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/cleanse_dot.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/defense.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/dispel_immunity.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/full_heal.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/heal.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/iron_skin.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/lucky.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/stun_ward.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/universal.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/fire_mastery.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/frost_mastery.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/ice_barrier.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/ice_wall.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/mana_shield.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/meteor.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/mage/pyroblast.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/devotion.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/divine_wrath.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/guardian_angel.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/holy_might.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/judgment.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/purify.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/paladin/sanctuary.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/assassinate.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/backstab.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/dagger_mastery.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/evasion.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/shadowstep.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/smoke_bomb.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/rogue/vanish.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/agony.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/corruption_mastery.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/dark_ward.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/doom.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/hex.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/life_tap.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warlock/soul_link.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/bladestorm.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/cleave.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/counter.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/fortify.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/last_stand.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/shield_mastery.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/talents/warrior/weapon_mastery.png",
+                       "category":  "ui",
+                       "width":  256,
+                       "height":  256,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/frames/content_card.png",
+                       "category":  "ui",
+                       "width":  1815,
+                       "height":  437,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/frames/status_ribbon.png",
+                       "category":  "ui",
+                       "width":  1921,
+                       "height":  184,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/slots/skill.png",
+                       "category":  "ui",
+                       "width":  989,
+                       "height":  1030,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/backgrounds/battles/stage_01.png",
+                       "category":  "background",
+                       "width":  2280,
+                       "height":  1370,
+                       "transparent":  false,
+                       "priority":  1,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/slash_streak.png",
+                       "category":  "effect",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/effects/combat/steel_guard.png",
+                       "category":  "effect",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/actions/guard.png",
+                       "category":  "icon",
+                       "width":  512,
+                       "height":  512,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/potions/bag.png",
+                       "category":  "icon",
+                       "width":  512,
+                       "height":  512,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/rewards/ember.png",
+                       "category":  "icon",
+                       "width":  512,
+                       "height":  512,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/ui/icons/actions/slash.png",
+                       "category":  "icon",
+                       "width":  512,
+                       "height":  512,
+                       "transparent":  true,
+                       "priority":  3,
+                       "status":  "ready"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_01/idle/attack.png",
+                       "category":  "monster",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_01/attack/attack.png",
+                       "category":  "monster",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_01/idle/defense.png",
+                       "category":  "monster",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_01/attack/defense.png",
+                       "category":  "monster",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_06/idle/hp.png",
+                       "category":  "monster",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/monsters/rank_06/attack/hp.png",
+                       "category":  "monster",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/idle/male/orc/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "idle"
+                   },
+                   {
+                       "path":  "assets/characters/players/tier_1/attack/male/orc/warrior.png",
+                       "category":  "player",
+                       "width":  1024,
+                       "height":  1024,
+                       "transparent":  true,
+                       "priority":  2,
+                       "status":  "ready",
+                       "pose":  "attack"
+                   },
+                   {
+                       "path":  "assets/ui/frames/battle_dock.png",
+                       "category":  "ui",
+                       "width":  2048,
+                       "height":  301,
+                       "transparent":  true,
+                       "priority":  1,
+                       "status":  "ready"
+                   }
+               ]
+}
