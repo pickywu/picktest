@@ -54,13 +54,32 @@ jobs:
           PYINSTALLER_STRICT_UNPACK_MODE: "0"
         run: python -m PyInstaller --noconfirm --clean RPG.spec
 
-      - name: Package app
+      - name: Package Windows app
+        if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          if (!(Test-Path "${{ matrix.dist_path }}")) {
-            throw "Missing build output: ${{ matrix.dist_path }}"
+          if (!(Test-Path "dist/EmberKingdom")) {
+            throw "Missing build output: dist/EmberKingdom"
           }
-          Compress-Archive -Path "${{ matrix.dist_path }}" -DestinationPath "${{ matrix.package_name }}" -Force
+          Compress-Archive -Path "dist/EmberKingdom" -DestinationPath "${{ matrix.package_name }}" -Force
+
+      - name: Package macOS app
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          set -euo pipefail
+          find dist -maxdepth 3 -print
+          if [ -d "dist/EmberKingdom.app" ]; then
+            APP_PATH="dist/EmberKingdom.app"
+          elif [ -d "dist/EmberKingdom/EmberKingdom.app" ]; then
+            APP_PATH="dist/EmberKingdom/EmberKingdom.app"
+          elif [ -d "dist/EmberKingdom" ]; then
+            APP_PATH="dist/EmberKingdom"
+          else
+            echo "Missing build output"
+            exit 1
+          fi
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "${{ matrix.package_name }}"
 
       - name: Upload app artifact
         uses: actions/upload-artifact@v4
